@@ -1,5 +1,5 @@
 
-<div class="my-div">
+<div class="my-div navbar hidden-tablet hidden-phone">
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
     <%= f.input :email,
                 required: true,
