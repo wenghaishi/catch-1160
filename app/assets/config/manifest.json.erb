@@ -1,0 +1,28 @@
+{
+  "background_color": "white",
+  "description": "Your description",
+  "display": "standalone",
+  "name": "Your title",
+  "short_name": "Your short name",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "en",
+  "theme_color": "white",
+  "icons": [
+    {
+      "src": "<%= image_path "maskable_icon_x512.png" %>",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
+    <% files.each_with_index do |file, index| %>
+      <% match = file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/) %>
+      {
+        "src": "<%= image_path "icons/#{file}" %>",
+        "sizes": "<%= match && match[:size] %>",
+        "type": "image/png"
+      }<%= "," unless (files.size - 1) == index %>
+    <% end %>
+  ]
+}
