@@ -1,10 +1,9 @@
-<div class="sign-up-form">
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), input_html: { class: "sign-up-form" }, data: { turbo: :false }) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
                 required: false,
                 autofocus: true,
-                input_html: { autocomplete: "email", class: "sign-up-form" } %> 
+                input_html: { class: 'sign-up-form' } %> 
     <%= f.input :password,
                 required: false,
                 input_html: { autocomplete: "current-password" } %>
@@ -15,6 +14,5 @@
     <%= f.button :submit, "Log in" %>
   </div>
 <% end %>
-</div>
 
 <%= render "devise/shared/links" %>
