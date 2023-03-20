@@ -1,5 +1,6 @@
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), input_html: { class: "sign-up-form" }, data: { turbo: :false }) do |f| %>
-  <div class="form-inputs">
+
+<div class="my-div"  style="background-image: url('https://lh3.googleusercontent.com/BjrO720WC28UWkMTsUY9FckjFljM-M2Oz3MWNDpYrirnBG1I7OlNmh4VxblyQ0oLKWG-scW9uC6Ge__I8yPFbLxkrBiIZ0xxuvdX1xT2MNe8DprBDohVj-hubS-vHySaL0_WYya83GALHXYmAPZhO0LS7ZEqD4nxfsgqCEctKQm2fWiFWYcBCIVUKX7VDsSX3dkbstLA75XAFl289zTV4wQBcaeGlk3PTnuPtLRzaC32wzU8fjtgFZgRLP5_z7s4bdLXDNrsscnL2XFAgw30DoC_9fOC7_3M9-2R8iByPwVm9dQNtJYuQJNEE3HgGbE-IjyTGiOIY8VwR781wzLl8NQlS8cSyGtIf5xrkV--VB581ZNzluAve7031ps7i3l7-nVyUIZc9P2qBX10yikRFhoamOTUiOwhs6eudKEisJZxaYzZUP0KDhc0dURpGZZb_hiEQSv1Lu6DxxAIsxbziV5L-MRbZjPDbZeLvaibxgoYzKKz9GvMusxYd0OtlWvKTdhRfjYaBTe1aHeURZaMjKSVdM-t7Yxav2KIL6LjGMuFA6qGuRmoNV4Q6o8hzORq_2BP0hhsM27tajoHM3gbznIolvGt8XKazrZzpf_lJr8zzliwFCinhpM2Oi0kOc6lYhld_npFLLAyqxN4HUE8QojReTjGtbxB_RZkJQ2XNKYDYQg1QUZ7Ob8a912iERCcfINRKIOiPRjKXqPiceuCAWcRQ5k_-kkjA4RCynfzsVq-wcYmujewbYIikbq01NQgckoL2JXbJlX6QgjN4q4RGFbKXUvrz9OpqmbsCVytsC36p_9hFQIYNnOsHaYPxxf3sveImoDigzsgmxVS3uSCzHU8GmyD-x1rH2J99uz8ua8d3J_E6vlNf6hp1uqzi5B3-O5SG_Mmf-Z4p4L4DA1_2R9V9KKROH4ihmimygBUQAJGFwmk_i5XjTsvqvG7wLItfGPecvjQ4zQoKSd4CqKBaA=w390-h844-s-no?authuser=0');">
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
     <%= f.input :email,
                 required: false,
                 autofocus: true,
@@ -8,11 +9,11 @@
                 required: false,
                 input_html: { autocomplete: "current-password" } %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
 
-  <div class="form-actions">
+  <div class="sign-up-form">
     <%= f.button :submit, "Log in" %>
   </div>
 <% end %>
-
 <%= render "devise/shared/links" %>
+</div>
+

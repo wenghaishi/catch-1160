@@ -1,12 +1,27 @@
-// Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
+// // Graphical variables
+// @import "config/fonts";
+// @import "config/colors";
+// @import "config/bootstrap_variables";
 
-// External libraries
-@import "bootstrap/scss/bootstrap";
-@import "font-awesome";
+// // External libraries
+// @import "bootstrap/scss/bootstrap";
+// @import "font-awesome";
 
-// Your CSS partials
-@import "components/index";
-@import "pages/index";
+// // Your CSS partials
+// @import "components/index";
+// @import "pages/index";
+
+
+
+.sign-up-form {
+  background-image: asset-url("signup.png");
+}
+
+.my-div {
+  height: 844px;
+  width: 390px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
