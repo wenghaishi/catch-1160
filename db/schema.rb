@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_20_085626) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_20_100442) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,15 +19,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_20_085626) do
     t.string "address", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_businesses_on_user_id"
   end
 
-  create_table "catches", force: :cascade do |t|
+  create_table "captures", force: :cascade do |t|
     t.bigint "token_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["token_id"], name: "index_catches_on_token_id"
-    t.index ["user_id"], name: "index_catches_on_user_id"
+    t.index ["token_id"], name: "index_captures_on_token_id"
+    t.index ["user_id"], name: "index_captures_on_user_id"
   end
 
   create_table "collections", force: :cascade do |t|
@@ -62,15 +64,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_20_085626) do
     t.string "last_name", default: "", null: false
     t.string "img_url", default: "", null: false
     t.string "account_type", default: "", null: false
-    t.bigint "business_id", null: false
-    t.index ["business_id"], name: "index_users_on_business_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "catches", "tokens"
-  add_foreign_key "catches", "users"
+  add_foreign_key "businesses", "users"
+  add_foreign_key "captures", "tokens"
+  add_foreign_key "captures", "users"
   add_foreign_key "collections", "businesses"
   add_foreign_key "tokens", "collections"
-  add_foreign_key "users", "businesses"
 end
