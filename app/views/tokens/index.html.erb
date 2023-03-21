@@ -1,4 +1,19 @@
 <div style="width: 390px; height: 100vh;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="footer-container">
+  <div class="footer-sm-container">
+    <%= image_tag 'Wallet.png', class: "footer-icon"%>
+    <%= "Wallet" %>
+  </div>
+  <div class="footer-sm-container">
+    <%= image_tag 'Map.png', class: "footer-icon" %>
+    <%= "Map" %>
+  </div>
+  <div class="footer-sm-container">
+    <%= image_tag 'Market.png', class: "footer-icon" %>
+    <%= "Market" %>
+</div>
+</div>
+
