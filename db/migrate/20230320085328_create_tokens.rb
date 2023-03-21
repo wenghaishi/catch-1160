@@ -1,7 +1,7 @@
 class CreateTokens < ActiveRecord::Migration[7.0]
   def change
     create_table :tokens do |t|
-      t.string :address, null: false, default: ""
+      t.string :address, null: false
       t.float :longitude
       t.float :latitude
       t.boolean :caught, null: false, default: false

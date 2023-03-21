@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_032415) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_21_045713) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,11 +43,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_032415) do
   end
 
   create_table "businesses", force: :cascade do |t|
-    t.string "name", default: "", null: false
-    t.string "address", default: "", null: false
+    t.string "name", null: false
+    t.string "address", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "description", null: false
     t.index ["user_id"], name: "index_businesses_on_user_id"
   end
 
@@ -65,20 +66,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_032415) do
     t.bigint "business_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "description", default: "", null: false
-    t.string "category", default: "", null: false
+    t.string "description", null: false
+    t.string "category", null: false
     t.index ["business_id"], name: "index_collections_on_business_id"
   end
 
   create_table "tokens", force: :cascade do |t|
-    t.string "address", default: "", null: false
+    t.string "address", null: false
     t.float "longitude"
     t.float "latitude"
     t.boolean "caught", default: false, null: false
     t.bigint "collection_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "img_url", default: "", null: false
+    t.string "img_url", null: false
     t.index ["collection_id"], name: "index_tokens_on_collection_id"
   end
 
@@ -90,11 +91,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_032415) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "username", default: "", null: false
-    t.string "first_name", default: "", null: false
-    t.string "last_name", default: "", null: false
-    t.string "img_url", default: "", null: false
-    t.string "account_type", default: "", null: false
+    t.string "username", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "img_url", null: false
+    t.string "account_type", null: false
+    t.string "banner_url", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
