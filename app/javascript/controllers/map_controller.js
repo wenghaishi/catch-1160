@@ -27,7 +27,7 @@ export default class extends Controller {
       showAccuracyCircle: false
     })
 
-    this.map.addControl(geoLocate);
+    this.map.addControl(geoLocate, 'top-right');
 
     this.map.on("load", () => {
 
