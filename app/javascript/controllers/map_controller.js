@@ -8,21 +8,8 @@ export default class extends Controller {
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
-    navigator.geolocation.getCurrentPosition(success, error, options);
 
     this.map = new mapboxgl.Map({
-<<<<<<< HEAD
-      container: "map", // container id
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [e.coords.longitude, e.coords.latitude], // starting position
-      zoom: 3 // starting zoom
-  });
-  
-  const watchID = navigator.geolocation.watchPosition((position) => {
-    doSomething(position.coords.latitude, position.coords.longitude);
-  })
-}}
-=======
       container: this.element,
       style: "mapbox://styles/mapbox/light-v11",
       pitch: 60
@@ -55,4 +42,3 @@ export default class extends Controller {
     })
   }
 }
->>>>>>> aa572f2f9f026b0aace7085475a7a0dbcbb24faf
