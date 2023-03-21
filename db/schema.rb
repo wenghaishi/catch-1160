@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_045713) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_21_065925) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -80,7 +80,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_045713) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "img_url", default: "", null: false
+    t.bigint "user_id"
     t.index ["collection_id"], name: "index_tokens_on_collection_id"
+    t.index ["user_id"], name: "index_tokens_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -108,4 +110,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_045713) do
   add_foreign_key "captures", "users"
   add_foreign_key "collections", "businesses"
   add_foreign_key "tokens", "collections"
+  add_foreign_key "tokens", "users"
 end
