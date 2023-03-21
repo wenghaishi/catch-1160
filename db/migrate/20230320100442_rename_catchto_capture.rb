@@ -1,5 +1,0 @@
-class RenameCatchtoCapture < ActiveRecord::Migration[7.0]
-  def change
-    rename_table :catches, :captures
-  end
-end
