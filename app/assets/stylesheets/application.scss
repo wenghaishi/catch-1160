@@ -1,12 +1,61 @@
-// Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
+// // Graphical variables
+// @import "config/fonts";
+// @import "config/colors";
+// @import "config/bootstrap_variables";
 
-// External libraries
-@import "bootstrap/scss/bootstrap";
-@import "font-awesome";
+// // External libraries
+// @import "bootstrap/scss/bootstrap";
+// @import "font-awesome";
 
-// Your CSS partials
-@import "components/index";
-@import "pages/index";
+// // Your CSS partials
+// @import "components/index";
+// @import "pages/index";
+
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  
+}
+
+.my-div {
+  height: 100vh;
+  width: 390px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('signup.png');
+}
+
+.main-button {
+  all: unset;
+  text-align: center;
+  position: relative;
+  width: 300px;
+  height: 50px;
+  background-color: #7871FF;
+  color: white;
+  border-radius: 20px;
+  font-size: 16px;
+  text-decoration: none;
+  margin-bottom: 50px;
+  cursor: pointer;
+
+}
+
+.main-button:hover {
+  background-color: #645cef;
+}
+
+.input {
+  width: 300px;
+  height: 36px;
+  margin-bottom: 26px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.forgot-password {
+  text-decoration: none;
+}
