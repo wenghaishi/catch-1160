@@ -83,3 +83,4 @@ gem "cloudinary"
 
 gem "geocoder"
 
+gem "cloudinary"
