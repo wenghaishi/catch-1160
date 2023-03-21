@@ -11,7 +11,7 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/light-v11",
+      style: "mapbox://styles/ernest-heh/clf9px8j1001w01s0rbrg9br0",
       pitch: 60
     })
 
@@ -23,6 +23,8 @@ export default class extends Controller {
       trackUserLocation: true,
       // Draw an arrow next to the location dot to indicate which direction the device is heading.
       showUserHeading: true,
+      fitBoundsOptions: { maxZoom: 24 },
+      showAccuracyCircle: false
     })
 
     this.map.addControl(geoLocate);
