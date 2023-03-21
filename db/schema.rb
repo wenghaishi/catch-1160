@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_045713) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_21_065925) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_045713) do
     t.index ["user_id"], name: "index_businesses_on_user_id"
   end
 
+  create_table "captures", force: :cascade do |t|
+    t.bigint "token_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["token_id"], name: "index_captures_on_token_id"
+    t.index ["user_id"], name: "index_captures_on_user_id"
+  end
+
   create_table "collections", force: :cascade do |t|
     t.string "name"
     t.bigint "business_id", null: false
@@ -71,7 +80,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_045713) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "img_url", default: "", null: false
+    t.bigint "user_id"
     t.index ["collection_id"], name: "index_tokens_on_collection_id"
+    t.index ["user_id"], name: "index_tokens_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -95,6 +106,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_045713) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "businesses", "users"
+  add_foreign_key "captures", "tokens"
+  add_foreign_key "captures", "users"
   add_foreign_key "collections", "businesses"
   add_foreign_key "tokens", "collections"
+  add_foreign_key "tokens", "users"
 end
