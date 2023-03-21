@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     resources :tokens, only: %i[new create edit update destroy]
   end
   resources :tokens, only: %i[show index] do
-    resources :captures, only: %i[new create edit update destroy]
+    # resources :captures, only: %i[new create edit update destroy]
+    get :capture
   end
   resources :users, only: %i[show]
 end
