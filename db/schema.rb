@@ -51,15 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_031352) do
     t.index ["user_id"], name: "index_businesses_on_user_id"
   end
 
-  create_table "captures", force: :cascade do |t|
-    t.bigint "token_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["token_id"], name: "index_captures_on_token_id"
-    t.index ["user_id"], name: "index_captures_on_user_id"
-  end
-
   create_table "collections", force: :cascade do |t|
     t.string "name"
     t.bigint "business_id", null: false
@@ -101,8 +92,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_031352) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "businesses", "users"
-  add_foreign_key "captures", "tokens"
-  add_foreign_key "captures", "users"
   add_foreign_key "collections", "businesses"
   add_foreign_key "tokens", "collections"
 end
