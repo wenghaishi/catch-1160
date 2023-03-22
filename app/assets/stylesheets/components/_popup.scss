@@ -1,0 +1,11 @@
+.popup-token {
+  opacity: 1;
+  // transform: translateY(100%);
+  transition: 300ms;
+}
+
+.popup-token.hide {
+  opacity: 0;
+  transition: 300ms;
+  // transform: translateY(0);
+}

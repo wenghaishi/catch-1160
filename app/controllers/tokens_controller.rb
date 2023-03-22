@@ -7,7 +7,9 @@ class TokensController < ApplicationController
     @markers = @tokens.geocoded.map do |t|
       {
         lat: t.latitude,
-        lng: t.longitude
+        lng: t.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { token: t }),
+        marker_html: render_to_string(partial: "marker")
       }
     end
   end

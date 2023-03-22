@@ -6,6 +6,8 @@ export default class extends Controller {
     markers: Array
   }
 
+  static targets = [ "distance", "popup" ]
+
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
@@ -41,6 +43,37 @@ export default class extends Controller {
       });
 
       this.map.scrollZoom.disable()
+      this.#addMarkersToMap()
+    })
+  }
+
+  showPopup() {
+    // calculate the distance
+    // update the target
+    // add class to slide up
+  }
+
+  close(e) {
+    e.preventDefault();
+    this.popupTarget.classList.add("hide");
+    // this.popupTarget.innerHTML = "";
+  }
+
+  #addMarkersToMap() {
+
+    this.markersValue.forEach((marker) => {
+      const customMarker = document.createElement("div")
+      customMarker.innerHTML = marker.marker_html
+
+      new mapboxgl.Marker(customMarker)
+        .setLngLat([ marker.lng, marker.lat ])
+        .addTo(this.map)
+
+      customMarker.addEventListener("click", () => {
+        console.log(this.popupTarget.classList);
+        this.popupTarget.classList.remove("hide");
+        this.popupTarget.innerHTML = marker.info_window_html
+      })
     })
   }
 }

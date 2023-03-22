@@ -1,0 +1,13 @@
+<div class="bg-white p-3 z-1 position-fixed fixed-bottom w-100 rounded-top-5 d-flex flex-column" style="bottom: 140px;">
+  <div class="d-flex flex-row gap-3">
+    <%= cl_image_tag(token.photo.key, height: 100, class:"rounded-4") %>
+    <div>
+      <h2>#00<%= token.id %></h2>
+      <p data-map-target="distance" class="text-secondary">2km away</p>
+      <p class="fs-6 mb-0">Minted by <span class="fw-bold"><%= token.business.name %></span></p>
+    </div>
+  </div>
+  <p class="lh-sm mt-3"><%= token.business.description %></p>
+  <button class="btn-catch btn btn-primary text-light fw-bold">Catch NFT</button>
+  <a href="#"data-action="click->map#close">Close</a>
+</div>
