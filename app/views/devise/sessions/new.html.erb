@@ -1,5 +1,6 @@
 
 <div class="my-div navbar hidden-tablet hidden-phone">
+<%= image_tag "logo.png", style: 'height:90px;margin-bottom:80px;' %>
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
     <%= f.input :email,
                 required: true,
