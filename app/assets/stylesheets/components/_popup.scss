@@ -1,11 +1,14 @@
 .popup-token {
   opacity: 1;
-  // transform: translateY(100%);
   transition: 300ms;
+  // -webkit-transform: translateY(100%);
+  // transform: translateY(100%);
 }
 
 .popup-token.hide {
   opacity: 0;
   transition: 300ms;
+  // -webkit-transform: translateY(0);
   // transform: translateY(0);
+  pointer-events: none;
 }

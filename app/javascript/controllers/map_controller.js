@@ -65,12 +65,14 @@ export default class extends Controller {
       const customMarker = document.createElement("div")
       customMarker.innerHTML = marker.marker_html
 
-      new mapboxgl.Marker(customMarker)
+      new mapboxgl.Marker(customMarker, {
+        clickTolerance: 200000000
+      })
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(this.map)
 
       customMarker.addEventListener("click", () => {
-        console.log(this.popupTarget.classList);
+        // console.log(this.popupTarget.classList);
         this.popupTarget.classList.remove("hide");
         this.popupTarget.innerHTML = marker.info_window_html
       })
