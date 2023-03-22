@@ -35,6 +35,12 @@ export default class extends Controller {
 
       geoLocate.trigger()
       geoLocate.on('geolocate', (e) => {
+        this.map.setBearing(e.coords.heading);
+        // Listen for the deviceorientation event
+        window.addEventListener('deviceorientation', (event) => {
+          // Update the map's bearing with the device's heading
+          this.map.setBearing(event.webkitCompassHeading || event.alpha);
+        });
         this.map.easeTo({
           center:[e.coords.longitude, e.coords.latitude],
           zoom: 19,
@@ -42,7 +48,7 @@ export default class extends Controller {
         });
       });
 
-      this.map.scrollZoom.disable()
+      // this.map.scrollZoom.disable()
       this.#addMarkersToMap()
     })
   }
