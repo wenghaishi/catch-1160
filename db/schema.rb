@@ -70,7 +70,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_081203) do
     t.bigint "collection_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "img_url", null: false
     t.bigint "user_id"
     t.index ["collection_id"], name: "index_tokens_on_collection_id"
     t.index ["user_id"], name: "index_tokens_on_user_id"
@@ -84,12 +83,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_081203) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "username", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "img_url", null: false
-    t.string "account_type", null: false
-    t.string "banner_url", null: false
+    t.string "username", default: "", null: false
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
+    t.string "img_url", default: "", null: false
+    t.string "account_type", default: "", null: false
+    t.string "banner_url", default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
