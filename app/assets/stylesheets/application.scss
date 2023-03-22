@@ -87,3 +87,30 @@ body {
 }
 
 /* Mapbox */
+
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 390px;
+  position: absolute;
+  z-index:20;
+  bottom:0;
+  background-color: #ffffff;
+  border: 2px;
+}
+
+.footer-sm-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: x-large;
+  padding:30px;
+}
+
+.footer-icon {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
