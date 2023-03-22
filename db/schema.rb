@@ -79,7 +79,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_081203) do
     t.bigint "collection_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "img_url", null: false
     t.bigint "user_id"
     t.index ["collection_id"], name: "index_tokens_on_collection_id"
     t.index ["user_id"], name: "index_tokens_on_user_id"

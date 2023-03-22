@@ -7,6 +7,7 @@ class Token < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   scope :available, -> { where(user_id: nil) }
+  scope :unavailable, -> { where.not(user_id: nil) }
 
   def available?
     user.nil?
