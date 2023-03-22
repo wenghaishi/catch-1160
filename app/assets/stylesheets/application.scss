@@ -48,8 +48,16 @@ body {
 
 .input {
   width: 300px;
+  height: 32px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.input1 {
+  width: 190px;
   height: 36px;
-  margin-bottom: 26px;
+  margin-bottom: 10px;
   border-radius: 8px;
   text-decoration: none;
 }

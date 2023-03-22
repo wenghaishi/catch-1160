@@ -1,6 +1,6 @@
 <div class="my-div navbar hidden-tablet hidden-phone">
 
-<%= image_tag "logo.png", style: 'height:90px;margin-bottom:50px;' %>
+<%= image_tag "logo.png", style: 'height:90px;margin-bottom:20px;' %>
 
 <h2>Sign up</h2>
 
@@ -14,16 +14,32 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email", class: 'input' } %>
+    <%= f.input :username,
+                label: false,
+                placeholder: 'Username',
+                required: true,
+                autofocus: true,
+                input_html: { class: 'input' } %>
+    <%= f.input :first_name,
+                label: false,
+                placeholder: 'First name',
+                required: true,
+                autofocus: true,
+                input_html: { class: 'input' } %>
+    <%= f.input :last_name,
+                label: false,
+                placeholder: 'Last name',
+                required: true,
+                autofocus: true,
+                input_html: { class: 'input' } %>
     <%= f.input :password,
                 required: true,
                 placeholder: 'Password',
                 label: false,
                 input_html: { autocomplete: "new-password", class: 'input'  } %>
-    <%= f.input :password_confirmation,
-                label: false,
-                required: true,
-                placeholder: 'Confirm password',
-                input_html: { autocomplete: "new-password", class: 'input'  } %>
+    <%= f.input :photo, as: :file, required: true, input_html: { class: 'input1' } %>
+    <%= f.input :banner, as: :file, required: true, input_html: { class: 'input1' } %>
+    <%= f.input :account_type, collection: ['Player', 'Business'], prompt: 'Please select a category', input_html: { class: 'input1' } %>
   </div>
 
   <div class="form-actions">
