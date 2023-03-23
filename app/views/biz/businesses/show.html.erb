@@ -7,34 +7,61 @@
 </div>
 <div class="banner-seperator">
 </div>
-<div class="wrapper border-bottom mb-4">
+<div class="wrapper border-bottom mb-1">
   <div>
     <p class="fs-2 fw-bold"><%= @business.name %></p>
     <p><span class="fw-bold"><%= @business.created_at.strftime("%b %Y") %></span></p>
     <p><%= @business.description %></p>
   </div>
 </div>
-<div class="wrapper">
-  <div class="row" style="height: 250px;">
-    <% @business.collections.each do |collection| %>
-      <div class="row row-cols-1 row-cols-md-2 g-4 h-100">
-        <div class="col">
-          <div class="">
+<div class="wrapper border-bottom pb-4">
+  <div class="carousel-container">
+    <div class="carousel">
+      <% @business.collections.each do |collection| %>
+        <div class="item">
+          <div class="card">
             <img src="<%= cl_image_path collection.banner.key %>" class="card-img-top" alt="...">
-            <div class="">
-              <h5 class="">Card title</h5>
-              <p class="">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
           </div>
         </div>
-      </div>
+        <div class="item">
+          <div class="card">
+            <img src="<%= cl_image_path collection.banner.key %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card">
+            <img src="<%= cl_image_path collection.banner.key %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card">
+            <img src="<%= cl_image_path collection.banner.key %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
 <div class="wrapper">
   <p class="fs-5 fw-bold mb-3 mt-3"><%= @business.tokens.count %> items</p>
   <div>
-    <div class="row" style="height: 200px;">
+    <div class="row">
       <% @business.tokens.each_with_index do |token, index| %>
         <div class="col-12 col-sm-6 col-md-3 mb-4 ">
           <div class="flip">

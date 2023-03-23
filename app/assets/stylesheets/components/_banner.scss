@@ -1,3 +1,34 @@
+.carousel{
+  display:block;
+  width: 100%;
+  height: 400px;
+  background: white;
+  overflow-x: scroll;
+  padding: 10px;
+  margin: 0;
+  white-space: nowrap;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.carousel-container {
+  width: 100%;
+  display:block;
+  overflow:hidden;
+}
+
+.item {
+  display: inline-block;
+  width: 45vw;
+  margin: 0 10px;
+  // height: 380px;
+  background: rgba(0, 0, 0, 0.05) no-repeat center center;
+  background-size: cover;
+  position:relative;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #dfdfdf;
+}
+
 .banner {
   padding: 0;
   margin: 0 auto;
