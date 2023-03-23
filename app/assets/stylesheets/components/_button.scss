@@ -1,0 +1,13 @@
+.btn-catch {
+  border-radius: 8px;
+  animation: glow 600ms infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px $purple;
+  }
+  to {
+    box-shadow: 0 0 20px $purple;
+  }
+}
