@@ -2,7 +2,7 @@ class TokensController < UserController
   skip_before_action :authenticate_user!
 
   def index
-    @tokens = Token.all
+    @tokens = Token.available
     # The `geocoded` scope filters only flats with coordinates
     @markers = @tokens.geocoded.map do |t|
       {
