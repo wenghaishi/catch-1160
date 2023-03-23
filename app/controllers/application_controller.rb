@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   # def after_sign_in_path_for(resource)
   #   if resource.account_type == "business"
   #     redirect_to new_business_path
+  #   elsif resource.account_type == "user"
+  #     redirect to tokens_path
   #   end
   # end
 
