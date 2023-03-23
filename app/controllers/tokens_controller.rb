@@ -1,4 +1,4 @@
-class TokensController < ApplicationController
+class TokensController < UserController
   skip_before_action :authenticate_user!
 
   def index

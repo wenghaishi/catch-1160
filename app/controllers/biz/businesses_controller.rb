@@ -1,21 +1,17 @@
-class BusinessesController < UserController
-  def index
-    @businesses = Business.all
-  end
-
-  def show
-    @business = Business.find(params[:id])
-  end
-
+class Biz::BusinessesController < BizController
   def new
     @business = Business.new
+  end
+
+  def me
+    @business = current_user.business
   end
 
   def create
     @business = Business.new(business_params)
     @business.user_id = current_user.id
     if @business.save
-      redirect_to @business
+      redirect_to biz_me_path
     else
       render :new
     end

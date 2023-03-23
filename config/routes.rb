@@ -4,6 +4,13 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   # root "articles#index"
+  namespace :biz do
+    resources :businesses, except: :show
+    resources :users, only: %i[show]
+
+    get 'me', to: 'businesses#me'
+  end
+
   resources :businesses do
     resources :collections, only: %i[new create edit update destroy]
   end
@@ -15,4 +22,5 @@ Rails.application.routes.draw do
     get :capture
   end
   resources :users, only: %i[show]
+
 end
