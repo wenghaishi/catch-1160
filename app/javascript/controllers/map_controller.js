@@ -6,6 +6,8 @@ export default class extends Controller {
     markers: Array
   }
 
+  static targets = [ "distance", "popup" ]
+
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
@@ -33,6 +35,12 @@ export default class extends Controller {
 
       geoLocate.trigger()
       geoLocate.on('geolocate', (e) => {
+        // this.map.setBearing(e.coords.heading);
+        // // Listen for the deviceorientation event
+        // window.addEventListener('deviceorientation', (event) => {
+        //   // Update the map's bearing with the device's heading
+        //   this.map.setBearing(event.webkitCompassHeading || event.alpha);
+        // });
         this.map.easeTo({
           center:[e.coords.longitude, e.coords.latitude],
           zoom: 19,
@@ -40,7 +48,36 @@ export default class extends Controller {
         });
       });
 
-      this.map.scrollZoom.disable()
+      // this.map.scrollZoom.disable()
+      this.#addMarkersToMap()
+    })
+  }
+
+  showPopup() {
+    // calculate the distance
+    // update the target
+    // add class to slide up
+  }
+
+  close(e) {
+    e.preventDefault();
+    this.popupTarget.classList.add("hide");
+  }
+
+  #addMarkersToMap() {
+
+    this.markersValue.forEach((marker) => {
+      const customMarker = document.createElement("div")
+      customMarker.innerHTML = marker.marker_html
+
+      new mapboxgl.Marker(customMarker)
+        .setLngLat([ marker.lng, marker.lat ])
+        .addTo(this.map)
+
+      customMarker.addEventListener("click", () => {
+        this.popupTarget.classList.remove("hide");
+        this.popupTarget.innerHTML = marker.info_window_html
+      })
     })
   }
 }
