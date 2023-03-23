@@ -12,3 +12,10 @@
   // transform: translateY(0);
   pointer-events: none;
 }
+
+.card-popup-token {
+  border-radius: 1rem 1rem 0 0;
+  min-width: 350px;
+  max-width: 500px;
+  margin: 0 auto 100px;
+}

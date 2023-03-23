@@ -35,12 +35,12 @@ export default class extends Controller {
 
       geoLocate.trigger()
       geoLocate.on('geolocate', (e) => {
-        this.map.setBearing(e.coords.heading);
-        // Listen for the deviceorientation event
-        window.addEventListener('deviceorientation', (event) => {
-          // Update the map's bearing with the device's heading
-          this.map.setBearing(event.webkitCompassHeading || event.alpha);
-        });
+        // this.map.setBearing(e.coords.heading);
+        // // Listen for the deviceorientation event
+        // window.addEventListener('deviceorientation', (event) => {
+        //   // Update the map's bearing with the device's heading
+        //   this.map.setBearing(event.webkitCompassHeading || event.alpha);
+        // });
         this.map.easeTo({
           center:[e.coords.longitude, e.coords.latitude],
           zoom: 19,
@@ -62,7 +62,6 @@ export default class extends Controller {
   close(e) {
     e.preventDefault();
     this.popupTarget.classList.add("hide");
-    // this.popupTarget.innerHTML = "";
   }
 
   #addMarkersToMap() {
@@ -71,14 +70,11 @@ export default class extends Controller {
       const customMarker = document.createElement("div")
       customMarker.innerHTML = marker.marker_html
 
-      new mapboxgl.Marker(customMarker, {
-        clickTolerance: 200000000
-      })
+      new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(this.map)
 
       customMarker.addEventListener("click", () => {
-        // console.log(this.popupTarget.classList);
         this.popupTarget.classList.remove("hide");
         this.popupTarget.innerHTML = marker.info_window_html
       })
