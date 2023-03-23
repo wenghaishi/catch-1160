@@ -11,4 +11,9 @@ class TokensController < ApplicationController
       }
     end
   end
+
+  def show
+    @tokens = Token.all
+    @token = Token.find(params[:id])
+  end
 end
