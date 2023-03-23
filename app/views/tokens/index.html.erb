@@ -3,9 +3,18 @@
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   <div class="footer-container">
-  <div class="footer-sm-container">
-    <%= image_tag 'Wallet.png', class: "footer-icon"%>
-    <%= "Wallet" %>
+    <div class="footer-sm-container">
+      <%= image_tag 'Wallet.png', class: "footer-icon"%>
+      <%= "Wallet" %>
+    </div>
+    <div class="footer-sm-container">
+      <%= image_tag 'Map.png', class: "footer-icon" %>
+      <%= "Map" %>
+    </div>
+    <div class="footer-sm-container">
+      <%= image_tag 'Market.png', class: "footer-icon" %>
+      <%= "Market" %>
+    </div>
   </div>
   <div class="footer-sm-container">
     <%= image_tag 'Map.png', class: "footer-icon" %>

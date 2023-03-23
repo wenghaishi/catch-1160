@@ -3,6 +3,11 @@
 @import "config/colors";
 @import "config/bootstrap_variables";
 
+// External libraries
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome";
+
+// Your CSS partials
 // // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
@@ -24,6 +29,18 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.my-home-div {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;     
+  background-repeat: no-repeat;
+  background-image: url('/assets/bg.png');
 }
 
 .main-button {
@@ -93,5 +110,3 @@ body {
   height: 35px;
   margin-bottom: 10px;
 }
-
-
