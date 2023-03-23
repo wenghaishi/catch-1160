@@ -1,11 +1,11 @@
-<div class="bg-white p-3 z-1 position-fixed fixed-bottom d-flex flex-column" style="border-radius: 1rem 1rem 0 0; max-width: 500px; margin: 0 auto 140px;">
+<div class="bg-white p-3 z-1 position-fixed fixed-bottom d-flex flex-column card-popup-token">
   <div class="d-flex flex-row gap-3">
     <%= cl_image_tag(token.photo.key, height: 150, style:"border-radius: 0.5rem") %>
     <div class="flex-grow-1 position-relative">
       <a class="text-decoration-none position-absolute top-0 end-0 m-0" href="#"data-action="click->map#close"><i class="fs-4 fa-solid fa-xmark"></i></a>
       <h3 style="max-width: 150px;"><%= token.collection.name %> #<%= token.id %></h3>
       <p data-map-target="distance" class="text-muted"><i class="fa-solid fa-location-dot"></i> 2km away</p>
-      <span class="lh-sm mb-1 text-primary biz-pill" style="padding: 0.4rem; outline: 2px solid #7871FF; outline-offset: -2px; border-radius: 0.5rem;">Minted by <span class="fw-bold"><%= token.business.name %></span></span>
+      <span class="lh-sm mb-1 text-primary" style="padding: 0.4rem; outline: 2px solid #7871FF; outline-offset: -2px; border-radius: 0.5rem;">Minted by <span class="fw-bold"><%= token.business.name %></span></span>
     </div>
   </div>
   <p class="lh-sm mt-3"><%= token.business.description %></p>
