@@ -1,12 +1,11 @@
 <div class="banner" style="background-image: url(<%= cl_image_path @collection.banner.key %>)">
-  <!--
-  <img src="<%#= cl_image_path @collection.business.user.banner.key, crop: :fill %>" class="object-fit-cover w-100 h-100" alt="">
-  -->
   <div class="wrapper">
     <div class="avatar-wrapper">
       <%= cl_image_tag @collection.photo.key, class: "avatar-sqaure" %>
     </div>
   </div>
+</div>
+<div class="banner-seperator">
 </div>
 <div class="wrapper border-bottom">
   <div>
@@ -32,10 +31,10 @@
                 <% end %>
               </div>
             </div>
-            <div class="back d-flex text-center">
+            <div class="back d-flex flex-column text-center">
               <div class="p-3 my-auto">
                 <h2><%= token.collection.name %> <span class="fw-bold">#<%= index + 1 %></span></h2>
-                <p>Good to</p>
+                <p><%= @collection.description %></p>
               </div>
             </div>
           </div>
