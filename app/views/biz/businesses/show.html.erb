@@ -1,23 +1,43 @@
-<div class="banner" style="background-image: url(<%= cl_image_path @user.banner.key %>)">
+<div class="banner" style="background-image: url(<%= cl_image_path @business.user.banner.key %>)">
   <div class="wrapper">
     <div class="avatar-wrapper">
-      <%= cl_image_tag @user.photo.key, class: "avatar-user" %>
+      <%= cl_image_tag @business.user.photo.key, class: "avatar-user" %>
     </div>
   </div>
 </div>
 <div class="banner-seperator">
 </div>
-<div class="wrapper border-bottom">
+<div class="wrapper border-bottom mb-4">
   <div>
-    <p class="fs-2 fw-bold"><%= @user.username %></p>
-    <p class="fs-6 my-0 mb-1">Total items <span class="fw-bold"><%= @user.tokens.count %></span> <span class="mx-1">·</span> Created <span class="fw-bold"><%= @user.created_at.strftime("%b %Y") %></span> <span class="mx-1">·</span></p>
+    <p class="fs-2 fw-bold"><%= @business.name %></p>
+    <p><span class="fw-bold"><%= @business.created_at.strftime("%b %Y") %></span></p>
+    <p><%= @business.description %></p>
   </div>
 </div>
 <div class="wrapper">
-  <p class="fs-5 fw-bold mb-3 mt-3"><%= @user.tokens.count %> items</p>
+  <div class="row" style="height: 250px;">
+    <% @business.collections.each do |collection| %>
+      <div class="row row-cols-1 row-cols-md-2 g-4 h-100">
+        <div class="col">
+          <div class="">
+            <% if collection.banner.key %>
+              <img src="<%= cl_image_path collection.banner.key %>" class="card-img-top" alt="...">
+            <% end %>
+            <div class="">
+              <h5 class="">Card title</h5>
+              <p class="">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="wrapper">
+  <p class="fs-5 fw-bold mb-3 mt-3"><%= @business.tokens.count %> items</p>
   <div>
     <div class="row" style="height: 200px;">
-      <% @user.tokens.each_with_index do |token, index| %>
+      <% @business.tokens.each_with_index do |token, index| %>
         <div class="col-12 col-sm-6 col-md-3 mb-4 ">
           <div class="flip">
             <div class="card front bg-white">
