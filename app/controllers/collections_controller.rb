@@ -1,4 +1,4 @@
-class CollectionsController < ApplicationController
+class CollectionsController < UserController
   def show
     @collection = Collection.find(params[:id])
   end
