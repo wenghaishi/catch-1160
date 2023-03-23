@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-
-
   def new
     @user = User.new
   end
@@ -23,6 +21,10 @@ class UsersController < ApplicationController
   def sign_out
     sign_out current_user
     redirect_to root_path
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private

@@ -15,11 +15,23 @@
   padding-top: 10vh;
 }
 
-.avatar-sqaure {
+.avatar-square {
   border: 5px solid white;
   border-radius: 12px;
   height: 180px;
   width: 180px;
+  max-width: 25vw;
+  max-height: 25vw;
+  margin-bottom: -10vw;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.avatar-user {
+  border: 5px solid white;
+  border-radius: 12px;
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
   max-width: 25vw;
   max-height: 25vw;
   margin-bottom: -10vw;
@@ -37,7 +49,11 @@
     padding-top: 20vh;
   }
 
-  .avatar-sqaure {
+  .avatar-square {
+    margin-bottom: -80px;
+  }
+
+  .avatar-user {
     margin-bottom: -80px;
   }
 
