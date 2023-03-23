@@ -3,13 +3,13 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  # def after_sign_in_path_for(resource)
-  #   if resource.account_type == "business"
-  #     redirect_to new_business_path
-  #   elsif resource.account_type == "user"
-  #     redirect to tokens_path
-  #   end
-  # end
+  def after_sign_up_path_for(resource)
+    if resource.account_type == "business"
+      new_business_path
+    elsif resource.account_type == "user"
+      tokens_path
+    end
+  end
 
   # def after_sign_in_path_for(resource)
   #   destroy_user_session_path
