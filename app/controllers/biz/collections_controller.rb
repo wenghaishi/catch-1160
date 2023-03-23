@@ -8,7 +8,7 @@ class Biz::CollectionsController < BizController
     @collection.business_id = params[:business_id].to_i
 
     if @collection.save
-      redirect_to biz_business_collection_token_path(@collection.id), notice: "Collection created successfully."
+      redirect_to new_biz_business_collection_token_path(params[:business_id], @collection.id), notice: "Collection created successfully."
     else
       render :new
     end

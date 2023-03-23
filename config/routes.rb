@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   namespace :biz do
-    resources :businesses, except: :show do
+    resources :businesses do
       resources :collections, only: %i[new create edit update destroy] do
         resources :tokens, only: %i[new create edit update destroy]
       end
