@@ -1,0 +1,47 @@
+.banner {
+  padding: 0;
+  margin: 0 auto;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-height: 320px;
+}
+
+.wrapper {
+  margin: 0 30px;
+}
+
+.avatar-wrapper {
+  padding-top: 10vh;
+}
+
+.avatar-sqaure {
+  border: 5px solid white;
+  border-radius: 12px;
+  height: 180px;
+  width: 180px;
+  max-width: 25vw;
+  max-height: 25vw;
+  margin-bottom: -10vw;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.banner-seperator {
+  max-height: 14vw;
+  height: 8vh;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .avatar-wrapper {
+    padding-top: 20vh;
+  }
+
+  .avatar-sqaure {
+    margin-bottom: -80px;
+  }
+
+  .banner-seperator {
+    height: 12vh;
+  }
+}
