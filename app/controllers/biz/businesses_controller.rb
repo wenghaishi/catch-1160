@@ -3,15 +3,15 @@ class Biz::BusinessesController < BizController
     @business = Business.new
   end
 
-  def me
-    @business = current_user.business
+  def show
+    @business = Business.find(params[:id])
   end
 
   def create
     @business = Business.new(business_params)
     @business.user_id = current_user.id
     if @business.save
-      redirect_to biz_me_path
+      redirect_to biz_business_path(@business)
     else
       render :new
     end

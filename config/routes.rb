@@ -5,10 +5,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   namespace :biz do
-    resources :businesses, except: :show
+    resources :businesses
     resources :users, only: %i[show]
-
-    get 'me', to: 'businesses#me'
   end
 
   resources :businesses do
