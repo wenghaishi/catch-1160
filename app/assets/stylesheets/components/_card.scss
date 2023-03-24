@@ -6,6 +6,24 @@
   height: 100%;
 }
 
+.scroll-card {
+  width: 45vw;
+  .card-background-img {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 133px;
+  }
+  .card-content {
+    height: 100%;
+    // style="margin-left: 1.5vw; height: 66.66px; margin-top: -20px; border-right: -2px solid white;"
+    img {
+      height: 36px;
+      width: 36px;
+    }
+  }
+}
+
 
 .flip {
   > .front,
