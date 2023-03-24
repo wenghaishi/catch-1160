@@ -23,7 +23,7 @@ class TokensController < UserController
   end
 
   def show
-    @tokens = Token.all
+    # @tokens = Token.all
     @token = Token.find(params[:id])
     @user = current_user
   end

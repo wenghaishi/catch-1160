@@ -100,7 +100,7 @@
     <div class="container">
       <div class="btn-group-top">
         <%= link_to "Back", user_path(@user), class: "btn-back" %>
-        <a href="#" class="btn-share">Share</a>
+        <%= link_to "Share", user_path(@user), class: "btn-share" %>
       </div>
     <img src="<%= cl_image_path @token.photo.key %>" alt="Token Photo" class="token-photo">
     <h1>Token Name</h1>
