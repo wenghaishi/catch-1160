@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   namespace :biz do
     resources :businesses do
+      resources :tokens, only: [:index]
       resources :collections, only: %i[new show create edit update destroy] do
         resources :tokens, only: %i[new create edit update destroy]
       end
@@ -24,5 +25,4 @@ Rails.application.routes.draw do
     get :capture
   end
   resources :users, only: %i[show]
-
 end
