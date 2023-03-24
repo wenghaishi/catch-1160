@@ -1,5 +1,6 @@
 class TokensController < UserController
   skip_before_action :authenticate_user!
+  # before_action :check_user
 
   def index
     @tokens = Token.available
@@ -17,5 +18,12 @@ class TokensController < UserController
   def show
     @tokens = Token.all
     @token = Token.find(params[:id])
+    @user = current_user
   end
+
+  # private
+
+  # def check_user
+  #   redirect_to root_path unless current_user
+  # end
 end
