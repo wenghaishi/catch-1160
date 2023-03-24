@@ -1,3 +1,31 @@
+.carousel{
+  display:block;
+  gap: 10px;
+  width: 100%;
+  overflow-x: scroll;
+  margin: 0;
+  white-space: nowrap;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.carousel-container {
+  width: 100%;
+  display:block;
+  overflow:hidden;
+}
+
+.item {
+  display: inline-block;
+  width: 45vw;
+  background: rgba(0, 0, 0, 0.05) no-repeat center center;
+  background-size: cover;
+  position:relative;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #dfdfdf;
+  margin-left: 13px;
+}
+
 .banner {
   padding: 0;
   margin: 0 auto;
@@ -26,6 +54,17 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.avatar-square-biz {
+  border: 2px solid white;
+  border-radius: 12px;
+  // height: 180px;
+  // width: 180px;
+  max-width: 15vw;
+  max-height: 15vw;
+  margin-bottom: -10vw;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 .avatar-user {
   border: 5px solid white;
   border-radius: 12px;
@@ -42,6 +81,7 @@
   max-height: 14vw;
   height: 8vh;
 }
+
 
 
 @media only screen and (min-width: 768px) {
