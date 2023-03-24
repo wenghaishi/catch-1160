@@ -12,8 +12,8 @@
                 required: true,
                 autofocus: true,
                 input_html: {  class: 'input' } %>
+    <%= f.input :photo, as: :file, required: true, input_html: { class: 'input1' } %>
   </div>
-
   <div class="form-actions main-button">
     <%= f.submit "Create Token", class: 'main-button' %>
   </div>
