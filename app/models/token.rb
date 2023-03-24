@@ -10,6 +10,13 @@ class Token < ApplicationRecord
   scope :available, -> { where(user_id: nil) }
   scope :unavailable, -> { where.not(user_id: nil) }
 
+  before_create { assign_number }
+
+  def assign_number
+    current_count = collection.tokens.count
+    self.identifier = current_count + 1
+  end
+
   def available?
     user.nil?
   end
