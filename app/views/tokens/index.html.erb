@@ -8,18 +8,21 @@
   <div class="footer-container">
     <div class="footer-sm-container">
       <%= image_tag 'Wallet.png', class: "footer-icon"%>
-      <%= "Wallet" %>
+      <%= content_tag :div, "Wallet", class: "footer-title" %>
     </div>
+    
+    <%= link_to tokens_path do %>
     <div class="footer-sm-container">
       <%= image_tag 'Map.png', class: "footer-icon" %>
-      <%= "Map" %>
+      <% end %>
+      <%= content_tag :div, "Map", class: "footer-title" %>
     </div>
 
     <%= link_to user_path(current_user) do %>
     <div class="footer-sm-container">
       <%= image_tag 'user.png', class: "footer-icon" %>
       <% end %>
-      <%= "User" %>
+      <%= content_tag :div, "User", class: "footer-title" %>
     </div>
   </div>
   <div data-map-target="popup" class="popup-token">
