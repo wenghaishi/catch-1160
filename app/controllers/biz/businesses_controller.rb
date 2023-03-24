@@ -4,7 +4,7 @@ class Biz::BusinessesController < BizController
   end
 
   def show
-    @business = Business.find(params[:id])
+    @business = User.find(params[:id]).business
   end
 
   def create
