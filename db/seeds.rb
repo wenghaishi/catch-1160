@@ -139,7 +139,7 @@ token_three = Token.create!(
 token_three.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken3.avif'), filename: "zodiactoken3.avif", content_type: "image/avif")
 
 token_four = Token.create!(
-  address: "2 Battery Rd, Maybank Tower, Singapore 049907",
+  address: "2 Battery Rd, Singapore 049908",
   collection: zodiac_collection
 )
 token_four.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken4.avif'), filename: "zodiactoken4.avif", content_type: "image/avif")
@@ -151,14 +151,14 @@ token_five = Token.create!(
 token_five.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken5.avif'), filename: "zodiactoken5.avif", content_type: "image/avif")
 
 token_six = Token.create!(
-  address: "5 Stadium Walk, Level 3, Singapore 397693",
+  address: "5 Stadium Walk, Singapore 397693",
   collection: monkey_collection,
   user: gym_user
 )
 token_six.photo.attach(io: File.open('app/assets/images/token_img/swoletoken1.avif'), filename: "swoletoken1.avif", content_type: "image/avif")
 
 token_seven = Token.create!(
-  address: "2 Stadium Walk, Singapore 397691",
+  address: "80 Collyer Quay, Singapore 049326",
   collection: monkey_collection,
   user: gym_user
 )

@@ -1,0 +1,19 @@
+.btn-catch {
+  border-radius: 8px;
+  animation: glow 600ms infinite alternate;
+}
+
+.btn-cannot {
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  background-color: #cccccc;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px $purple;
+  }
+  to {
+    box-shadow: 0 0 20px $purple;
+  }
+}
