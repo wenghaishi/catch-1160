@@ -18,17 +18,19 @@
   <div class="carousel-container">
     <div class="carousel">
       <% @business.collections.each do |collection| %>
-        <div class="item h-100">
-          <div class="card scroll-card">
-            <div class="card-background-img" style="background-image: url(<%= cl_image_path collection.banner.key %>);">
-            </div>
-            <div class="card-content d-flex px-2 justify-content-center">
-              <div class="px-2 py-3">
-                <p class="fw-bold m-0"><%= collection.name %></p>
+        <%= link_to biz_business_collection_path(@business, collection) do %>
+          <div class="item h-100">
+            <div class="card scroll-card">
+              <div class="card-background-img" style="background-image: url(<%= cl_image_path collection.banner.key %>);">
+              </div>
+              <div class="card-content d-flex px-2 justify-content-center">
+                <div class="px-2 py-3">
+                  <p class="fw-bold m-0 text-dark"><%= collection.name %></p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>
