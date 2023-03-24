@@ -1,0 +1,27 @@
+<div class="my-div navbar hidden-tablet hidden-phone">
+
+<%= image_tag "logo.png", style: 'height:50px;margin-bottom:20px;' %>
+
+<%= simple_form_for [:biz, @collection], url: biz_business_collections_path do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name,
+                label: false,
+                placeholder: 'Collection name',
+                required: true,
+                autofocus: true,
+                input_html: {  class: 'input' } %>
+
+    <%= f.input :description,
+                required: true,
+                placeholder: 'Description',
+                label: false,
+                input_html: { class: 'input'  } %>
+    <%= f.input :category, collection: ['Art', 'PFP', 'Assets'], prompt: 'Please select a category', input_html: { class: 'input1' } %>
+  </div>
+
+  <div class="form-actions main-button">
+    <%= f.submit "Create collection", class: 'main-button' %>
+  </div>
+<% end %>

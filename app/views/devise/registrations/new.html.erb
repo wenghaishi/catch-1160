@@ -1,25 +1,51 @@
-<h2>Sign up</h2>
+<div class="my-div navbar hidden-tablet hidden-phone">
+
+<%= image_tag "logo.png", style: 'height:50px;margin-bottom:20px;' %>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :email,
+                label: false,
+                placeholder: 'Email',
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
+                input_html: { autocomplete: "email", class: 'input' } %>
+    <%= f.input :username,
+                label: false,
+                placeholder: 'Username',
+                required: true,
+                autofocus: true,
+                input_html: { class: 'input' } %>
+    <%= f.input :first_name,
+                label: false,
+                placeholder: 'First name',
+                required: true,
+                autofocus: true,
+                input_html: { class: 'input' } %>
+    <%= f.input :last_name,
+                label: false,
+                placeholder: 'Last name',
+                required: true,
+                autofocus: true,
+                input_html: { class: 'input' } %>
     <%= f.input :password,
                 required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+                placeholder: 'Password',
+                label: false,
+                input_html: { autocomplete: "new-password", class: 'input'  } %>
+    <%= f.input :photo, as: :file, required: true, input_html: { class: 'input1' } %>
+    <%= f.input :banner, as: :file, required: true, input_html: { class: 'input1' } %>
+    <%= f.input :account_type, collection: ['user', 'business'], prompt: 'Please select a category', input_html: { class: 'input1' } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Sign up", class: "main-button" %>
   </div>
 <% end %>
 
+
 <%= render "devise/shared/links" %>
+
+</div>

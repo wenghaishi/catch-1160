@@ -1,0 +1,46 @@
+<div class="banner" style="background-image: url(<%= cl_image_path @user.banner.key %>)">
+  <div class="wrapper">
+    <div class="avatar-wrapper">
+      <%= cl_image_tag @user.photo.key, class: "avatar-user" %>
+    </div>
+  </div>
+</div>
+<div class="banner-seperator">
+</div>
+<div class="wrapper border-bottom">
+  <div>
+    <p class="fs-2 fw-bold"><%= @user.username %></p>
+    <p class="fs-6 my-0 mb-1">Total items <span class="fw-bold"><%= @user.tokens.count %></span> <span class="mx-1">·</span> Created <span class="fw-bold"><%= @user.created_at.strftime("%b %Y") %></span> <span class="mx-1">·</span></p>
+  </div>
+</div>
+<div class="wrapper">
+  <p class="fs-5 fw-bold mb-3 mt-3"><%= @user.tokens.count %> items</p>
+  <div>
+    <div class="row" style="height: 200px;">
+      <% @user.tokens.each_with_index do |token, index| %>
+        <div class="col-12 col-sm-6 col-md-3 mb-4 ">
+          <div class="flip">
+            <div class="card front bg-white">
+              <% if token.photo.key %>
+                <img src="<%= cl_image_path token.photo.key %>" class="card-img-top" alt="">
+              <% end %>
+              <div class="card-body">
+                <p class="card-text fw-bold my-0 mb-1"><%= token.collection.name %> <span class="fw-bold">#<%= index + 1 %></span></p>
+                <p class="fw-bold fs-5 my-0">0.030 ETH</p>
+                <% if token.user %>
+                  <p class="text-muted">Owned by <%= token.user.username %></p>
+                <% end %>
+              </div>
+            </div>
+            <div class="back d-flex flex-column text-center">
+              <div class="p-3 my-auto">
+                <h2><%= token.collection.name %> <span class="fw-bold">#<%= index + 1 %></span></h2>
+                <p><%= token.collection.description %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
