@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <title>CATCH! NFT Discovery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0px;
+        padding: 30px;
+        font-family: TREBUCHET, sans-serif;
+      }
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .btn-group-top {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+        font-weight: bold;
+        border: 5px;
+        border-radius: 56px;
+      }
+      .btn-back {
+        display: inline-block;
+        padding: 10px 20px;
+        font-weight: bold;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        margin-bottom: 20px;
+        border-radius: 56px;
+        text-decoration: none;
+
+      }
+      .btn-share {
+        display: inline-block;
+        padding: 10px 20px;
+        font-weight: bold;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        margin-bottom: 20px;
+        text-align: right;
+        border-radius: 56px;
+        text-decoration: none;
+      }
+      h1 {
+        text-align: left;
+        margin-top: 10px;
+        margin-bottom: 0px;
+      }
+      .token-photo {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+        border-radius: 24px;
+      }
+      .btn-voucher {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #FFCF72;
+        color: black;
+        text-decoration: none;
+        border-radius: 15px;
+        margin-top: 20px;
+        font-weight: bold;
+      }
+      .token-description {
+        text-align: left;
+        color: gray;
+      }
+      .btn-group {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 50px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .btn-primary {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #7871FF;
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        width: 170px;
+      }
+      .btn-secondary {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: white;
+        color: #7871FF;
+        text-decoration: none;
+        border-radius: 10px;
+        border: 2px solid #7871FF;
+        width: 170px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="btn-group-top">
+        <a href="#" class="btn-back">Back</a>
+        <a href="#" class="btn-share">Share</a>
+      </div>
+    <img src="<%= cl_image_path @token.photo.key %>" alt="Token Photo" class="token-photo">
+    <h1>Token Name</h1>
+    <a href="#" class="btn-voucher">$3 off NFT Voucher</a>
+    <p class="token.description">This NFT offers you $3 off your next purchase!</p>
+      <div class="btn-group">
+        <a href="#" class="btn btn-secondary">Sell</a>
+        <a href="#" class="btn btn-primary">Redeem</a>
+      </div>
+    </div>
+  </body>
+</html>
