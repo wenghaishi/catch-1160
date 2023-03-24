@@ -22,7 +22,7 @@ export default class extends Controller {
         enableHighAccuracy: true
       },
       // When active the map will receive updates to the device's location as it changes.
-      trackUserLocation: true,
+      // trackUserLocation: true,
       // Draw an arrow next to the location dot to indicate which direction the device is heading.
       showUserHeading: true,
       fitBoundsOptions: { maxZoom: 24 },
@@ -42,7 +42,7 @@ export default class extends Controller {
 
       geoLocate.trigger()
       geoLocate.on('geolocate', (e) => {
-        this.map.setBearing(e.coords.heading);
+        // this.map.setBearing(e.coords.heading);
         this.currentLocation = [e.coords.longitude, e.coords.latitude]
         this.map.easeTo({
           center: this.currentLocation,
