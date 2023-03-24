@@ -20,4 +20,9 @@ class TokensController < UserController
     @token.save
     redirect_to user_path(current_user)
   end
+  
+  def show
+    @tokens = Token.all
+    @token = Token.find(params[:id])
+  end
 end
