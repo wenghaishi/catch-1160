@@ -3,7 +3,25 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  height: 100%
+  height: 100%;
+}
+
+.scroll-card {
+  width: 45vw;
+  .card-background-img {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 133px;
+  }
+  .card-content {
+    height: 100%;
+    // style="margin-left: 1.5vw; height: 66.66px; margin-top: -20px; border-right: -2px solid white;"
+    img {
+      height: 36px;
+      width: 36px;
+    }
+  }
 }
 
 

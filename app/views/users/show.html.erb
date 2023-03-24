@@ -34,14 +34,38 @@
             </div>
             <div class="back d-flex flex-column text-center">
               <div class="p-3 my-auto">
-                <h2><%= token.collection.name %> <span class="fw-bold">#<%= index + 1 %></span></h2>
-                <p><%= token.collection.description %></p>
+                  <h2><%= token.collection.name %> <span class="fw-bold">#<%= index + 1 %></span></h2>
+                  <p><%= token.collection.description %></p>
+                  <h2><%= link_to "More Info", token_path(token) %></h2>
               </div>
             </div>
           </div>
         </div>
       <% end %>
-      <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}  %>
     </div>
   </div>
 </div>
+
+<%# footer %>
+<div class="footer-container">
+    <div class="footer-sm-container">
+      <%= image_tag 'Wallet.png', class: "footer-icon"%>
+      <%= content_tag :div, "Wallet", class: "footer-title" %>
+    </div>
+
+    <%= link_to tokens_path do %>
+    <div class="footer-sm-container">
+      <%= image_tag 'Map.png', class: "footer-icon" %>
+      <% end %>
+      <%= content_tag :div, "Map", class: "footer-title" %>
+    </div>
+
+    <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+    <div class="footer-sm-container">
+      <%= image_tag 'logout.png', class: "footer-icon" %>
+      <% end %>
+      <%= content_tag :div, "Logout", class: "footer-title" %>
+    </div>
+  </div>
+</div>
+<%# end of footer %>
