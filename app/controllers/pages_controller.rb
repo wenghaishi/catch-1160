@@ -2,6 +2,11 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    redirect_to tokens_path if current_user
+    return unless current_user
+    if current_user.account_type == "business"
+      redirect_to biz_business_path(current_user.id)
+    elsif current_user.account_type == "user"
+      redirect_to tokens_path
+    end
   end
 end

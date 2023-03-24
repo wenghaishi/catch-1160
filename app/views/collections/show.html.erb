@@ -22,7 +22,9 @@
         <div class="col-12 col-sm-6 col-md-3 mb-4 ">
           <div class="flip">
             <div class="card front bg-white">
-              <img src="<%= cl_image_path token.photo.key %>" class="card-img-top" alt="">
+ <            % if token.photo.key %>
+                <img src="<%= cl_image_path token.photo.key %>" class="card-img-top" alt="">
+              <% end %>
               <div class="card-body">
                 <p class="card-text fw-bold my-0 mb-1"><%= token.collection.name %> <span class="fw-bold">#<%= index + 1 %></span></p>
                 <p class="fw-bold fs-5 my-0">0.030 ETH</p>

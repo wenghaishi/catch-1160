@@ -35,13 +35,13 @@
                 placeholder: 'Password',
                 label: false,
                 input_html: { autocomplete: "new-password", class: 'input'  } %>
-    <%= f.input :photo, as: :file, required: true, input_html: { class: 'input1' } %>
-    <%= f.input :banner, as: :file, required: true, input_html: { class: 'input1' } %>
+    <%= f.input :photo, as: :file, label: "Add a picture", required: true, input_html: { class: 'input2' } %>
+    <%= f.input :banner, as: :file, label: "Add a banner", required: true, input_html: { class: 'input2' } %>
     <%= f.input :account_type, collection: ['user', 'business'], prompt: 'Please select a category', input_html: { class: 'input1' } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up", class: "main-button" %>
+    <%= f.button :submit, "Sign up", class: "main-button1" %>
   </div>
 <% end %>
 

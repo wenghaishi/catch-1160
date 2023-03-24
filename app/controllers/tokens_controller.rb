@@ -1,8 +1,9 @@
 class TokensController < UserController
   skip_before_action :authenticate_user!
+  # before_action :check_user
 
   def index
-    @tokens = Token.all
+    @tokens = Token.available
     # The `geocoded` scope filters only flats with coordinates
     @markers = @tokens.geocoded.map do |t|
       {
@@ -13,4 +14,23 @@ class TokensController < UserController
       }
     end
   end
+
+  def capture
+    @token = Token.find(params[:token_id])
+    @token.user = current_user
+    @token.save
+    redirect_to user_path(current_user)
+  end
+
+  def show
+    # @tokens = Token.all
+    @token = Token.find(params[:id])
+    @user = current_user
+  end
+
+  # private
+
+  # def check_user
+  #   redirect_to root_path unless current_user
+  # end
 end
