@@ -37,7 +37,7 @@
   <p class="fs-5 fw-bold mb-3 mt-3"><%= @business.tokens.count %> items</p>
   <div>
     <div class="row">
-      <% @business.tokens.each_with_index do |token, index| %>
+      <% @business.tokens.each do |token| %>
         <div class="col-12 col-sm-6 col-md-3 mb-4 ">
           <div class="flip">
             <div class="card front bg-white">
@@ -45,7 +45,7 @@
                 <img src="<%= cl_image_path token.photo.key %>" class="card-img-top" alt="">
               <% end %>
               <div class="card-body">
-                <p class="card-text fw-bold my-0 mb-1"><%= token.collection.name %> <span class="fw-bold">#<%= index + 1 %></span></p>
+                <p class="card-text fw-bold my-0 mb-1"><%= token.collection.name %> <span class="fw-bold">#<%= token.identifier %></span></p>
                 <p class="fw-bold fs-5 my-0">0.030 ETH</p>
                 <% if token.user %>
                   <p class="text-muted">Owned by <%= token.user.username %></p>
@@ -54,7 +54,7 @@
             </div>
             <div class="back d-flex flex-column text-center">
               <div class="p-3 my-auto">
-                <h2><%= token.collection.name %> <span class="fw-bold">#<%= index + 1 %></span></h2>
+                <h2><%= token.collection.name %> <span class="fw-bold">#<%= token.identifier %></span></h2>
                 <p><%= token.collection.description %></p>
               </div>
             </div>
@@ -64,29 +64,24 @@
     </div>
   </div>
 </div>
-
 <div class="footer-container">
-    <%= link_to new_biz_business_collection_path(@business.id) do %>
+  <%= link_to new_biz_business_collection_path(@business.id) do %>
     <div class="footer-sm-container">
       <%= image_tag 'new-collection.png', class: "footer-icon"%>
-      <% end %>
-      <%= content_tag :div, "Wallet", class: "footer-title" %>
-    </div>
-
-    <%= link_to tokens_path do %>
+    <% end %>
+    <%= content_tag :div, "Wallet", class: "footer-title" %>
+  </div>
+  <%= link_to tokens_path do %>
     <div class="footer-sm-container">
       <%= image_tag 'Map.png', class: "footer-icon" %>
-      <% end %>
-      <%= content_tag :div, "Map", class: "footer-title" %>
-    </div>
-
-    <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+    <% end %>
+    <%= content_tag :div, "Map", class: "footer-title" %>
+  </div>
+  <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
     <div class="footer-sm-container">
       <%= image_tag 'logout.png', class: "footer-icon" %>
-      <% end %>
-      <%= content_tag :div, "Logout", class: "footer-title" %>
-    </div>
+    <% end %>
+    <%= content_tag :div, "Logout", class: "footer-title" %>
   </div>
 </div>
-
-
+</div>
