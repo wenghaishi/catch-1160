@@ -14,6 +14,13 @@ class TokensController < UserController
     end
   end
 
+  def capture
+    @token = Token.find(params[:token_id])
+    @token.user = current_user
+    @token.save
+    redirect_to user_path(current_user)
+  end
+
   def show
     @tokens = Token.all
     @token = Token.find(params[:id])
