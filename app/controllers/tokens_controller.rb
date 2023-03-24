@@ -2,7 +2,7 @@ class TokensController < UserController
   skip_before_action :authenticate_user!
 
   def index
-    @tokens = Token.all
+    @tokens = Token.available
     # The `geocoded` scope filters only flats with coordinates
     @markers = @tokens.geocoded.map do |t|
       {
@@ -12,5 +12,10 @@ class TokensController < UserController
         marker_html: render_to_string(partial: "marker")
       }
     end
+  end
+
+  def show
+    @tokens = Token.all
+    @token = Token.find(params[:id])
   end
 end
