@@ -8,7 +8,7 @@ class Biz::TokensController < BizController
     @token.collection_id = params[:collection_id]
 
     if @token.save
-      redirect_to root_path, notice: "Token created successfully."
+      redirect_to biz_business_path(@token.business), notice: "Token created successfully."
     else
       render :new, notice: "Failed."
     end
@@ -17,6 +17,6 @@ class Biz::TokensController < BizController
   private
 
   def token_params
-    params.require(:token).permit(:address)
+    params.require(:token).permit(:address, :photo)
   end
 end
