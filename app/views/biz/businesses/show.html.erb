@@ -18,7 +18,7 @@
   <div class="carousel-container">
     <div class="carousel">
       <% @business.collections.each do |collection| %>
-        <%= link_to biz_business_collection_path(collection) do %>
+        <%= link_to biz_business_collection_path(@business, collection) do %>
           <div class="item h-100">
             <div class="card scroll-card">
               <div class="card-background-img" style="background-image: url(<%= cl_image_path collection.banner.key %>);">
