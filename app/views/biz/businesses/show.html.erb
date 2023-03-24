@@ -69,9 +69,9 @@
     <div class="footer-sm-container">
       <%= image_tag 'new-collection.png', class: "footer-icon"%>
     <% end %>
-    <%= content_tag :div, "Wallet", class: "footer-title" %>
+    <%= content_tag :div, "Create", class: "footer-title" %>
   </div>
-  <%= link_to tokens_path do %>
+  <%= link_to biz_business_tokens_path(@business.id) do %>
     <div class="footer-sm-container">
       <%= image_tag 'Map.png', class: "footer-icon" %>
     <% end %>
