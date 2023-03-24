@@ -87,6 +87,7 @@ export default class extends Controller {
         this.popupTarget.classList.remove("hide")
         this.popupTarget.innerHTML = marker.info_window_html
         this.counterTarget.innerHTML = distanceKm.toString()
+        console.log(length)
         // Finally, check if the distance is less than or equal to 50 meters
         if (length <= 0.2) {
           // The marker is within 200 meters of your current location
@@ -94,6 +95,8 @@ export default class extends Controller {
           this.buttonTarget.innerHTML = "Catch Token"
           this.buttonTarget.classList.remove("btn-cannot")
           this.buttonTarget.classList.add("btn-catch")
+          console.log("hello")
+          this.buttonTarget.setAttribute("value", "Catch Token")
           this.buttonTarget.removeAttribute('disabled')
         } else {
           // The marker is further than 50 meters from your current location
@@ -101,7 +104,8 @@ export default class extends Controller {
           this.buttonTarget.innerHTML = "Move Closer to Catch"
           this.buttonTarget.classList.remove("btn-catch")
           this.buttonTarget.classList.add("btn-cannot")
-          this.buttonTarget.setAttribute('disabled')
+          this.buttonTarget.setAttribute('disabled', "")
+          this.buttonTarget.setAttribute("value", "Move Closer to Catch")
         }
 
       })
