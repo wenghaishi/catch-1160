@@ -1,1 +1,66 @@
-This is the Show page for individual business.
+<div class="banner" style="background-image: url(<%= cl_image_path @business.user.banner.key %>)">
+  <div class="wrapper">
+    <div class="avatar-wrapper">
+      <%= cl_image_tag @business.user.photo.key, class: "avatar-user" %>
+    </div>
+  </div>
+</div>
+<div class="banner-seperator">
+</div>
+<div class="wrapper border-bottom mb-1">
+  <div>
+    <p class="fs-2 fw-bold"><%= @business.name %></p>
+    <p><span class="fw-bold"><%= @business.created_at.strftime("%b %Y") %></span></p>
+    <p><%= @business.description %></p>
+  </div>
+</div>
+<div class="border-bottom">
+  <div class="carousel-container">
+    <div class="carousel">
+      <% @business.collections.each do |collection| %>
+        <div class="item h-100">
+          <div class="card scroll-card">
+            <div class="card-background-img" style="background-image: url(<%= cl_image_path collection.banner.key %>);">
+            </div>
+            <div class="card-content d-flex px-2 justify-content-center">
+              <div class="px-2 py-3">
+                <p class="fw-bold m-0"><%= collection.name %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <p class="fs-5 fw-bold mb-3 mt-3"><%= @business.tokens.count %> items</p>
+  <div>
+    <div class="row">
+      <% @business.tokens.each do |token| %>
+        <div class="col-12 col-sm-6 col-md-3 mb-4 ">
+          <div class="flip">
+            <div class="card front bg-white">
+              <% if token.photo.key %>
+                <img src="<%= cl_image_path token.photo.key %>" class="card-img-top" alt="">
+              <% end %>
+              <div class="card-body">
+                <p class="card-text fw-bold my-0 mb-1"><%= token.collection.name %> <span class="fw-bold">#<%= token.identifier %></span></p>
+                <p class="fw-bold fs-5 my-0">0.030 ETH</p>
+                <% if token.user %>
+                  <p class="text-muted">Owned by <%= token.user.username %></p>
+                <% end %>
+              </div>
+            </div>
+            <div class="back d-flex flex-column text-center">
+              <div class="p-3 my-auto">
+                <h2><%= token.collection.name %> <span class="fw-bold">#<%= token.identifier %></span></h2>
+                <p><%= token.collection.description %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 <div class="banner" style="background-image: url(<%= cl_image_path @collection.banner.key %>)">
   <div class="wrapper">
     <div class="avatar-wrapper">
-      <%= cl_image_tag @collection.photo.key, class: "avatar-sqaure" %>
+      <%= cl_image_tag @collection.photo.key, class: "avatar-square" %>
     </div>
   </div>
 </div>
@@ -22,7 +22,7 @@
         <div class="col-12 col-sm-6 col-md-3 mb-4 ">
           <div class="flip">
             <div class="card front bg-white">
- <            % if token.photo.key %>
+              <% if token.photo.key %>
                 <img src="<%= cl_image_path token.photo.key %>" class="card-img-top" alt="">
               <% end %>
               <div class="card-body">
