@@ -22,6 +22,6 @@ class Biz::CollectionsController < BizController
   private
 
   def collection_params
-    params.require(:collection).permit(:name, :description, :category)
+    params.require(:collection).permit(:name, :description, :category, :banner, :photo)
   end
 end
