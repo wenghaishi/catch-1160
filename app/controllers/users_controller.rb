@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-class UsersController < ApplicationController
-  def show
-    @user = current_user
-=======
 class UsersController < UserController
   def new
     @user = User.new
@@ -36,6 +31,5 @@ class UsersController < UserController
 
   def user_params
     params.require(:user).permit(:username, :first_name, :last_name, :banner, :account_type, :photo, :email, :password)
->>>>>>> c381ff1b8d13944ef3ba01b8120de8b8c693ca19
   end
 end
