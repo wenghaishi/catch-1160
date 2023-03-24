@@ -34,8 +34,9 @@
             </div>
             <div class="back d-flex flex-column text-center">
               <div class="p-3 my-auto">
-                <h2><%= token.collection.name %> <span class="fw-bold">#<%= index + 1 %></span></h2>
-                <p><%= token.collection.description %></p>
+                  <h2><%= token.collection.name %> <span class="fw-bold">#<%= index + 1 %></span></h2>
+                  <p><%= token.collection.description %></p>
+                  <h2><%= link_to "More Info", token_path(token) %></h2>
               </div>
             </div>
           </div>
