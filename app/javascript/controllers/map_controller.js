@@ -47,8 +47,8 @@ export default class extends Controller {
       profile: "mapbox/walking",
       pitchWithRotate: false,
       alternatives: false,
-      // geometries: 'geojson',
-      flyTo: false,
+      geometries: 'geojson',
+      // flyTo: false,
       controls: {
         inputs: false,
         instructions: false
@@ -59,7 +59,7 @@ export default class extends Controller {
     // geoLocate.on('geolocate', (e) => {
     //   window.addEventListener('deviceorientation', (event) => {
     //     this.map.setBearing(event.webkitCompassHeading || event.alpha);
-    //   })4
+    //   })
     // })
 
     this.map.on("load", () => {
@@ -116,7 +116,6 @@ export default class extends Controller {
         this.directions.setOrigin(this.currentLocation)
         this.directions.setDestination(markerLocation)
 
-        // let bearing = this.map.getBearing()
         let markerBearing = turf.bearing(turf.point(this.currentLocation), turf.point(markerLocation))
         this.map.easeTo({
           // center: this.currentLocation,
@@ -135,7 +134,7 @@ export default class extends Controller {
           this.buttonTarget.setAttribute("value", "Catch Token")
           this.buttonTarget.removeAttribute('disabled')
         } else {
-          // The marker is further than 50 meters from your current location
+          // The marker is further than 200 meters from your current location
           // NOT CATCHABLE
           this.buttonTarget.classList.remove("btn-catch")
           this.buttonTarget.classList.add("btn-cannot")
