@@ -67,7 +67,7 @@
   </div>
 </div>
 <div class="footer-container">
-  <%= link_to new_biz_business_collection_path(@business.id) do %>
+  <%= link_to new_biz_business_collection_path(current_user.business.id) do %>
     <div class="footer-sm-container">
       <%= image_tag 'Plus.svg', class: "footer-icon"%>
     <% end %>

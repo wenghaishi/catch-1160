@@ -4,7 +4,9 @@ class Biz::BusinessesController < BizController
   end
 
   def show
-    @business = Business.find(params[:id])
+    @business = Business.find_by(id: params[:id], user_id: current_user.id)
+
+    redirect_to root_path if @business.nil?
   end
 
   def create
