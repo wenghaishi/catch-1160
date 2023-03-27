@@ -1,24 +1,27 @@
 <div class="my-div navbar hidden-tablet hidden-phone">
 
-<%= image_tag "logo.png", style: 'height:50px;margin-bottom:20px;' %>
-<p>Create a new token in your collection</p>
+<%= image_tag "logo.png", style: 'height:50px;margin-bottom:30px;' %>
+<p style='margin-bottom:30px;'>Create a new token in your collection</p>
 
 <%= simple_form_for [:biz, @token], url: biz_business_collection_tokens_path do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :address,
-                label: false,
-                placeholder: 'Address',
+  <%= f.input :address,
+  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none", autofocus: true, placeholder: 'Address'},
+  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}},
                 required: true,
-                autofocus: true,
-                input_html: {  class: 'input' } %>
+                label: false,
+                required: true,
+                placeholder: 'Address',
+                autofocus: true %>
+
     <%= f.input :description,
                 label: false,
-                placeholder: 'Descriptions',
+                placeholder: 'Description',
                 required: true,
                 autofocus: true,
-                input_html: {  class: 'input' } %>
+                input_html: {  class: 'input-des' } %>
     <%= f.input :conditions,
                 label: false,
                 placeholder: 'Conditions',
@@ -26,7 +29,7 @@
                 autofocus: true,
                 input_html: {  class: 'input' } %>
 
-    <%= f.input :photo, as: :file, required: true, input_html: { class: 'input1' } %>
+    <%= f.input :photo, as: :file, required: true, input_html: { class: 'input' } %>
   </div>
   <div class="form-actions main-button">
     <%= f.submit "Create Token", class: 'main-button' %>
