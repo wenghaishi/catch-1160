@@ -18,6 +18,10 @@ class Biz::TokensController < BizController
 
   def create
     @token = Token.new(token_params)
+    uploaded_file = token_params[:photo]
+    cl_upload = Cloudinary::Uploader.upload(uploaded_file)
+    @token.url = cl_upload["secure_url"]
+
     @token.collection_id = params[:collection_id]
 
     if @token.save
@@ -30,6 +34,6 @@ class Biz::TokensController < BizController
   private
 
   def token_params
-    params.require(:token).permit(:address, :photo)
+    params.require(:token).permit(:address, :photo, :description, :conditions)
   end
 end
