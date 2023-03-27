@@ -23,9 +23,6 @@ class TokensController < UserController
     @token = Token.find(params[:token_id])
     @token.user = current_user
 
-
-    @nft_picture = Cloudinary::Utils.cloudinary_url(@token.id, version: @token.id)
-
     # nft minting logic
 
     url = URI("https://api.nftport.xyz/v0/mints/easy/urls")
@@ -37,7 +34,7 @@ class TokensController < UserController
     request["accept"] = 'application/json'
     request["content-type"] = 'application/json'
     request["Authorization"] = 'ffbef1dc-c66a-4461-a936-800b290db517'
-    request.body = "{\"name\":\"#{@token.id}\",\"description\":\"#{@token.description}\",\"file_url\":\"#{@nft_picture}\",\"mint_to_address\":\"0x4A771fDF27319180F49BbF151317Bafa306074A6\",\"chain\":\"polygon\"}"
+    request.body = "{\"name\":\"#{@token.id}\",\"description\":\"#{@token.description}\",\"file_url\":\"#{@token.url}\",\"mint_to_address\":\"0x4A771fDF27319180F49BbF151317Bafa306074A6\",\"chain\":\"polygon\"}"
     
     response = http.request(request)
     puts response.read_body
