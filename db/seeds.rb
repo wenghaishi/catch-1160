@@ -281,7 +281,8 @@ token_fourteen = Token.create!(
   address: "45 Dunlop St, Singapore 209374",
   collection: greenbean_collection,
   description: "Redeem a FREE Beanboi Plushie!",
-  conditions: "Only valid for in-store redemption. Only one redemption per NFT. While stocks last, subject to availability."
+  conditions: "Only valid for in-store redemption. Only one redemption per NFT. While stocks last, subject to availability.",
+  user: beanboi_user
 )
 token_fourteen.photo.attach(io: File.open('app/assets/images/token_img/greenbeanboi2.avif'), filename: "greenbeanboi2.avif", content_type: "image/avif")
 
@@ -289,7 +290,8 @@ token_fifteen = Token.create!(
   address: "36 Dunlop St, Singapore 209364",
   collection: orangebean_collection,
   description: "FREE admission to Beanboi Gallery!",
-  conditions: "This NFT admits only ONE. Beanboi has the right to refuse entry to any individual displaying inappropriate behavior."
+  conditions: "This NFT admits only ONE. Beanboi has the right to refuse entry to any individual displaying inappropriate behavior.",
+  user: beanboi_user
 )
 token_fifteen.photo.attach(io: File.open('app/assets/images/token_img/orangebeanboi1.avif'), filename: "orangebeanboi1.avif", content_type: "image/avif")
 
