@@ -191,6 +191,7 @@ p "Created 3 beanboi collections"
 token_one = Token.create!(
   address: "80 Raffles Pl, Singapore 048624",
   collection: zodiac_collection,
+  description: "Zodiac styles!",
   user: studio_user
 )
 token_one.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken1.avif'), filename: "zodiactoken1.avif", content_type: "image/avif")
@@ -198,30 +199,35 @@ token_one.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken1.a
 token_two = Token.create!(
   address: "1 Fullerton Rd, Singapore 049213",
   collection: zodiac_collection,
+  description: "Zodiac styles!",
   user: studio_user
 )
 token_two.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken2.avif'), filename: "zodiactoken2.avif", content_type: "image/avif")
 
 token_three = Token.create!(
   address: "88 Market St, Singapore 048948",
+  description: "Zodiac styles!",
   collection: zodiac_collection
 )
 token_three.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken3.avif'), filename: "zodiactoken3.avif", content_type: "image/avif")
 
 token_four = Token.create!(
   address: "2 Battery Rd, Singapore 049908",
+  description: "Zodiac styles!",
   collection: zodiac_collection
 )
 token_four.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken4.avif'), filename: "zodiactoken4.avif", content_type: "image/avif")
 
 token_five = Token.create!(
   address: "11 Collyer Quay, Singapore 049317",
+  description: "Zodiac styles!",
   collection: zodiac_collection
 )
 token_five.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken5.avif'), filename: "zodiactoken5.avif", content_type: "image/avif")
 
 token_six = Token.create!(
   address: "5 Stadium Walk, Singapore 397693",
+  description: "Zodiac styles!",
   collection: monkey_collection,
   user: gym_user
 )
