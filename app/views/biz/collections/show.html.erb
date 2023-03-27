@@ -45,9 +45,10 @@
       <% end %>
 
       <div class="col-12 col-sm-6 col-md-3 mb-4">
-        <%= link_to new_biz_business_collection_token_path(@collection.business.id, @collection.id) do %>
-        <div class="card front bg-white">
-            <p>Add New Token</p>
+        <%= link_to new_biz_business_collection_token_path(@collection.business.id, @collection.id), class: "text-decoration-none" do %>
+        <div class="d-flex justify-content-center card front fs-5 text-center" style="padding: 8rem 0;">
+            <i class="fa-solid fa-plus fs-1 text-dark"></i>
+            <p class="text-dark" style="margin: 0;">Add a New Token</p>
           <% end %>
         </div>
       </div>
