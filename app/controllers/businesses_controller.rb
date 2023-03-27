@@ -1,7 +1,8 @@
 class BusinessesController < UserController
   def index
-    if params[:query].present?
-      @businesses = Business.search(params[:query])
+    if request.xhr?
+      @businesses = Business.where("name ILIKE ?", "%#{params[:search]}%")
+      render partial: "businesses", locals: { businesses: @businesses }
     else
       @businesses = Business.all
     end
