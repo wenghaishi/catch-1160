@@ -6,8 +6,10 @@
 
 <%# footer nav %>
   <div class="footer-container">
+    <%= link_to businesses_path do %>
     <div class="footer-sm-container">
       <%= image_tag 'Search.svg', class: "footer-icon"%>
+      <% end %>
       <%= content_tag :div, "Search", class: "footer-title" %>
     </div>
 
