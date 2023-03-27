@@ -1,1 +1,17 @@
-HI this is the business index page
+<%= render 'header' %>
+<div class="container-fluid">
+  <% @businesses.each do |business| %>
+    <%= link_to business_path(business), class: "text-decoration-none" do %>
+      <div class="rounded-4 shadow border mb-3 overflow-hidden">
+        <div class="businesses-banner" style="background-image: url(<%= cl_image_path business.user.banner.key %>)">
+          <div class="banner-wrapper">
+          </div>
+        </div>
+        <div class="p-3 business-card-text">
+          <p class="fw-bold fs-5 text-dark"><%= business.name %></p>
+          <p class="text-end text-secondary" style="transform: translateY(1.5px);">Collections <span class="fw-bold"><%= business.collections.count %></span> | Tokens <span class="fw-bold"><%= business.tokens.count %></span></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
