@@ -20,7 +20,13 @@
 
     <%= link_to user_path(current_user) do %>
     <div class="footer-sm-container">
-      <%= image_tag 'user.png', class: "footer-icon" %>
+      <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+      <lord-icon
+          src="https://cdn.lordicon.com/hbvyhtse.json"
+          trigger="hover"
+          colors="primary:#000000"
+          style="width:40px;height:40px">
+      </lord-icon>
       <% end %>
       <%= content_tag :div, "User", class: "footer-title" %>
     </div>
