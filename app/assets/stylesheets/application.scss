@@ -38,7 +38,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-size: cover;     
+  background-size: cover;
   background-repeat: no-repeat;
   background-image: url('/assets/bg.png');
 }
@@ -102,6 +102,15 @@ body {
   text-decoration: none;
 }
 
+.input-des {
+  width: 300px;
+  height: 32px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
 .forgot-password {
   text-decoration: none;
 }
@@ -111,10 +120,10 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
-  height:100px;
+  height: 70px;
   position: fixed;
-  z-index:20;
-  bottom:0;
+  z-index: 20;
+  bottom: 0;
   left: 0;
   background-color: #ffffff;
   box-shadow: 0px 4px 6px  rgb(0, 0, 0);
@@ -122,19 +131,53 @@ body {
 
 .footer-sm-container {
   display: flex;
-  width:100%;
+  width: 100%;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   font-size: x-large;
-  padding:20px;
+  padding: 20px;
 }
 
 .footer-icon {
-  height: 35px;
+  height: 24px;
   margin-bottom: 6px;
 }
 
 .footer-title {
   font-size: 16px;
 }
+
+.mapboxgl-ctrl-geocoder {
+  max-width: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0;
+  border-radius: 7px;
+  text-decoration: none;
+  width: 100%;
+  height: 32px;
+  border: 1px solid lightgrey;
+  box-shadow: none;
+  background-color: transparent;
+  font-size: 40px;
+
+  svg {
+    display: none;
+  }
+}
+
+.mapboxgl-ctrl-geocoder input[type='text'] {
+  font-size:1rem;
+  width:100%;
+  border:0;
+  background-color:transparent;
+  height:40px;
+  color:rgba(0,0,0,.5);
+  padding:10px 40px 10px 10px;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  overflow:hidden;
+  }

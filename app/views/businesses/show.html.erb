@@ -38,7 +38,7 @@
 <div class="wrapper">
   <p class="fs-5 fw-bold mb-3 mt-3"><%= @business.tokens.count %> items</p>
   <div>
-    <div class="row">
+    <div class="row" style="padding-bottom: 80px;">
       <% @business.tokens.each do |token| %>
         <div class="col-12 col-sm-6 col-md-3 mb-4 ">
           <div class="flip">
@@ -64,5 +64,27 @@
         </div>
       <% end %>
     </div>
+  </div>
+</div>
+<%# footer %>
+<div class="footer-container">
+  <div class="footer-sm-container">
+    <%= image_tag 'Search.svg', class: "footer-icon"%>
+
+    <%= content_tag :div, "Search", class: "footer-title" %>
+  </div>
+
+  <%= link_to tokens_path do %>
+  <div class="footer-sm-container">
+    <%= image_tag 'Map.svg', class: "footer-icon footer-active" %>
+    <% end %>
+    <%= content_tag :div, "Map", class: "footer-title" %>
+  </div>
+
+  <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+  <div class="footer-sm-container">
+    <%= image_tag 'Logout.svg', class: "footer-icon" %>
+    <% end %>
+    <%= content_tag :div, "Logout", class: "footer-title" %>
   </div>
 </div>

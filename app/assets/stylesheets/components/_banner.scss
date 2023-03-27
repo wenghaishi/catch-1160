@@ -35,6 +35,27 @@
   max-height: 320px;
 }
 
+.businesses-banner {
+  padding: 0;
+  margin: 0 auto;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-height: 320px;
+  overflow: hidden;
+}
+
+.banner-wrapper {
+  padding: clamp(8vh, 10vw, 14vh);
+  margin: 0 30px;
+}
+
+.business-card-text p {
+  margin: 0;
+  padding-right: 5px;
+  margin-bottom: 1px;
+}
+
 .wrapper {
   margin: 0 30px;
 }

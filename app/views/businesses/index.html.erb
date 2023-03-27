@@ -1,1 +1,37 @@
-HI this is the business index page
+<%= render 'header' %>
+<% if @businesses.any? %>
+  <%= render 'businesses' %>
+<% else %>
+  <div class="container-fluid">
+    <div class="row" style="padding-bottom: 80px;">
+      <div class="col-12">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="height: 100vh;">
+          <p class="text-center">No businesses found.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%# footer nav %>
+<div class="footer-container">
+  <%= link_to businesses_path do %>
+  <div class="footer-sm-container">
+    <%= image_tag 'Search.svg', class: "footer-icon"%>
+    <% end %>
+    <%= content_tag :div, "Search", class: "footer-title" %>
+  </div>
+
+  <%= link_to tokens_path do %>
+  <div class="footer-sm-container">
+    <%= image_tag 'Map.svg', class: "footer-icon" %>
+    <% end %>
+    <%= content_tag :div, "Map", class: "footer-title" %>
+  </div>
+
+  <%= link_to user_path(current_user) do %>
+  <div class="footer-sm-container">
+    <%= image_tag 'User.svg', class: "footer-icon" %>
+    <% end %>
+    <%= content_tag :div, "Profile", class: "footer-title" %>
+  </div>
+</div>

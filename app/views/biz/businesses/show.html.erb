@@ -38,7 +38,7 @@
 <div class="wrapper">
   <p class="fs-5 fw-bold mb-3 mt-3"><%= @business.tokens.count %> items</p>
   <div>
-    <div class="row">
+    <div class="row" style="padding-bottom: 80px;">
       <% @business.tokens.each do |token| %>
         <div class="col-12 col-sm-6 col-md-3 mb-4 ">
           <div class="flip">
@@ -67,21 +67,21 @@
   </div>
 </div>
 <div class="footer-container">
-  <%= link_to new_biz_business_collection_path(@business.id) do %>
+  <%= link_to new_biz_business_collection_path(current_user.business.id) do %>
     <div class="footer-sm-container">
-      <%= image_tag 'new-collection.png', class: "footer-icon"%>
+      <%= image_tag 'Plus.svg', class: "footer-icon"%>
     <% end %>
     <%= content_tag :div, "Create", class: "footer-title" %>
   </div>
   <%= link_to biz_business_tokens_path(@business.id) do %>
     <div class="footer-sm-container">
-      <%= image_tag 'Map.png', class: "footer-icon" %>
+      <%= image_tag 'Map.svg', class: "footer-icon" %>
     <% end %>
     <%= content_tag :div, "Map", class: "footer-title" %>
   </div>
   <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
     <div class="footer-sm-container">
-      <%= image_tag 'logout.png', class: "footer-icon" %>
+      <%= image_tag 'Logout.svg', class: "footer-icon" %>
     <% end %>
     <%= content_tag :div, "Logout", class: "footer-title" %>
   </div>
