@@ -38,7 +38,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-size: cover;     
+  background-size: cover;
   background-repeat: no-repeat;
   background-image: url('/assets/bg.png');
 }
@@ -111,10 +111,10 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
-  height:100px;
+  height: 70px;
   position: fixed;
-  z-index:20;
-  bottom:0;
+  z-index: 20;
+  bottom: 0;
   left: 0;
   background-color: #ffffff;
   box-shadow: 0px 4px 6px  rgb(0, 0, 0);
@@ -122,16 +122,16 @@ body {
 
 .footer-sm-container {
   display: flex;
-  width:100%;
+  width: 100%;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   font-size: x-large;
-  padding:20px;
+  padding: 20px;
 }
 
 .footer-icon {
-  height: 35px;
+  height: 24px;
   margin-bottom: 6px;
 }
 
