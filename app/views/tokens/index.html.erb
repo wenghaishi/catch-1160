@@ -6,31 +6,29 @@
 
 <%# footer nav %>
   <div class="footer-container">
+    <%= link_to businesses_path do %>
     <div class="footer-sm-container">
-      <%= image_tag 'Wallet.png', class: "footer-icon"%>
-      <%= content_tag :div, "Wallet", class: "footer-title" %>
+      <%= image_tag 'Search.svg', class: "footer-icon"%>
+      <% end %>
+      <%= content_tag :div, "Search", class: "footer-title" %>
     </div>
-    
+
     <%= link_to tokens_path do %>
     <div class="footer-sm-container">
-      <%= image_tag 'Map.png', class: "footer-icon" %>
+      <%= image_tag 'Map.svg', class: "footer-icon" %>
       <% end %>
       <%= content_tag :div, "Map", class: "footer-title" %>
     </div>
 
     <%= link_to user_path(current_user) do %>
     <div class="footer-sm-container">
-      <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
-      <lord-icon
-          src="https://cdn.lordicon.com/hbvyhtse.json"
-          trigger="hover"
-          colors="primary:#000000"
-          style="width:40px;height:40px">
-      </lord-icon>
+      <%= image_tag 'User.svg', class: "footer-icon" %>
       <% end %>
-      <%= content_tag :div, "User", class: "footer-title" %>
+      <%= content_tag :div, "Profile", class: "footer-title" %>
     </div>
   </div>
+
+  <%# map popup %>
   <div data-map-target="popup" class="popup-token">
   </div>
 </div>

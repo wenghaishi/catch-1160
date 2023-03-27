@@ -18,7 +18,7 @@
 <div class="wrapper">
   <p class="fs-5 fw-bold mb-3 mt-3"><%= @collection.tokens.count %> items</p>
   <div>
-    <div class="row justify-content-between" style="height: 200px;">
+    <div class="row" style="padding-bottom: 80px;">
       <% @collection.tokens.each_with_index do |token, index| %>
         <div class="col-12 col-sm-6 col-md-3 mb-4 ">
           <div class="flip">
@@ -43,6 +43,35 @@
           </div>
         </div>
       <% end %>
+
+      <div class="col-12 col-sm-6 col-md-3 mb-4">
+        <%= link_to new_biz_business_collection_token_path(@collection.business.id, @collection.id), class: "text-decoration-none" do %>
+        <div class="d-flex justify-content-center card front fs-5 text-center" style="padding: 8rem 0;">
+            <i class="fa-solid fa-plus fs-1 text-dark"></i>
+            <p class="text-dark" style="margin: 0;">Add a New Token</p>
+          <% end %>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+<div class="footer-container">
+  <%= link_to new_biz_business_collection_path(@collection.business.id) do %>
+    <div class="footer-sm-container">
+      <%= image_tag 'Plus.svg', class: "footer-icon"%>
+    <% end %>
+    <%= content_tag :div, "Create", class: "footer-title" %>
+  </div>
+  <%= link_to biz_business_tokens_path(@collection.business.id) do %>
+    <div class="footer-sm-container">
+      <%= image_tag 'Map.svg', class: "footer-icon" %>
+    <% end %>
+    <%= content_tag :div, "Map", class: "footer-title" %>
+  </div>
+  <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+    <div class="footer-sm-container">
+      <%= image_tag 'Logout.svg', class: "footer-icon" %>
+    <% end %>
+    <%= content_tag :div, "Logout", class: "footer-title" %>
   </div>
 </div>

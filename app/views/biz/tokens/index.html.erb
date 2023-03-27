@@ -6,23 +6,25 @@
 
 <%# footer nav %>
   <div class="footer-container">
+    <%= link_to new_biz_business_collection_path(current_user.business.id) do %>
     <div class="footer-sm-container">
-      <%= image_tag 'Wallet.png', class: "footer-icon"%>
-      <%= content_tag :div, "Wallet", class: "footer-title" %>
+      <%= image_tag 'Plus.svg', class: "footer-icon"%>
+    <% end %>
+    <%= content_tag :div, "Create", class: "footer-title" %>
     </div>
 
     <%= link_to biz_business_tokens_path do %>
     <div class="footer-sm-container">
-      <%= image_tag 'Map.png', class: "footer-icon" %>
+      <%= image_tag 'Map.svg', class: "footer-icon" %>
       <% end %>
       <%= content_tag :div, "Map", class: "footer-title" %>
     </div>
 
     <%= link_to user_path(current_user) do %>
     <div class="footer-sm-container">
-      <%= image_tag 'user.png', class: "footer-icon" %>
+      <%= image_tag 'User.svg', class: "footer-icon" %>
       <% end %>
-      <%= content_tag :div, "User", class: "footer-title" %>
+      <%= content_tag :div, "Profile", class: "footer-title" %>
     </div>
   </div>
   <div data-map-target="popup" class="popup-token">
