@@ -22,6 +22,7 @@ class Biz::TokensController < BizController
 
   def create
     @token = Token.new(token_params)
+    raise
     @token.collection_id = params[:collection_id]
 
     if @token.save

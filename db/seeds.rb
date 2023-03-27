@@ -19,7 +19,7 @@ studio_user = User.create!(
   username: "Studio User",
   first_name: "Tooda",
   last_name: "Moon",
-  email: "bifoj92445@etondy.com",
+  email: "user@studio.com",
   password: "123456",
   account_type: "user"
 )
@@ -32,8 +32,8 @@ gym_user = User.create!(
   username: "Gym User",
   first_name: "HODL",
   last_name: "LORD",
-  email: "mahrine@enhanceronly.com",
-  password: "654321",
+  email: "user@gym.com",
+  password: "123456",
   account_type: "user"
 )
 gym_user.photo.attach(io: File.open("app/assets/images/user_img/gym_user.avif"), filename: "gym_user.avif", content_type: "image/avif")
@@ -41,13 +41,27 @@ gym_user.banner.attach(io: File.open('app/assets/images/user_img/gym_user_banner
 
 p "Created gym_user user"
 
+##Added New beanboi user
+beanboi_user = User.create!(
+  username: "Beanie Baby",
+  first_name: "Beanie",
+  last_name: "Baby",
+  email: "user@beanboi.com",
+  password: "123456",
+  account_type: "user"
+)
+beanboi_user.photo.attach(io: File.open("app/assets/images/user_img/beanboiuserprofile.avif"), filename: "beanboiuserprofile.avif", content_type: "image/avif")
+beanboi_user.banner.attach(io: File.open('app/assets/images/banner_img/beanboiuserbanner.avif'), filename: "beanboiuserbanner.avif", content_type: "image/avif")
+
+p "Created beanboi_user user"
+
 #Studio owner: user with business account
 studio_owner = User.create!(
   username: "Studio Owner",
   first_name: "NOTA",
   last_name: "WHALE",
-  email: "glennuni@kenvanharen.com",
-  password: "567890",
+  email: "owner@studio.com",
+  password: "654321",
   account_type: "business"
 )
 studio_owner.photo.attach(io: File.open("app/assets/images/user_img/studio_owner.avif"), filename: "studio_owner.avif", content_type: "image/avif")
@@ -60,14 +74,28 @@ gym_owner = User.create!(
   username: "Gym Owner",
   first_name: "Masterof",
   last_name: "Puppets",
-  email: "faifrank2005@dealoftheyear.top",
-  password: "098765",
+  email: "owner@gym.com",
+  password: "654321",
   account_type: "business"
 )
 gym_owner.photo.attach(io: File.open("app/assets/images/user_img/gym_owner.avif"), filename: "gym_owner.avif", content_type: "image/avif")
 gym_owner.banner.attach(io: File.open('app/assets/images/user_img/gym_owner_banner.avif'), filename: "gym_owner_banner.avif", content_type: "image/avif")
 
 p "Created gym_owner user"
+
+##Added New beanboi owner
+beanboi_owner = User.create!(
+  username: "Bean Boi",
+  first_name: "Bean",
+  last_name: "Boi",
+  email: "owner@beanboi.com",
+  password: "654321",
+  account_type: "business"
+)
+beanboi_owner.photo.attach(io: File.open("app/assets/images/user_img/beanboiownerprofile.avif"), filename: "beanboiownerprofile.avif", content_type: "image/avif")
+beanboi_owner.banner.attach(io: File.open('app/assets/images/banner_img/beanboiownerbanner.avif'), filename: "beanboiownerbanner.avif", content_type: "image/avif")
+
+p "Created beanboi_owner user"
 
 #Studio Business
 studio_business = Business.create!(
@@ -76,7 +104,7 @@ studio_business = Business.create!(
   description: "A studio in the heart of Singapore's CBD, prouducing zodiac inspired avatars",
   user: studio_owner
 )
-p "Created studio_owner user"
+p "Assigned studio_owner to Z Studio"
 
 #Gym Business
 gym_business = Business.create!(
@@ -85,7 +113,16 @@ gym_business = Business.create!(
   description: "A gym at Kallang, for swole bros and those who wanna be swole",
   user: gym_owner
 )
-p "Created gym_owner user"
+p "Assigned gym_owner to Monkey Madness"
+
+##Added new beanboi business
+beanboi_business = Business.create!(
+  name: "Bean Boi Plushies",
+  address: "1 Dunlop Street, Singapore 209331",
+  description: "We're crazy about beans! Have a bean-tastic day!",
+  user: beanboi_owner
+)
+p "Assigned beanboi_owner to Bean Boi"
 
 #Collections
 zodiac_collection = Collection.new(
@@ -95,7 +132,6 @@ zodiac_collection = Collection.new(
 )
 zodiac_collection.business = studio_business
 zodiac_collection.save!
-
 studio_business.save!
 zodiac_collection.photo.attach(io: File.open('app/assets/images/collection_img/studio_profile.avif'), filename: "studio_profile.avif", content_type: "image/avif")
 zodiac_collection.banner.attach(io: File.open('app/assets/images/banner_img/studio_banner.avif'), filename: "studio_banner.avif", content_type: "image/avif")
@@ -110,48 +146,88 @@ monkey_collection = Collection.new(
 monkey_collection.business = gym_business
 monkey_collection.save!
 gym_business.save!
-monkey_collection.photo.attach(io: File.open('app/assets/images/collection_img/gym_profile.webp'), filename: "gym_profile.avif", content_type: "image/avif")
+monkey_collection.photo.attach(io: File.open('app/assets/images/collection_img/gym_profile.webp'), filename: "gym_profile.avif", content_type: "image/webp")
 monkey_collection.banner.attach(io: File.open('app/assets/images/banner_img/gym_banner.avif'), filename: "gym_banner.avif", content_type: "image/avif")
 
 p "Created Swole Monkeys collection for Monkey Madness"
+
+##Added new beanboi collection
+greenbean_collection = Collection.new(
+  name: "Green Beans",
+  description: "Redeem a free mini beanboi plushie!",
+  category: "Collectibles"
+)
+greenbean_collection.business = beanboi_business
+greenbean_collection.save!
+beanboi_business.save!
+greenbean_collection.photo.attach(io: File.open('app/assets/images/collection_img/greenbeancollectionprofile.avif'), filename: "greenbeancollectionprofile.avif", content_type: "image/avif")
+greenbean_collection.banner.attach(io: File.open('app/assets/images/banner_img/beancollectionbanner.avif'), filename: "beancollectionbanner.avif", content_type: "image/avif")
+
+redbean_collection = Collection.new(
+  name: "Red Beans",
+  description: "Receive $5 off your next in-store purchase!",
+  category: "Voucher"
+)
+redbean_collection.business = beanboi_business
+redbean_collection.save!
+beanboi_business.save!
+redbean_collection.photo.attach(io: File.open('app/assets/images/collection_img/redbeancollectionprofile.avif'), filename: "redbeancollectionprofile.avif", content_type: "image/avif")
+redbean_collection.banner.attach(io: File.open('app/assets/images/banner_img/beancollectionbanner.avif'), filename: "beancollectionbanner.avif", content_type: "image/avif")
+
+orangebean_collection = Collection.new(
+  name: "Orange Beans",
+  description: "Free admission to our beanboi gallery!",
+  category: "Ticket"
+)
+orangebean_collection.business = beanboi_business
+orangebean_collection.save!
+beanboi_business.save!
+orangebean_collection.photo.attach(io: File.open('app/assets/images/collection_img/orangebeancollectionprofile.avif'), filename: "orangebeancollectionprofile.avif", content_type: "image/avif")
+orangebean_collection.banner.attach(io: File.open('app/assets/images/banner_img/beancollectionbanner.avif'), filename: "beancollectionbanner.avif", content_type: "image/avif")
+
+p "Created 3 beanboi collections"
 
 #Tokens
 token_one = Token.create!(
   address: "80 Raffles Pl, Singapore 048624",
   collection: zodiac_collection,
+  description: "Zodiac styles!",
   user: studio_user
 )
 token_one.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken1.avif'), filename: "zodiactoken1.avif", content_type: "image/avif")
-# token_one.user = studio_user
 
 token_two = Token.create!(
   address: "1 Fullerton Rd, Singapore 049213",
   collection: zodiac_collection,
+  description: "Zodiac styles!",
   user: studio_user
 )
 token_two.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken2.avif'), filename: "zodiactoken2.avif", content_type: "image/avif")
 
-
 token_three = Token.create!(
   address: "88 Market St, Singapore 048948",
+  description: "Zodiac styles!",
   collection: zodiac_collection
 )
 token_three.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken3.avif'), filename: "zodiactoken3.avif", content_type: "image/avif")
 
 token_four = Token.create!(
   address: "2 Battery Rd, Singapore 049908",
+  description: "Zodiac styles!",
   collection: zodiac_collection
 )
 token_four.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken4.avif'), filename: "zodiactoken4.avif", content_type: "image/avif")
 
 token_five = Token.create!(
   address: "11 Collyer Quay, Singapore 049317",
+  description: "Zodiac styles!",
   collection: zodiac_collection
 )
 token_five.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken5.avif'), filename: "zodiactoken5.avif", content_type: "image/avif")
 
 token_six = Token.create!(
   address: "5 Stadium Walk, Singapore 397693",
+  description: "Zodiac styles!",
   collection: monkey_collection,
   user: gym_user
 )
@@ -182,4 +258,55 @@ token_ten = Token.create!(
 )
 token_ten.photo.attach(io: File.open('app/assets/images/token_img/swoletoken5.avif'), filename: "swoletoken5.avif", content_type: "image/avif")
 
-p "Created #{Token.count} tokens"
+##Added beanboi tokens
+token_eleven = Token.create!(
+  address: "63 Dunlop St, Singapore 209391",
+  collection: redbean_collection,
+  description: "$5 OFF your next Beanboi purchase!",
+  conditions: "Only valid for in-store redemption. Voucher may only be used once. Minimum $20 purchase."
+)
+token_eleven.photo.attach(io: File.open('app/assets/images/token_img/redbeanboi1.avif'), filename: "redbeanboi1.avif", content_type: "image/avif")
+
+token_twelve = Token.create!(
+  address: "5 Dunlop Street, Singapore 209335",
+  collection: redbean_collection,
+  description: "$5 OFF your next Beanboi purchase!",
+  conditions: "Only valid for in-store redemption. Voucher may only be used once. Minimum $20 purchase."
+)
+token_twelve.photo.attach(io: File.open('app/assets/images/token_img/redbeanboi2.avif'), filename: "redbeanboi2.avif", content_type: "image/avif")
+
+token_thirteen = Token.create!(
+  address: "7 Dunlop Street, Singapore 209337",
+  collection: greenbean_collection,
+  description: "Redeem a FREE Beanboi Plushie!",
+  conditions: "Only valid for in-store redemption. Only one redemption per NFT. While stocks last, subject to availability."
+)
+token_thirteen.photo.attach(io: File.open('app/assets/images/token_img/greenbeanboi1.avif'), filename: "greenbeanboi1.avif", content_type: "image/avif")
+
+token_fourteen = Token.create!(
+  address: "45 Dunlop St, Singapore 209374",
+  collection: greenbean_collection,
+  description: "Redeem a FREE Beanboi Plushie!",
+  conditions: "Only valid for in-store redemption. Only one redemption per NFT. While stocks last, subject to availability.",
+  user: beanboi_user
+)
+token_fourteen.photo.attach(io: File.open('app/assets/images/token_img/greenbeanboi2.avif'), filename: "greenbeanboi2.avif", content_type: "image/avif")
+
+token_fifteen = Token.create!(
+  address: "36 Dunlop St, Singapore 209364",
+  collection: orangebean_collection,
+  description: "FREE admission to Beanboi Gallery!",
+  conditions: "This NFT admits only ONE. Beanboi has the right to refuse entry to any individual displaying inappropriate behavior.",
+  user: beanboi_user
+)
+token_fifteen.photo.attach(io: File.open('app/assets/images/token_img/orangebeanboi1.avif'), filename: "orangebeanboi1.avif", content_type: "image/avif")
+
+token_sixteen = Token.create!(
+  address: "63 Dunlop St, Singapore 209391",
+  collection: orangebean_collection,
+  description: "FREE admission to Beanboi Gallery!",
+  conditions: "This NFT admits only ONE. Beanboi has the right to refuse entry to any individual displaying inappropriate behavior."
+)
+token_sixteen.photo.attach(io: File.open('app/assets/images/token_img/orangebeanboi2.avif'), filename: "orangebeanboi2.avif", content_type: "image/avif")
+
+p "16 tokens generated"

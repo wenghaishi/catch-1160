@@ -45,7 +45,7 @@ class TokensController < UserController
     # end of nft minting logic
     
     @token.save
-    redirect_to user_path(current_user)
+    redirect_to token_path(@token)
   end
 
   def show
