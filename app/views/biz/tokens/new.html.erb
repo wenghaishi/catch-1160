@@ -1,6 +1,7 @@
 <div class="my-div navbar hidden-tablet hidden-phone">
 
 <%= image_tag "logo.png", style: 'height:50px;margin-bottom:20px;' %>
+<p>Create a new token in your collection</p>
 
 <%= simple_form_for [:biz, @token], url: biz_business_collection_tokens_path do |f| %>
   <%= f.error_notification %>
@@ -12,6 +13,19 @@
                 required: true,
                 autofocus: true,
                 input_html: {  class: 'input' } %>
+    <%= f.input :description,
+                label: false,
+                placeholder: 'Descriptions',
+                required: true,
+                autofocus: true,
+                input_html: {  class: 'input' } %>
+    <%= f.input :conditions,
+                label: false,
+                placeholder: 'Conditions',
+                required: true,
+                autofocus: true,
+                input_html: {  class: 'input' } %>
+
     <%= f.input :photo, as: :file, required: true, input_html: { class: 'input1' } %>
   </div>
   <div class="form-actions main-button">
