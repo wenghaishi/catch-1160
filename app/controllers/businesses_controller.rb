@@ -1,6 +1,10 @@
 class BusinessesController < UserController
   def index
-    @businesses = Business.all
+    if params[:query].present?
+      @businesses = Business.search(params[:query])
+    else
+      @businesses = Business.all
+    end
   end
 
   def show
