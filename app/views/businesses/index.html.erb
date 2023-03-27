@@ -1,1 +1,14 @@
-HI this is the business index page
+<%= render 'header' %>
+<% if @businesses.any? %>
+  <%= render 'businesses' %>
+<% else %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="height: 100vh;">
+          <p class="text-center">No businesses found.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
