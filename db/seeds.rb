@@ -24,7 +24,7 @@ studio_user = User.create!(
   account_type: "user"
 )
 studio_user.photo.attach(io: File.open("app/assets/images/user_img/studio_user.avif"), filename: "studio_user.avif", content_type: "image/avif")
-studio_user.banner.attach(io: File.open('app/assets/images/user_img/studio_user_banner.avif'), filename: "studio_user_banner.avif", content_type: "image/avif")
+studio_user.banner.attach(io: File.open('app/assets/images/banner_img/studiouser_banner.png'), filename: "studiouser_banner.png", content_type: "image/png")
 
 p "Created studio_user user"
 
@@ -37,7 +37,7 @@ gym_user = User.create!(
   account_type: "user"
 )
 gym_user.photo.attach(io: File.open("app/assets/images/user_img/gym_user.avif"), filename: "gym_user.avif", content_type: "image/avif")
-gym_user.banner.attach(io: File.open('app/assets/images/user_img/gym_user_banner.avif'), filename: "gym_user_banner.avif", content_type: "image/avif")
+gym_user.banner.attach(io: File.open('app/assets/images/banner_img/gymuser_banner.png'), filename: "gymuser_banner.png", content_type: "image/png")
 
 p "Created gym_user user"
 
@@ -51,7 +51,7 @@ beanboi_user = User.create!(
   account_type: "user"
 )
 beanboi_user.photo.attach(io: File.open("app/assets/images/user_img/beanboiuserprofile.avif"), filename: "beanboiuserprofile.avif", content_type: "image/avif")
-beanboi_user.banner.attach(io: File.open('app/assets/images/banner_img/beanboiuserbanner.avif'), filename: "beanboiuserbanner.avif", content_type: "image/avif")
+beanboi_user.banner.attach(io: File.open('app/assets/images/banner_img/bbuser_banner.png'), filename: "bbuser_banner.png", content_type: "image/png")
 
 p "Created beanboi_user user"
 
@@ -65,7 +65,7 @@ studio_owner = User.create!(
   account_type: "business"
 )
 studio_owner.photo.attach(io: File.open("app/assets/images/user_img/studio_owner.avif"), filename: "studio_owner.avif", content_type: "image/avif")
-studio_owner.banner.attach(io: File.open('app/assets/images/user_img/studio_owner_banner.avif'), filename: "studio_owner_banner.avif", content_type: "image/avif")
+studio_owner.banner.attach(io: File.open('app/assets/images/banner_img/studio_banner.png'), filename: "studio_banner.png", content_type: "image/png")
 
 p "Created studio_owner user"
 
@@ -79,7 +79,7 @@ gym_owner = User.create!(
   account_type: "business"
 )
 gym_owner.photo.attach(io: File.open("app/assets/images/user_img/gym_owner.avif"), filename: "gym_owner.avif", content_type: "image/avif")
-gym_owner.banner.attach(io: File.open('app/assets/images/user_img/gym_owner_banner.avif'), filename: "gym_owner_banner.avif", content_type: "image/avif")
+gym_owner.banner.attach(io: File.open('app/assets/images/banner_img/gym_banner.png'), filename: "gym_banner.png", content_type: "image/png")
 
 p "Created gym_owner user"
 
@@ -92,8 +92,8 @@ beanboi_owner = User.create!(
   password: "654321",
   account_type: "business"
 )
-beanboi_owner.photo.attach(io: File.open("app/assets/images/user_img/beanboiownerprofile.avif"), filename: "beanboiownerprofile.avif", content_type: "image/avif")
-beanboi_owner.banner.attach(io: File.open('app/assets/images/banner_img/beanboiownerbanner.avif'), filename: "beanboiownerbanner.avif", content_type: "image/avif")
+beanboi_owner.photo.attach(io: File.open("app/assets/images/user_img/beanboiowner_photo.avif"), filename: "beanboiowner_photo.avif", content_type: "image/avif")
+beanboi_owner.banner.attach(io: File.open('app/assets/images/banner_img/beanboi_banner.png'), filename: "beanboi_banner.png", content_type: "image/png")
 
 p "Created beanboi_owner user"
 
@@ -108,12 +108,12 @@ p "Assigned studio_owner to Z Studio"
 
 #Gym Business
 gym_business = Business.create!(
-  name: "Monkey Madness",
+  name: "Swole Bros Gym",
   address: "Stadium Blvd Singapore 397804",
   description: "A gym at Kallang, for swole bros and those who wanna be swole",
   user: gym_owner
 )
-p "Assigned gym_owner to Monkey Madness"
+p "Assigned gym_owner to Swole Bros Gym"
 
 ##Added new beanboi business
 beanboi_business = Business.create!(
@@ -138,18 +138,18 @@ zodiac_collection.banner.attach(io: File.open('app/assets/images/banner_img/stud
 
 p "Created Zodiac Styles collection for Z Studio"
 
-monkey_collection = Collection.new(
-  name: "Swole Monkeys",
-  description: "A collection of swole monkeys",
+swolebros_collection = Collection.new(
+  name: "Gym Bros",
+  description: "A collection of swole gym bros",
   category: "Membership Passes"
 )
-monkey_collection.business = gym_business
-monkey_collection.save!
+swolebros_collection.business = gym_business
+swolebros_collection.save!
 gym_business.save!
-monkey_collection.photo.attach(io: File.open('app/assets/images/collection_img/gym_profile.webp'), filename: "gym_profile.avif", content_type: "image/webp")
-monkey_collection.banner.attach(io: File.open('app/assets/images/banner_img/gym_banner.avif'), filename: "gym_banner.avif", content_type: "image/avif")
+swolebros_collection.photo.attach(io: File.open('app/assets/images/collection_img/gym_profile.webp'), filename: "gym_profile.avif", content_type: "image/webp")
+swolebros_collection.banner.attach(io: File.open('app/assets/images/banner_img/gym_banner.avif'), filename: "gym_banner.avif", content_type: "image/avif")
 
-p "Created Swole Monkeys collection for Monkey Madness"
+p "Created Gym Bros collection for Swole Bros Gym"
 
 ##Added new beanboi collection
 greenbean_collection = Collection.new(
@@ -191,7 +191,8 @@ p "Created 3 beanboi collections"
 token_one = Token.create!(
   address: "80 Raffles Pl, Singapore 048624",
   collection: zodiac_collection,
-  description: "Zodiac styles!",
+  description: "Zodiac Inspired Digital Art!",
+  conditions: "NFTs created by Z Studio are unique and non-interchangeable units of data stored on a digital ledger (blockchain).",
   user: studio_user
 )
 token_one.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken1.avif'), filename: "zodiactoken1.avif", content_type: "image/avif")
@@ -199,62 +200,66 @@ token_one.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken1.a
 token_two = Token.create!(
   address: "1 Fullerton Rd, Singapore 049213",
   collection: zodiac_collection,
-  description: "Zodiac styles!",
+  description: "Zodiac Inspired Digital Art!",
+  conditions: "NFTs created by Z Studio are unique and non-interchangeable units of data stored on a digital ledger (blockchain).",
   user: studio_user
 )
 token_two.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken2.avif'), filename: "zodiactoken2.avif", content_type: "image/avif")
 
 token_three = Token.create!(
   address: "88 Market St, Singapore 048948",
-  description: "Zodiac styles!",
+  description: "Zodiac Inspired Digital Art!",
+  conditions: "NFTs created by Z Studio are unique and non-interchangeable units of data stored on a digital ledger (blockchain).",
   collection: zodiac_collection
 )
 token_three.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken3.avif'), filename: "zodiactoken3.avif", content_type: "image/avif")
 
 token_four = Token.create!(
   address: "2 Battery Rd, Singapore 049908",
-  description: "Zodiac styles!",
+  description: "Zodiac Inspired Digital Art!",
+  conditions: "NFTs created by Z Studio are unique and non-interchangeable units of data stored on a digital ledger (blockchain).",
   collection: zodiac_collection
 )
 token_four.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken4.avif'), filename: "zodiactoken4.avif", content_type: "image/avif")
 
 token_five = Token.create!(
   address: "11 Collyer Quay, Singapore 049317",
-  description: "Zodiac styles!",
+  description: "Zodiac Inspired Digital Art!",
+  conditions: "NFTs created by Z Studio are unique and non-interchangeable units of data stored on a digital ledger (blockchain).",
   collection: zodiac_collection
 )
 token_five.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken5.avif'), filename: "zodiactoken5.avif", content_type: "image/avif")
 
 token_six = Token.create!(
   address: "5 Stadium Walk, Singapore 397693",
-  description: "Zodiac styles!",
-  collection: monkey_collection,
+  description: "Zodiac Inspired Digital Art!",
+  collection: swolebros_collection,
   user: gym_user
 )
 token_six.photo.attach(io: File.open('app/assets/images/token_img/swoletoken1.avif'), filename: "swoletoken1.avif", content_type: "image/avif")
 
 token_seven = Token.create!(
   address: "80 Collyer Quay, Singapore 049326",
-  collection: monkey_collection,
+  collection: swolebros_collection,
   user: gym_user
 )
 token_seven.photo.attach(io: File.open('app/assets/images/token_img/swoletoken2.avif'), filename: "swoletoken2.avif", content_type: "image/avif")
 
 token_eight = Token.create!(
   address: "1 Stadium Pl, Singapore 397628",
-  collection: monkey_collection
+  collection: swolebros_collection
 )
 token_eight.photo.attach(io: File.open('app/assets/images/token_img/swoletoken3.avif'), filename: "swoletoken3.avif", content_type: "image/avif")
 
 token_nine = Token.create!(
   address: "230 Stadium Blvd, Singapore 397799",
-  collection: monkey_collection
+  collection: swolebros_collection
 )
 token_nine.photo.attach(io: File.open('app/assets/images/token_img/swoletoken4.avif'), filename: "swoletoken4.avif", content_type: "image/avif")
 
 token_ten = Token.create!(
   address: "38 Jln Benaan Kapal, Singapore 399635",
-  collection: monkey_collection
+  collection: swolebros_collection
 )
 token_ten.photo.attach(io: File.open('app/assets/images/token_img/swoletoken5.avif'), filename: "swoletoken5.avif", content_type: "image/avif")
 
@@ -296,7 +301,7 @@ token_fifteen = Token.create!(
   address: "36 Dunlop St, Singapore 209364",
   collection: orangebean_collection,
   description: "FREE admission to Beanboi Gallery!",
-  conditions: "This NFT admits only ONE. Beanboi has the right to refuse entry to any individual displaying inappropriate behavior.",
+  conditions: "This NFT admits only ONE. Beanboi management has right to restrict entry at their discretion.",
   user: beanboi_user
 )
 token_fifteen.photo.attach(io: File.open('app/assets/images/token_img/orangebeanboi1.avif'), filename: "orangebeanboi1.avif", content_type: "image/avif")
@@ -305,7 +310,7 @@ token_sixteen = Token.create!(
   address: "63 Dunlop St, Singapore 209391",
   collection: orangebean_collection,
   description: "FREE admission to Beanboi Gallery!",
-  conditions: "This NFT admits only ONE. Beanboi has the right to refuse entry to any individual displaying inappropriate behavior."
+  conditions: "This NFT admits only ONE. Beanboi management has right to restrict entry at their discretion."
 )
 token_sixteen.photo.attach(io: File.open('app/assets/images/token_img/orangebeanboi2.avif'), filename: "orangebeanboi2.avif", content_type: "image/avif")
 

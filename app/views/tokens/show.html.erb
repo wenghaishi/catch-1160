@@ -21,12 +21,15 @@
         margin-bottom: 20px;
         border-radius: 56px;
         text-decoration: none;
-
       }
       h1 {
         text-align: left;
         margin-top: 10px;
         margin-bottom: 10px;
+        font-family: TREBUCHET, sans-serif;
+      }
+      h4 {
+        font-family: TREBUCHET, sans-serif;
       }
       .token-photo {
         display: block;
@@ -36,34 +39,34 @@
         border-radius: 24px;
         box-shadow: 0 0 5px rgba(0,0,0,0.5);
       }
-      /* .btn-voucher {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #FFCF72;
-        color: black;
-        text-decoration: none;
-        border-radius: 15px;
-        font-weight: bold;
-      } */
       .token-description {
         text-align: left;
-        color: gray;
+        color: black;
+        background-color: #FFCF72;
         margin-top: 20px;
+        border: solid 2px black;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 20px;
+        width: fit-content;
       }
-      .btn{
-        text-align: center;
+      .token-conditions {
+        text-align: left;
       }
       .btn-primary {
         display: inline-block;
         padding: 10px 20px;
         background-color: #7871FF;
-        color: white;
+        color: black;
         text-decoration: none;
         border-radius: 10px;
         width: 170px;
         text-align: center;
       }
       .social-share{
+        text-align: center;
+      }
+      .authenticate{
         text-align: center;
       }
       .fa-whatsapp {
@@ -98,30 +101,113 @@
         text-decoration: none;
         padding-right: 10px;
       }
+      .btn{
+        padding: 10px 60px;
+        background: #7871FF;
+        border: 0;
+        outline: none;
+        font-size: 20px;
+        font-family: TREBUCHET, sans-serif;
+        border-radius: 30px;
+      }
+      .popup{
+        width: 400px;
+        background: #fff;
+        border-radius: 24px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.1);
+        text-align: center;
+        padding: 0 30px 30px;
+        color: #333;
+        visibility: hidden;
+        transition: transform 0.4s, top 0.4s;
+      }
+      .open-popup{
+        visibility: visible;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      .img{
+        width: 100px;
+        margin-top: -50px;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+      .popup h2{
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding: 10px 0;
+        background: white;
+        color: black;
+        border: 0;
+        outline: none;
+        font-size: 18px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        font-family: TREBUCHET, sans-serif;
+      }
+      .auth-container{
+        text-align: center;
+      }
+      .btn-btm{
+        margin-top: 20px;
+        padding: 10px 60px;
+        background: #7871FF;
+        border: 0;
+        outline: none;
+        font-size: 20px;
+        font-family: TREBUCHET, sans-serif;
+        border-radius: 30px;
+      }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="btn-group-top">
-        <%= link_to "Back", user_path(@user), class: "btn-back" %>
+      <%= link_to "Back", user_path(@user), class: "btn-back" %>
+      <img src="<%= cl_image_path @token.photo.key %>" alt="Token Photo" class="token-photo">
+    <h1><%= @token.collection.name %> #<%= @token.identifier %></h1>
+    <p class="token-description"><%= @token.description %></p>
+    <h4>Terms & Conditions</h4>
+    <p class="token-conditions"><%= @token.conditions %></p>
+    <div class="auth-container">
+      <button type="submit" class="btn" onclick="openPopup()">Authenticate</button>
+      <div class="popup" id="popup">
+        <%= image_tag "misc/authenticated.png", class: "img" %>
+        <h2>Your NFT has been verified! </h2>
+        <a href="#" class="auth-link">NFT Scan link</a>
+        <br>
+        <button type="button" class="btn-btm" onclick="closePopup()">OK</button>
       </div>
-    <img src="<%= cl_image_path @token.photo.key %>" alt="Token Photo" class="token-photo">
-    <h1><%= token.collection.name %> <%= token.identifier %></h1>
-    <p class="token-description"><%= token.description %></p>
-    <br>
-    <p class="token-conditions"><%= token.conditions %></p>
-    <br>
-    <a href="#" class="btn btn-primary">Authenticate</a>
-    <br>
-    <div class="social-share">
-      <a href="https://web.whatsapp.com/send?Check out my new NFT!=#{title}%0A#{url}" i class="fa-brands fa-whatsapp"> </i></a>
-      <a href="https://t.me/share/url?url={url}&text=Check out my new NFT!" i class="fa-brands fa-telegram"></i></a>
-      <a href="http://www.facebook.com/sharer/sharer.php?u=#{url}", 555, 400, i class="fa-brands fa-facebook"></i></a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url=#{url}&title=#{title}&summary=#{desc}", i class="fa-brands fa-linkedin"></i></a>
     </div>
+      <div class="social-share">
+        <a href="https://api.whatsapp.com/send?text=https://catchnft.club/" data-action="share/whatsapp/share" i class="fa-brands fa-whatsapp"> </i></a>
+        <a href="https://t.me/share/url?url=https://catchnft.club/&text=Check out my new NFT!" i class="fa-brands fa-telegram"></i></a>
+        <a href="http://www.facebook.com/sharer/sharer.php?u=https://catchnft.club", 555, 400, i class="fa-brands fa-facebook"></i></a>
+      </div>
     </div>
+    <script>
+      let popup = document.getElementById("popup");
+
+      function openPopup(){
+        popup.classList.add("open-popup");
+      }
+      function closePopup(){
+        popup.classList.remove("open-popup");
+      }
+    </script>
   </body>
 </html>
+
+
+    <%# <div class="authenticate">
+      <div class="iframeContainer">
+        <iframe src="https://www.google.com"></iframe>
+        </div>
+      <a href="#" class="btn btn-primary">Authenticate</a>
+    </div> %>
 
 <%#
     Social share buttons %>
@@ -131,3 +217,20 @@
     authenticate button
     nft scan link
     success message: authenticated! %>
+
+<%# authenticate
+    normal tokens controller
+    response.read_body < api response
+    check transaction hash
+    interpolate hash value into url string
+    %>
+
+<%#
+    authentication logic:
+    from token id show
+    click authenticate button
+    link opens popup
+    popup window contains nft scan iframe
+    user clicks close button to close popup
+    is returned to token show page
+    %>
