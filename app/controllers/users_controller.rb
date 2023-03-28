@@ -1,3 +1,5 @@
+require "eth"
+
 class UsersController < UserController
   def new
     @user = User.new
@@ -25,11 +27,12 @@ class UsersController < UserController
 
   def show
     @user = User.find(params[:id])
+    @token = Token.find(params[:id])
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :first_name, :last_name, :banner, :account_type, :photo, :email, :password)
+    params.require(:user).permit(:eth_address, :username, :banner, :account_type, :photo, :email, :password)
   end
 end

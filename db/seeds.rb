@@ -161,7 +161,7 @@ greenbean_collection.business = beanboi_business
 greenbean_collection.save!
 beanboi_business.save!
 greenbean_collection.photo.attach(io: File.open('app/assets/images/collection_img/greenbeancollectionprofile.avif'), filename: "greenbeancollectionprofile.avif", content_type: "image/avif")
-greenbean_collection.banner.attach(io: File.open('app/assets/images/banner_img/beancollectionbanner.avif'), filename: "beancollectionbanner.avif", content_type: "image/avif")
+greenbean_collection.banner.attach(io: File.open('app/assets/images/banner_img/greenbeancollectionbanner.png'), filename: "greenbeancollectionbanner.png", content_type: "image/avif")
 
 redbean_collection = Collection.new(
   name: "Red Beans",
@@ -172,7 +172,7 @@ redbean_collection.business = beanboi_business
 redbean_collection.save!
 beanboi_business.save!
 redbean_collection.photo.attach(io: File.open('app/assets/images/collection_img/redbeancollectionprofile.avif'), filename: "redbeancollectionprofile.avif", content_type: "image/avif")
-redbean_collection.banner.attach(io: File.open('app/assets/images/banner_img/beancollectionbanner.avif'), filename: "beancollectionbanner.avif", content_type: "image/avif")
+redbean_collection.banner.attach(io: File.open('app/assets/images/banner_img/redbeancollectionbanner.png'), filename: "redbeancollectionbanner.png", content_type: "image/avif")
 
 orangebean_collection = Collection.new(
   name: "Orange Beans",
@@ -183,7 +183,7 @@ orangebean_collection.business = beanboi_business
 orangebean_collection.save!
 beanboi_business.save!
 orangebean_collection.photo.attach(io: File.open('app/assets/images/collection_img/orangebeancollectionprofile.avif'), filename: "orangebeancollectionprofile.avif", content_type: "image/avif")
-orangebean_collection.banner.attach(io: File.open('app/assets/images/banner_img/beancollectionbanner.avif'), filename: "beancollectionbanner.avif", content_type: "image/avif")
+orangebean_collection.banner.attach(io: File.open('app/assets/images/banner_img/orangebeancollectionbanner.png'), filename: "orangebeancollectionbanner.png", content_type: "image/avif")
 
 p "Created 3 beanboi collections"
 
