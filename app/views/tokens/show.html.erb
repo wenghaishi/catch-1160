@@ -13,14 +13,6 @@
         margin: 0 auto;
         padding: 20px;
       }
-      .btn-group-top {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 50px;
-        font-weight: bold;
-        border: 5px;
-        border-radius: 56px;
-      }
       .btn-back {
         display: inline-block;
         padding: 10px 20px;
@@ -30,16 +22,6 @@
         border-radius: 56px;
         text-decoration: none;
 
-      }
-      .btn-share {
-        display: inline-block;
-        padding: 10px 20px;
-        font-weight: bold;
-        box-shadow: 0 0 5px rgba(0,0,0,0.2);
-        margin-bottom: 20px;
-        text-align: right;
-        border-radius: 56px;
-        text-decoration: none;
       }
       h1 {
         text-align: left;
@@ -54,7 +36,7 @@
         border-radius: 24px;
         box-shadow: 0 0 5px rgba(0,0,0,0.5);
       }
-      .btn-voucher {
+      /* .btn-voucher {
         display: inline-block;
         padding: 10px 20px;
         background-color: #FFCF72;
@@ -62,17 +44,13 @@
         text-decoration: none;
         border-radius: 15px;
         font-weight: bold;
-      }
+      } */
       .token-description {
         text-align: left;
         color: gray;
         margin-top: 20px;
       }
-      .btn-group {
-        display: flex;
-        justify-content: space-evenly;
-        margin-top: 50px;
-        font-weight: bold;
+      .btn{
         text-align: center;
       }
       .btn-primary {
@@ -83,16 +61,42 @@
         text-decoration: none;
         border-radius: 10px;
         width: 170px;
+        text-align: center;
       }
-      .btn-secondary {
+      .social-share{
+        text-align: center;
+      }
+      .fa-whatsapp {
+        margin-top: 30px;
         display: inline-block;
-        padding: 10px 20px;
-        background-color: white;
-        color: #7871FF;
+        font-size: 30px;
+        color: green;
         text-decoration: none;
-        border-radius: 10px;
-        border: 2px solid #7871FF;
-        width: 170px;
+        padding-right: 10px;
+      }
+      .fa-facebook {
+        margin-top: 30px;
+        display: inline-block;
+        font-size: 30px;
+        color: #2B46DF;
+        text-decoration: none;
+        padding-right: 10px;
+      }
+      .fa-telegram{
+        margin-top: 30px;
+        display: inline-block;
+        font-size: 30px;
+        color: #51A6E8;
+        text-decoration: none;
+        padding-right: 10px;
+      }
+      .fa-linkedin{
+        margin-top: 30px;
+        display: inline-block;
+        font-size: 30px;
+        color: #2AB6FC;
+        text-decoration: none;
+        padding-right: 10px;
       }
     </style>
   </head>
@@ -100,17 +104,30 @@
     <div class="container">
       <div class="btn-group-top">
         <%= link_to "Back", user_path(@user), class: "btn-back" %>
-        <%= link_to "Share", user_path(@user), class: "btn-share" %>
       </div>
     <img src="<%= cl_image_path @token.photo.key %>" alt="Token Photo" class="token-photo">
-    <h1>Token Name</h1>
-    <a href="#" class="btn-voucher">$3 off NFT Voucher</a>
+    <h1><%= token.collection.name %> <%= token.identifier %></h1>
+    <p class="token-description"><%= token.description %></p>
     <br>
-    <p class="token-description">This NFT offers you $3 off your next purchase!</p>
-      <div class="btn-group">
-        <a href="#" class="btn btn-secondary">Sell</a>
-        <a href="#" class="btn btn-primary">Send</a>
-      </div>
+    <p class="token-conditions"><%= token.conditions %></p>
+    <br>
+    <a href="#" class="btn btn-primary">Authenticate</a>
+    <br>
+    <div class="social-share">
+      <a href="https://web.whatsapp.com/send?Check out my new NFT!=#{title}%0A#{url}" i class="fa-brands fa-whatsapp"> </i></a>
+      <a href="https://t.me/share/url?url={url}&text=Check out my new NFT!" i class="fa-brands fa-telegram"></i></a>
+      <a href="http://www.facebook.com/sharer/sharer.php?u=#{url}", 555, 400, i class="fa-brands fa-facebook"></i></a>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=#{url}&title=#{title}&summary=#{desc}", i class="fa-brands fa-linkedin"></i></a>
+    </div>
     </div>
   </body>
 </html>
+
+<%#
+    Social share buttons %>
+
+<%# hardcode:
+    proof of ownership
+    authenticate button
+    nft scan link
+    success message: authenticated! %>
