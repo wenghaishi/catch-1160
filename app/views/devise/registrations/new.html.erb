@@ -14,9 +14,9 @@
   <%= form.label "Banner image" %>
   <%=form.file_field :banner, as: :file, label: "Add a picture", required: true, class: "input4" %> <br />
   <%= form.text_field :eth_address, class: "eth_address d-none" %> <br />
-  <button class="eth_connect main-button">Sign-up with Ethereum</button>
+  <button class="eth_connect main-button">Sign-up with Metamask</button>
   <%= render "devise/shared/links" %>
-  
+
   </div>
 <% end %>
 
