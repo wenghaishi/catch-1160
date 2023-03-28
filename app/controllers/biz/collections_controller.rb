@@ -1,6 +1,6 @@
 class Biz::CollectionsController < BizController
   def new
-    if params[:business_id] != current_user.business.id
+    if params[:business_id].to_i != current_user.business.id
       redirect_to root_path,
                   alert: "You are not authorized to create a collection for this business."
     end
@@ -15,7 +15,7 @@ class Biz::CollectionsController < BizController
   end
 
   def create
-    if params[:business_id] != current_user.business.id
+    if params[:business_id].to_i != current_user.business.id
       return render json: { error: "You are not authorized to create a collection for this business." },
                     status: :unauthorized
     end
