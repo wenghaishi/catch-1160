@@ -1,6 +1,6 @@
 <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
-    <%= form_tag businesses_path, method: :get, data: { controller: 'search' }, class: "d-flex flex-grow-1", role: "search" do %>
+    <%= form_tag businesses_path, method: :get, class: "d-flex flex-grow-1", role: "search" do %>
       <%= text_field_tag :query, params[:query], data: { action: "keyup->search#search", search_target: "input", url: businesses_path }, class: "form-control me-2 flex-grow-1", type: "search", placeholder: "Search", aria: {label: "Search"} %>
       <%= submit_tag "Search", class: "btn btn-outline-success", type: "submit" %>
     <% end %>
