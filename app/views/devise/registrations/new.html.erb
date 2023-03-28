@@ -1,51 +1,45 @@
 <div class="my-div navbar hidden-tablet hidden-phone">
 
-<%= image_tag "logo.png", style: 'height:50px;margin-bottom:20px;' %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-  <%= f.error_notification %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |form| %>
+  <div class="my-div">
+  <%= image_tag "logo.png", style: 'height:50px;margin-bottom:20px;' %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                label: false,
-                placeholder: 'Email',
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email", class: 'input' } %>
-    <%= f.input :username,
-                label: false,
-                placeholder: 'Username',
-                required: true,
-                autofocus: true,
-                input_html: { class: 'input' } %>
-    <%= f.input :first_name,
-                label: false,
-                placeholder: 'First name',
-                required: true,
-                autofocus: true,
-                input_html: { class: 'input' } %>
-    <%= f.input :last_name,
-                label: false,
-                placeholder: 'Last name',
-                required: true,
-                autofocus: true,
-                input_html: { class: 'input' } %>
-    <%= f.input :password,
-                required: true,
-                placeholder: 'Password',
-                label: false,
-                input_html: { autocomplete: "new-password", class: 'input'  } %>
-    <%= f.input :photo, as: :file, label: "Add a picture", required: true, input_html: { class: 'input2' } %>
-    <%= f.input :banner, as: :file, label: "Add a banner", required: true, input_html: { class: 'input2' } %>
-    <%= f.input :account_type, collection: ['user', 'business'], prompt: 'Please select a category', input_html: { class: 'input1' } %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up", class: "main-button1" %>
+  <%= form.text_field :email, class: "input4", placeholder: "Email"  %> <br />
+  <%= form.text_field :username, class: "input4", placeholder: "Username"  %> <br />
+  <%= form.text_field :password, class: "input4", placeholder: "Password"  %> <br />
+  <%= form.select :account_type, options_for_select(["user", "business"]), placeholder: "Account type", class: "input4"  %>
+  <%= form.label "Profile photo" %>
+  <%=form.file_field :photo, as: :file, label: "Add a picture", required: true, class: "input4" %> <br />
+  <%= form.label "Banner image" %>
+  <%=form.file_field :banner, as: :file, label: "Add a picture", required: true, class: "input4" %> <br />
+  <%= form.text_field :eth_address, class: "eth_address d-none" %> <br />
+  <button class="eth_connect main-button">Sign-up with Ethereum</button>
+  <%= render "devise/shared/links" %>
   </div>
 <% end %>
 
+  <script>
+    const buttonEthConnect = document.querySelector('button.eth_connect');
+    console.log(buttonEthConnect, "button eth connect")
+    // the read-only eth address field, we process that automatically
+    const formInputEthAddress = document.querySelector('input.eth_address');
+    console.log(formInputEthAddress, "formInputEthAddress")
+    // get the user form for submission later
+    const formNewUser = document.querySelector('form.new_user');
+    console.log(formNewUser, "formNewUser")
+    // only proceed with ethereum context available
+    if (typeof window.ethereum !== 'undefined') {
+      buttonEthConnect.addEventListener('click', async () => {
 
-<%= render "devise/shared/links" %>
-
+        // request accounts from ethereum provider
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        // populate and submit form
+        console.log(accounts[0], "eth")
+        formInputEthAddress.value = accounts[0];
+        console.log(formInputEthAddress.value, "new address input value")
+        formNewUser.submit();
+      });
+    }
+  </script>
 </div>
