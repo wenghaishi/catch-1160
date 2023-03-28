@@ -10,14 +10,17 @@
                 required: true,
                 autofocus: true,
                 input_html: {  class: 'input' } %>
-      <%= f.input :description,
+      <%= f.text_area :description,
+                rows: 5,
                 required: true,
                 placeholder: 'Description',
                 label: false,
-                input_html: { class: 'input'  } %>
+                input_html: { class: 'input' },
+                class: "w-100 bg-transparent form-control mb-3",
+                style: "padding: 5px 10px; border-radius: 8px; border: 1px solid #ced4da; resize: none;" %>
       <%= f.input :category, collection: ['Art', 'PFP', 'Assets'], prompt: 'Please select a category', input_html: { class: 'input1' } %>
-      <%= f.input :banner, as: :file, required: true, input_html: { class: 'input1' } %>
-      <%= f.input :photo, as: :file, required: true, input_html: { class: 'input1' } %>
+      <%= f.input :banner, as: :file, input_html: { class: 'input1' } %>
+      <%= f.input :photo, as: :file, input_html: { class: 'input1' } %>
     </div>
     <div class="form-actions main-button">
       <%= f.submit "Create collection", class: 'main-button' %>
