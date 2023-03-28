@@ -118,7 +118,6 @@ export default class extends Controller {
 
         let markerBearing = turf.bearing(turf.point(this.currentLocation), turf.point(markerLocation))
         this.map.easeTo({
-          // center: this.currentLocation,
           bearing: markerBearing
         })
 

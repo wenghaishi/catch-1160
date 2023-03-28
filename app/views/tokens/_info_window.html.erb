@@ -16,20 +16,24 @@
 
 <%# POPUP MODAL %>
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered rounded-4">
-    <div class="modal-content">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4">
       <div class="modal-header">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body d-flex justify-content-center align-items-center h-5">
-          Success!
-      </div>
-      <div class="modal-body">
-          <%= simple_form_for(token, url: token_capture_path(token), method: "get") do |f| %>
-            <% f.button :submit,
-                        "Ok",
-                        class: "btn btn-primary text-light fw-medium mb-2 form-control rounded-4" %>
-          <% end %>
+        <% if rand(2) == 1 %>
+          <div>
+            <p class="fs-1 text-center pt-4 pb-5">Success!</p>
+            <%= simple_form_for(token, url: token_capture_path(token), method: "get") do |f| %>
+              <% f.button :submit,
+                          "View your Token",
+                          class: "btn btn-secondary text-light fw-medium mb-2 form-control rounded-4" %>
+            <% end %>
+          </div>
+        <% else %>
+          <p class="fs-1 text-center pt-4 pb-5">Sorry, try again</p>
+        <% end %>
       </div>
     </div>
   </div>
