@@ -11,9 +11,26 @@
     </div>
   </div>
   <p class="lh-sm mt-3"><%= token.business.description %></p>
-    <%= simple_form_for(token, :url => token_capture_path(token), :method=>"get") do |f| %>
-      <% f.button :submit,
-                  "data-map-target": "button",
-                  class: "btn btn-primary text-light fw-medium mb-2 form-control" %>
-    <% end %>
+  <a data-map-target="button" class="btn btn-primary text-light fw-medium mb-2 form-control" data-bs-target="#staticBackdrop"></a>
+</div>
+
+<%# POPUP MODAL %>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered rounded-4">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body d-flex justify-content-center align-items-center h-5">
+          Success!
+      </div>
+      <div class="modal-body">
+          <%= simple_form_for(token, url: token_capture_path(token), method: "get") do |f| %>
+            <% f.button :submit,
+                        "Ok",
+                        class: "btn btn-primary text-light fw-medium mb-2 form-control rounded-4" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
 </div>
