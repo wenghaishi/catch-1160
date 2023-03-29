@@ -9,7 +9,9 @@ class Biz::CollectionsController < BizController
   end
 
   def show
+    @token = Token.new
     @collection = Collection.find(params[:id])
+    @business = Business.find(params[:business_id])
 
     redirect_to root_path if @collection.business.user != current_user
   end
@@ -22,9 +24,8 @@ class Biz::CollectionsController < BizController
 
     @collection = Collection.new(collection_params)
     @collection.business_id = params[:business_id].to_i
-
     if @collection.save
-      redirect_to new_biz_business_collection_token_path(params[:business_id], @collection.id),
+      redirect_to biz_business_collection_path(@collection.business_id, @collection),
                   notice: "Collection created successfully."
     else
       render :new

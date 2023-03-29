@@ -1,0 +1,53 @@
+<%= simple_form_for [:biz, token],
+    url: biz_business_collection_tokens_path(business, collection),
+    data: {
+      tokens_target: "form",
+      action: "submit->tokens#submitForm"
+    } do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs h-100 d-flex flex-column justify-content-between">
+    <%= f.input :address,
+          input_html: {
+            data: {
+              address_autocomplete_target: "address",
+
+              },
+            class: "d-none",
+            autofocus: true,
+            placeholder: 'Address'
+          },
+          wrapper_html: {
+            data: {
+              controller: "address-autocomplete",
+              address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]
+              }
+            },
+    required: true,
+    label: false,
+    required: true,
+    placeholder: 'Address',
+    autofocus: true
+    %>
+    <%= f.text_area :description,
+            rows: 4,
+            label: false,
+            placeholder: 'Description',
+            required: true,
+            autofocus: true,
+            class: "w-100 bg-transparent form-control mb-3 flex-grow-1",
+            style: "resize: none; border-radius: 8px;"
+             %>
+    <%= f.text_area :conditions,
+            label: false,
+            placeholder: 'Conditions',
+            required: true,
+            autofocus: true,
+            class: "w-100 bg-transparent form-control mb-3",
+            style: "resize: none; border-radius: 8px;"
+             %>
+    <%= f.input :photo, as: :file, label: "Image", input_html: { style:"border-radius: 8px;", id:"photo" } %>
+    <%= f.submit "Create Token", class: 'btn btn-primary w-100', style:"border-radius: 8px;" %>
+  </div>
+  <div class="form-actions main-button">
+  </div>
+<% end %>

@@ -86,6 +86,7 @@ body {
   text-decoration: none;
 }
 
+
 .input1 {
   width: 290px;
   height: 36px;
@@ -100,6 +101,17 @@ body {
   margin-bottom: 10px;
   border-radius: 8px;
   text-decoration: none;
+}
+
+.input4 {
+  width: 300px;
+  height: 32px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.input-type {
+  width:100%;
 }
 
 .input-des {
@@ -181,3 +193,55 @@ body {
   white-space:nowrap;
   overflow:hidden;
   }
+
+.token_photo {
+  position:relative;
+}
+
+.token_photo .form-label {
+  position: absolute;
+  background-color: grey;
+  height: 100%;
+  width: 108px;
+  border-radius: 8px 0 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.collection_banner {
+  position: relative;
+}
+
+.collection_banner .form-label {
+  position: absolute;
+  background-color: grey;
+  height: 100%;
+  width: 108px;
+  border-radius: 8px 0 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.collection_photo {
+  position: relative;
+}
+
+.collection_photo .form-label {
+  position: absolute;
+  background-color: grey;
+  height: 100%;
+  width: 108px;
+  border-radius: 8px 0 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+#new_token {
+  height: 100%;
+}

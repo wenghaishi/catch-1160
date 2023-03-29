@@ -7,49 +7,25 @@
 </div>
 <div class="banner-seperator">
 </div>
-<div class="wrapper border-bottom">
-  <div>
-    <p class="fs-2 fw-bold mb-0"><%= @collection.name %></p>
-    <a href="<%= business_path(@collection.business) %>" class="text-decoration-none text-dark">By <span class="fw-bold"><%= @collection.business.name %></span></a>
-    <p class="fs-6 my-0 mb-1 mt-2">Total items <span class="fw-bold"><%= @collection.tokens.count %></span> <span class="mx-1">·</span> Created <span class="fw-bold"><%= @collection.created_at.strftime("%b %Y") %></span> <span class="mx-1">·</span> Chain <span class="fw-bold">Ethereum</span></p>
-    <p><%= @collection.description %></p>
+<div data-controller="tokens">
+  <div class="wrapper border-bottom">
+    <div>
+      <p class="fs-2 fw-bold mb-0"><%= @collection.name %></p>
+      <a href="<%= business_path(@collection.business) %>" class="text-decoration-none text-dark">By <span class="fw-bold"><%= @collection.business.name %></span></a>
+      <p class="fs-6 my-0 mb-1 mt-2">Total items <span class="fw-bold" data-tokens-target="count"><%= @collection.tokens.count %></span> <span class="mx-1">·</span> Created <span class="fw-bold"><%= @collection.created_at.strftime("%b %Y") %></span> <span class="mx-1">·</span> Chain <span class="fw-bold">Ethereum</span></p>
+      <p><%= @collection.description %></p>
+    </div>
   </div>
-</div>
-<div class="wrapper">
-  <p class="fs-5 fw-bold mb-3 mt-3"><%= @collection.tokens.count %> items</p>
-  <div>
-    <div class="row" style="padding-bottom: 80px;">
-      <% @collection.tokens.each_with_index do |token, index| %>
-        <div class="col-12 col-sm-6 col-md-3 mb-4 ">
-          <div class="flip">
-            <div class="card front bg-white">
-              <% if token.photo.key %>
-                <img src="<%= cl_image_path token.photo.key %>" class="card-img-top" alt="">
-              <% end %>
-              <div class="card-body">
-                <p class="card-text fw-bold my-0 mb-1"><%= token.collection.name %> <span class="fw-bold">#<%= index + 1 %></span></p>
-                <p class="fw-bold fs-5 my-0">0.030 ETH</p>
-                <% if token.user %>
-                  <p class="text-muted">Owned by <%= token.user.username %></p>
-                <% end %>
-              </div>
-            </div>
-            <div class="back d-flex flex-column text-center">
-              <div class="p-3 my-auto">
-                <h2><%= token.collection.name %> <span class="fw-bold">#<%= index + 1 %></span></h2>
-                <p><%= @collection.description %></p>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="wrapper">
+    <p class="fs-5 fw-bold mb-3 mt-3"><span data-tokens-target="count"><%= @collection.tokens.count %></span> items</p>
+    <div data-tokens-target="items" class="row" style="padding-bottom: 80px;">
+      <% @collection.tokens.each do |token| %>
+        <%= render token %>
       <% end %>
       <% if current_user == @collection.business.user %>
         <div class="col-12 col-sm-6 col-md-3 mb-4">
-          <%= link_to new_biz_business_collection_token_path(@collection.business.id, @collection.id), class: "text-decoration-none" do %>
-            <div class="d-flex justify-content-center card front fs-5 text-center" style="padding: 8rem 0;">
-              <i class="fa-solid fa-plus fs-1 text-dark"></i>
-              <p class="text-dark" style="margin: 0;">Add a New Token</p>
-            <% end %>
+          <div class="card p-2">
+            <%= render 'biz/tokens/form', token: @token ,collection: @collection, business: @business %>
           </div>
         </div>
       <% end %>

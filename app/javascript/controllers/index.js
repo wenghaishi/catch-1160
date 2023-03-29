@@ -15,3 +15,10 @@ application.register("map", MapController)
 
 import SearchController from "./search_controller"
 application.register("search", SearchController)
+
+import TokensController from "./tokens_controller"
+application.register("tokens", TokensController)
+
+import SignUpController from "./sign_up_controller"
+application.register("sign-up", SignUpController)
+
