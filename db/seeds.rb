@@ -17,11 +17,10 @@ User.destroy_all
 #Users
 studio_user = User.create!(
   username: "Studio User",
-  first_name: "Tooda",
-  last_name: "Moon",
   email: "user@studio.com",
   password: "123456",
-  account_type: "user"
+  account_type: "user",
+  eth_address: "0xegasdk1lds"
 )
 studio_user.photo.attach(io: File.open("app/assets/images/user_img/studio_user.avif"), filename: "studio_user.avif", content_type: "image/avif")
 studio_user.banner.attach(io: File.open('app/assets/images/user_img/studio_user_banner.avif'), filename: "studio_user_banner.avif", content_type: "image/avif")
@@ -30,11 +29,10 @@ p "Created studio_user user"
 
 gym_user = User.create!(
   username: "Gym User",
-  first_name: "HODL",
-  last_name: "LORD",
   email: "user@gym.com",
   password: "123456",
-  account_type: "user"
+  account_type: "user",
+  eth_address: "0xegasdk1lds"
 )
 gym_user.photo.attach(io: File.open("app/assets/images/user_img/gym_user.avif"), filename: "gym_user.avif", content_type: "image/avif")
 gym_user.banner.attach(io: File.open('app/assets/images/user_img/gym_user_banner.avif'), filename: "gym_user_banner.avif", content_type: "image/avif")
@@ -44,11 +42,10 @@ p "Created gym_user user"
 ##Added New beanboi user
 beanboi_user = User.create!(
   username: "Beanie Baby",
-  first_name: "Beanie",
-  last_name: "Baby",
   email: "user@beanboi.com",
   password: "123456",
-  account_type: "user"
+  account_type: "user",
+  eth_address: "0xegasdk1lds"
 )
 beanboi_user.photo.attach(io: File.open("app/assets/images/user_img/beanboiuserprofile.avif"), filename: "beanboiuserprofile.avif", content_type: "image/avif")
 beanboi_user.banner.attach(io: File.open('app/assets/images/banner_img/beanboiuserbanner.avif'), filename: "beanboiuserbanner.avif", content_type: "image/avif")
@@ -58,11 +55,10 @@ p "Created beanboi_user user"
 #Studio owner: user with business account
 studio_owner = User.create!(
   username: "Studio Owner",
-  first_name: "NOTA",
-  last_name: "WHALE",
   email: "owner@studio.com",
   password: "654321",
-  account_type: "business"
+  account_type: "business",
+  eth_address: "0xegasdk1lds"
 )
 studio_owner.photo.attach(io: File.open("app/assets/images/user_img/studio_owner.avif"), filename: "studio_owner.avif", content_type: "image/avif")
 studio_owner.banner.attach(io: File.open('app/assets/images/user_img/studio_owner_banner.avif'), filename: "studio_owner_banner.avif", content_type: "image/avif")
@@ -72,11 +68,10 @@ p "Created studio_owner user"
 #Gym owner: user with business account
 gym_owner = User.create!(
   username: "Gym Owner",
-  first_name: "Masterof",
-  last_name: "Puppets",
   email: "owner@gym.com",
   password: "654321",
-  account_type: "business"
+  account_type: "business",
+  eth_address: "0xegasdk1lds"
 )
 gym_owner.photo.attach(io: File.open("app/assets/images/user_img/gym_owner.avif"), filename: "gym_owner.avif", content_type: "image/avif")
 gym_owner.banner.attach(io: File.open('app/assets/images/user_img/gym_owner_banner.avif'), filename: "gym_owner_banner.avif", content_type: "image/avif")
@@ -86,11 +81,10 @@ p "Created gym_owner user"
 ##Added New beanboi owner
 beanboi_owner = User.create!(
   username: "Bean Boi",
-  first_name: "Bean",
-  last_name: "Boi",
   email: "owner@beanboi.com",
   password: "654321",
-  account_type: "business"
+  account_type: "business",
+  eth_address: "0xegasdk1lds"
 )
 beanboi_owner.photo.attach(io: File.open("app/assets/images/user_img/beanboiownerprofile.avif"), filename: "beanboiownerprofile.avif", content_type: "image/avif")
 beanboi_owner.banner.attach(io: File.open('app/assets/images/banner_img/beanboiownerbanner.avif'), filename: "beanboiownerbanner.avif", content_type: "image/avif")
