@@ -1,9 +1,17 @@
 class BusinessesController < UserController
   def index
-    if params[:query].present?
-      @businesses = Business.search(params[:query])
+    if request.xhr?
+      @businesses = Business.where("name ILIKE ?", "%#{params[:search]}%")
+      render partial: "businesses", locals: { businesses: @businesses }
+    elsif params[:query]
+      @businesses = Business.where("name ILIKE ?", "%#{params[:query]}%")
     else
       @businesses = Business.all
+    end
+
+    respond_to do |format|
+      format.html # following rails convention, this will render app/views/businesses/index.html.erb
+      format.text { render partial: "businesses/businesses", formats: [:html] }
     end
   end
 

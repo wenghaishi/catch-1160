@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" data-search-target="results" style="padding-bottom: 80px;">
   <% @businesses.each do |business| %>
     <%= link_to business_path(business), class: "text-decoration-none" do %>
       <div class="rounded-4 shadow border mb-3 overflow-hidden">

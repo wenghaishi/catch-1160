@@ -5,13 +5,15 @@
   z-index: 1000;
   margin: 0;
   -webkit-animation: fadeout 400ms linear 3s forwards;
-  animation: fadeout 400ms linear 3s forwards
+  animation: fadeout 400ms linear 3s forwards;
+  pointer-events: none;
 }
 
 .alert-dismissible {
   padding: 0;
   padding: 15px 50px;
   border-radius: 8px;
+  pointer-events: none;
 }
 
 @-webkit-keyframes fadeout{
