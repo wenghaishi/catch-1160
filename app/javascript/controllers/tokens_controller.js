@@ -34,6 +34,9 @@ export default class extends Controller {
     })
   }
 
+  startGame() {
+    console.log("hello")
+  }
   // validateForm(e) {
   //   clearTimeout(this.timer)
 

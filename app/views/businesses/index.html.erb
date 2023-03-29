@@ -16,22 +16,36 @@
   <%# footer nav %>
   <div class="footer-container">
     <%= link_to businesses_path do %>
-      <div class="footer-sm-container">
+    <div class="footer-sm-container">
+      <% if current_page?(businesses_path) %>
+        <%= image_tag 'Search_active.svg', class: "footer-icon"%>
+      <% else %>
         <%= image_tag 'Search.svg', class: "footer-icon"%>
       <% end %>
-      <%= content_tag :div, "Search", class: "footer-title" %>
+      <% end %>
+      <%= content_tag :div, "", class: "footer-title" %>
     </div>
+
     <%= link_to tokens_path do %>
-      <div class="footer-sm-container">
+    <div class="footer-sm-container">
+      <% if current_page?(tokens_path) %>
+        <%= image_tag 'Map_active.svg', class: "footer-icon" %>
+      <% else %>
         <%= image_tag 'Map.svg', class: "footer-icon" %>
       <% end %>
-      <%= content_tag :div, "Map", class: "footer-title" %>
+      <% end %>
+      <%= content_tag :div, "", class: "footer-title" %>
     </div>
+
     <%= link_to user_path(current_user) do %>
-      <div class="footer-sm-container">
+    <div class="footer-sm-container">
+      <% if current_page?(user_path(current_user)) %>
+        <%= image_tag 'User_active.svg', class: "footer-icon" %>
+      <% else %>
         <%= image_tag 'User.svg', class: "footer-icon" %>
       <% end %>
-      <%= content_tag :div, "Profile", class: "footer-title" %>
+      <% end %>
+      <%= content_tag :div, "", class: "footer-title" %>
     </div>
   </div>
 </div>
