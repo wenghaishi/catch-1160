@@ -70,4 +70,7 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # ngrok localhost:3000
+  config.hosts << "b7bb-118-201-151-178.ap.ngrok.io"
 end
