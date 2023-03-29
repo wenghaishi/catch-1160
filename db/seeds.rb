@@ -96,7 +96,8 @@ studio_business = Business.create!(
   name: "Z Studio",
   address: "30 Raffles Pl, Singapore 048622",
   description: "A studio in the heart of Singapore's CBD, prouducing zodiac inspired avatars",
-  user: studio_owner
+  user: studio_owner,
+
 )
 p "Assigned studio_owner to Z Studio"
 
