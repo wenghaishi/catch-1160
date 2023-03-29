@@ -7,17 +7,17 @@
 </div>
 <div class="banner-seperator">
 </div>
-<div class="wrapper border-bottom">
-  <div>
-    <p class="fs-2 fw-bold mb-0"><%= @collection.name %></p>
-    <a href="<%= business_path(@collection.business) %>" class="text-decoration-none text-dark">By <span class="fw-bold"><%= @collection.business.name %></span></a>
-    <p class="fs-6 my-0 mb-1 mt-2">Total items <span class="fw-bold"><%= @collection.tokens.count %></span> <span class="mx-1">·</span> Created <span class="fw-bold"><%= @collection.created_at.strftime("%b %Y") %></span> <span class="mx-1">·</span> Chain <span class="fw-bold">Ethereum</span></p>
-    <p><%= @collection.description %></p>
+<div data-controller="tokens">
+  <div class="wrapper border-bottom">
+    <div>
+      <p class="fs-2 fw-bold mb-0"><%= @collection.name %></p>
+      <a href="<%= business_path(@collection.business) %>" class="text-decoration-none text-dark">By <span class="fw-bold"><%= @collection.business.name %></span></a>
+      <p class="fs-6 my-0 mb-1 mt-2">Total items <span class="fw-bold" data-tokens-target="count"><%= @collection.tokens.count %></span> <span class="mx-1">·</span> Created <span class="fw-bold"><%= @collection.created_at.strftime("%b %Y") %></span> <span class="mx-1">·</span> Chain <span class="fw-bold">Ethereum</span></p>
+      <p><%= @collection.description %></p>
+    </div>
   </div>
-</div>
-<div class="wrapper">
-  <p class="fs-5 fw-bold mb-3 mt-3"><%= @collection.tokens.count %> items</p>
-  <div data-controller="tokens">
+  <div class="wrapper">
+    <p class="fs-5 fw-bold mb-3 mt-3"><span data-tokens-target="count"><%= @collection.tokens.count %></span> items</p>
     <div data-tokens-target="items" class="row" style="padding-bottom: 80px;">
       <% @collection.tokens.each do |token| %>
         <%= render token %>

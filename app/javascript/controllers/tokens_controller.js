@@ -2,9 +2,9 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="tokens"
 export default class extends Controller {
-  static targets = [ "form", "items" ]
+  static targets = [ "form", "items", "token", "count" ]
   connect() {
-    console.log(this.formTargets);
+    console.log("tokens controller connected")
   }
 
   submitForm(e) {
@@ -14,6 +14,7 @@ export default class extends Controller {
   }
 
   submit(form) {
+    const location = this.tokenTargets.slice(-1)[0]
     fetch(form.action, {
       method: form.method,
       headers: {
@@ -24,7 +25,10 @@ export default class extends Controller {
     .then(res => res.json())
     .then(data => {
       if (data.token) {
-        this.itemsTarget.insertAdjacentHTML('beforeend', data.token)
+        location.insertAdjacentHTML('afterend', data.token)
+        this.countTargets.forEach((count) => {
+          count.innerText = parseInt(count.innerText) + 1
+        })
       }
       this.formTarget.outerHTML = data.form
     })
