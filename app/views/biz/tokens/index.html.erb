@@ -3,31 +3,42 @@
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 
-
+  <%# map popup %>
+  <div data-map-target="popup" class="popup-token">
+  </div>
+</div>
 <%# footer nav %>
   <div class="footer-container">
     <%= link_to new_biz_business_collection_path(current_user.business.id) do %>
     <div class="footer-sm-container">
+    <% if current_page?(new_biz_business_collection_path(current_user.business.id)) %>
+      <%= image_tag 'Plus_active.svg', class: "footer-icon"%>
+    <% else %>
       <%= image_tag 'Plus.svg', class: "footer-icon"%>
     <% end %>
-    <%= content_tag :div, "Create", class: "footer-title" %>
+    <% end %>
+    <%= content_tag :div, "", class: "footer-title" %>
     </div>
 
     <%= link_to biz_business_tokens_path do %>
     <div class="footer-sm-container">
-      <%= image_tag 'Map.svg', class: "footer-icon" %>
+      <% if current_page?(biz_business_tokens_path) %>
+        <%= image_tag 'Map_active.svg', class: "footer-icon" %>
+      <% else %>
+        <%= image_tag 'Map.svg', class: "footer-icon" %>
       <% end %>
-      <%= content_tag :div, "Map", class: "footer-title" %>
+      <% end %>
+      <%= content_tag :div, "", class: "footer-title" %>
     </div>
 
     <%= link_to user_path(current_user) do %>
     <div class="footer-sm-container">
-      <%= image_tag 'User.svg', class: "footer-icon" %>
+      <% if current_page?(user_path(current_user)) %>
+        <%= image_tag 'User_active.svg', class: "footer-icon" %>
+      <% else %>
+        <%= image_tag 'User.svg', class: "footer-icon" %>
       <% end %>
-      <%= content_tag :div, "Profile", class: "footer-title" %>
+      <% end %>
+      <%= content_tag :div, "", class: "footer-title" %>
     </div>
   </div>
-  <div data-map-target="popup" class="popup-token">
-  </div>
-</div>
-<%# end of footer nav %>
