@@ -68,11 +68,12 @@
 </div>
 <%# footer %>
 <div class="footer-container">
-  <div class="footer-sm-container">
-    <%= image_tag 'Search.svg', class: "footer-icon"%>
-
-    <%= content_tag :div, "Search", class: "footer-title" %>
-  </div>
+  <%= link_to businesses_path do %>
+    <div class="footer-sm-container">
+      <%= image_tag 'Search.svg', class: "footer-icon"%>
+      <% end %>
+      <%= content_tag :div, "Search", class: "footer-title" %>
+    </div>
 
   <%= link_to tokens_path do %>
   <div class="footer-sm-container">
