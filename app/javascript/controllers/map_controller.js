@@ -118,7 +118,6 @@ export default class extends Controller {
 
         let markerBearing = turf.bearing(turf.point(this.currentLocation), turf.point(markerLocation))
         this.map.easeTo({
-          // center: this.currentLocation,
           bearing: markerBearing
         })
 
@@ -131,7 +130,9 @@ export default class extends Controller {
           // CATCHABLE!!!!
           this.buttonTarget.classList.remove("btn-cannot")
           this.buttonTarget.classList.add("btn-catch")
-          this.buttonTarget.setAttribute("value", "Catch Token")
+          // this.buttonTarget.setAttribute("value", "Catch Token")
+          this.buttonTarget.setAttribute("data-bs-toggle", "modal")
+          this.buttonTarget.innerText = "Catch Token"
           this.buttonTarget.removeAttribute('disabled')
         } else {
           // The marker is further than 200 meters from your current location
@@ -139,7 +140,9 @@ export default class extends Controller {
           this.buttonTarget.classList.remove("btn-catch")
           this.buttonTarget.classList.add("btn-cannot")
           this.buttonTarget.setAttribute('disabled', "")
-          this.buttonTarget.setAttribute("value", "Move Closer to Catch")
+          this.buttonTarget.setAttribute("data-bs-toggle", "")
+          // this.buttonTarget.setAttribute("value", "Move Closer to Catch")
+          this.buttonTarget.innerText = "Move Closer to Catch"
         }
       })
     })
