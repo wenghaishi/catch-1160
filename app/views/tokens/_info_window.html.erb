@@ -6,14 +6,13 @@
       <h3 style="max-width: 150px;"><%= token.collection.name %> #<%= token.identifier %></h3>
       <p class="text-muted"><i class="fa-solid fa-location-dot"></i> <span data-map-target="counter"></span>km away</p>
       <%= link_to business_path(token.business.id), class: "text-decoration-none" do %>
-      <span class="lh-sm mb-1 text-primary" style="padding: 0.4rem; outline: 2px solid #7871FF; outline-offset: -2px; border-radius: 0.5rem;">Minted by <span class="fw-bold"><%= token.business.name %></span></span>
+        <span class="lh-sm mb-1 text-primary" style="padding: 0.4rem; outline: 2px solid #7871FF; outline-offset: -2px; border-radius: 0.5rem;">Minted by <span class="fw-bold"><%= token.business.name %></span></span>
       <% end %>
     </div>
   </div>
   <p class="lh-sm mt-3"><%= token.business.description %></p>
   <a data-map-target="button" class="btn btn-primary text-light fw-medium mb-2 form-control" data-bs-target="#staticBackdrop"></a>
 </div>
-
 <%# POPUP MODAL %>
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -21,20 +20,44 @@
       <div class="modal-header">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body d-flex justify-content-center align-items-center h-5">
-        <% if rand(2) == 1 %>
-          <div>
-            <p class="fs-1 text-center pt-4 pb-5">Success!</p>
-            <%= simple_form_for(token, url: token_capture_path(token), method: "get") do |f| %>
-              <% f.button :submit,
-                          "View your Token",
-                          class: "btn btn-secondary text-light fw-medium mb-2 form-control rounded-4" %>
-            <% end %>
+      <div class="modal-body d-flex justify-content-center align-items-center h-5" style="background-color: #ffc600; font-size: 10px; box-sizing: border-box;" data-controller="game">
+        <h1 style="text-align: center; line-height:1; margin-bottom: 0;">Whack-a-mole! <span data-target="score" class="score">0</span></h1>
+        <div class="controls">
+          <button data-target="button" data-action="click->game#startGame">Start!</button>
+        </div>
+        <div class="game">
+          <div data-target="hole" class="hole hole1">
+            <div data-action="click->game#bonk" data-target="mole" class="mole"></div>
           </div>
-        <% else %>
-          <p class="fs-1 text-center pt-4 pb-5">Sorry, try again</p>
-        <% end %>
+          <div data-target="hole" class="hole hole2">
+            <div data-target="mole" class="mole"></div>
+          </div>
+          <div data-target="hole" class="hole hole3">
+            <div data-target="mole" class="mole"></div>
+          </div>
+          <div data-target="hole" class="hole hole4">
+            <div data-target="mole" class="mole"></div>
+          </div>
+          <div data-target="hole" class="hole hole5">
+            <div data-target="mole" class="mole"></div>
+          </div>
+          <div data-target="hole" class="hole hole6">
+            <div data-target="mole" class="mole"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<%# <% if rand(2) == 1 %>
+<%# <div>
+    <p class="fs-1 text-center pt-4 pb-5">Success!</p>
+    <%= simple_form_for(token, url: token_capture_path(token), method: "get") do |f| %>
+  <%# <% f.button :submit,
+                          "View your Token",
+                          class: "btn btn-secondary text-light fw-medium mb-2 form-control rounded-4" %>
+  <%# <% end %>
+  <%# </div>
+<% else %>
+  <%# <p class="fs-1 text-center pt-4 pb-5">Sorry, try again</p>
+<% end %>
