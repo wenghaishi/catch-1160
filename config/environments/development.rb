@@ -72,5 +72,5 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   # ngrok localhost:3000
-  config.hosts << "b7bb-118-201-151-178.ap.ngrok.io"
+  config.hosts << /\A[a-z\d-]+\.ap.ngrok\.io\z/
 end
