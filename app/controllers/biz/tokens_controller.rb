@@ -13,21 +13,34 @@ class Biz::TokensController < BizController
   end
 
   def new
-    @token = Token.new
+    @business = Business.find(params[:business_id])
+    @collection = Collection.find(params[:collection_id])
+    @tokens = []
+    params[:tokens_count].to_i.times do
+      @tokens << Token.new
+    end
   end
 
   def create
     @token = Token.new(token_params)
+    @business = Business.find(params[:business_id])
+    @collection = Collection.find(params[:collection_id])
+
     uploaded_file = token_params[:photo]
-    cl_upload = Cloudinary::Uploader.upload(uploaded_file)
-    @token.url = cl_upload["secure_url"]
+    unless uploaded_file.nil?
+      cl_upload = Cloudinary::Uploader.upload(uploaded_file)
+      @token.url = cl_upload["secure_url"]
+    end
 
     @token.collection_id = params[:collection_id]
 
-    if @token.save
-      redirect_to biz_business_path(@token.business), notice: "Token created successfully."
-    else
-      render :new, notice: "Failed."
+    respond_to do |format|
+      if @token.save
+        format.html { redirect_to biz_business_path(@token.business), notice: "Token created successfully." }
+      else
+        format.html { render :new, notice: "Failed." }
+      end
+      format.json
     end
   end
 
