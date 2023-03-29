@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up,
                                       keys: %i[username first_name last_name photo img_url banner_url banner
-                                               account_type])
+                                               account_type eth_address])
     devise_parameter_sanitizer.permit(:account_update,
                                       keys: %i[username first_name last_name photo banner account_type])
   end

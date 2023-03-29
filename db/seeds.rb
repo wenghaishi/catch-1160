@@ -17,8 +17,7 @@ User.destroy_all
 #Users
 studio_user = User.create!(
   username: "Studio User",
-  first_name: "Tooda",
-  last_name: "Moon",
+  eth_address: "0x12kadhad",
   email: "user@studio.com",
   password: "123456",
   account_type: "user"
@@ -30,8 +29,7 @@ p "Created studio_user user"
 
 gym_user = User.create!(
   username: "Gym User",
-  first_name: "HODL",
-  last_name: "LORD",
+  eth_address: "0x12kadhad",
   email: "user@gym.com",
   password: "123456",
   account_type: "user"
@@ -44,8 +42,7 @@ p "Created gym_user user"
 ##Added New beanboi user
 beanboi_user = User.create!(
   username: "Beanie Baby",
-  first_name: "Beanie",
-  last_name: "Baby",
+  eth_address: "0x12kadhad",
   email: "user@beanboi.com",
   password: "123456",
   account_type: "user"
@@ -58,8 +55,7 @@ p "Created beanboi_user user"
 #Studio owner: user with business account
 studio_owner = User.create!(
   username: "Studio Owner",
-  first_name: "NOTA",
-  last_name: "WHALE",
+  eth_address: "0x12kadhad",
   email: "owner@studio.com",
   password: "654321",
   account_type: "business"
@@ -72,8 +68,7 @@ p "Created studio_owner user"
 #Gym owner: user with business account
 gym_owner = User.create!(
   username: "Gym Owner",
-  first_name: "Masterof",
-  last_name: "Puppets",
+  eth_address: "0x12kadhad",
   email: "owner@gym.com",
   password: "654321",
   account_type: "business"
@@ -86,8 +81,7 @@ p "Created gym_owner user"
 ##Added New beanboi owner
 beanboi_owner = User.create!(
   username: "Bean Boi",
-  first_name: "Bean",
-  last_name: "Boi",
+  eth_address: "0x12kadhad",
   email: "owner@beanboi.com",
   password: "654321",
   account_type: "business"
@@ -161,7 +155,7 @@ greenbean_collection.business = beanboi_business
 greenbean_collection.save!
 beanboi_business.save!
 greenbean_collection.photo.attach(io: File.open('app/assets/images/collection_img/greenbeancollectionprofile.avif'), filename: "greenbeancollectionprofile.avif", content_type: "image/avif")
-greenbean_collection.banner.attach(io: File.open('app/assets/images/banner_img/beancollectionbanner.avif'), filename: "beancollectionbanner.avif", content_type: "image/avif")
+greenbean_collection.banner.attach(io: File.open('app/assets/images/banner_img/greenbeancollectionbanner.png'), filename: "greenbeancollectionbanner.png", content_type: "image/avif")
 
 redbean_collection = Collection.new(
   name: "Red Beans",
@@ -172,7 +166,7 @@ redbean_collection.business = beanboi_business
 redbean_collection.save!
 beanboi_business.save!
 redbean_collection.photo.attach(io: File.open('app/assets/images/collection_img/redbeancollectionprofile.avif'), filename: "redbeancollectionprofile.avif", content_type: "image/avif")
-redbean_collection.banner.attach(io: File.open('app/assets/images/banner_img/beancollectionbanner.avif'), filename: "beancollectionbanner.avif", content_type: "image/avif")
+redbean_collection.banner.attach(io: File.open('app/assets/images/banner_img/redbeancollectionbanner.png'), filename: "redbeancollectionbanner.png", content_type: "image/avif")
 
 orangebean_collection = Collection.new(
   name: "Orange Beans",
@@ -183,7 +177,7 @@ orangebean_collection.business = beanboi_business
 orangebean_collection.save!
 beanboi_business.save!
 orangebean_collection.photo.attach(io: File.open('app/assets/images/collection_img/orangebeancollectionprofile.avif'), filename: "orangebeancollectionprofile.avif", content_type: "image/avif")
-orangebean_collection.banner.attach(io: File.open('app/assets/images/banner_img/beancollectionbanner.avif'), filename: "beancollectionbanner.avif", content_type: "image/avif")
+orangebean_collection.banner.attach(io: File.open('app/assets/images/banner_img/orangebeancollectionbanner.png'), filename: "orangebeancollectionbanner.png", content_type: "image/avif")
 
 p "Created 3 beanboi collections"
 
