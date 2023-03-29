@@ -37,7 +37,12 @@ class TokensController < UserController
     request.body = "{\"name\":\"#{@token.id}\",\"description\":\"#{@token.description}\",\"file_url\":\"#{@token.url}\",\"mint_to_address\":\"0x4A771fDF27319180F49BbF151317Bafa306074A6\",\"chain\":\"polygon\"}"
     
     response = http.request(request)
-    puts response.read_body
+    # puts response.read_body
+    # @link = response.read_body.transaction_hash
+    parsed_response = JSON.parse(response.body)
+    @link = parsed_response['transaction_hash']
+    puts @link
+    session[:link] = @link
 
     # end of nft minting logic
     
@@ -49,6 +54,7 @@ class TokensController < UserController
     # @tokens = Token.all
     @token = Token.find(params[:id])
     @user = current_user
+    @link = session[:link]
   end
 
   # private
