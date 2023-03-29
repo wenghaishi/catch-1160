@@ -27,7 +27,6 @@ class UsersController < UserController
 
   def show
     @user = User.find(params[:id])
-    @token = Token.find(params[:id])
   end
 
   private
