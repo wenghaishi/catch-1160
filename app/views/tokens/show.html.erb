@@ -5,7 +5,7 @@
     <style>
       html {
         min-height: 100vh;
-        overflow: hidden;
+        /* overflow: hidden; */
       }
 
       body {
@@ -16,8 +16,6 @@
         max-width: 500px;
         /* min-height: 100vh; */
         margin: 0 auto;
-        padding: 0;
-        text-align: center;
       }
       .btn-back {
         display: inline-block;
@@ -27,7 +25,6 @@
         margin-bottom: 20px;
         border-radius: 56px;
         text-decoration: none;
-        text-align: left;
       }
       h1 {
         text-align: left;
@@ -41,6 +38,7 @@
         height: auto;
         border-radius: 24px;
         box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        text-align: center;
       }
       .token-description {
         text-align: left;
@@ -58,6 +56,7 @@
       }
       .social-share{
         text-align: center;
+        margin-bottom: 10rem;
       }
       .authenticate{
         text-align: center;
@@ -173,7 +172,7 @@
     <!--Back button-->
     <!--Photo flip-->
       <br>
-      <div class="flip-token">
+      <div class="flip-token mx-auto">
         <div class="card front bg-white">
           <img id="frontimage" src="<%= cl_image_path @token.photo.key %>" alt="Token Photo" class="photo-front">
         </div>
@@ -229,8 +228,6 @@
         <% end %>
         <%= content_tag :div, "Logout", class: "footer-title" %>
       </div>
-    </div>
-
     </div>
     <!--Javascript for popup-->
     <script>
