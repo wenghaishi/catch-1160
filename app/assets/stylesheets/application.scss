@@ -40,7 +40,19 @@ body {
   align-items: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url('/assets/bg.png');
+  background-image: url('/assets/bg.jpg');
+}
+
+.card-forms {
+  border-radius: 0.5rem;
+  padding: 2.5rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 0px 20px rgba(0,0,0,0.2);
+  border: 3px solid $purple;
 }
 
 .main-button {
@@ -254,4 +266,16 @@ body {
 
 #new_token {
   height: 100%;
+}
+
+.signup-form-label {
+  position: absolute;
+  background-color: grey;
+  height: 60%;
+  width: 108px;
+  border-radius: 8px 0 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
 }
