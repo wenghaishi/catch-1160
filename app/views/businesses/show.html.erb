@@ -9,7 +9,7 @@
 </div>
 <div class="wrapper border-bottom mb-1">
   <div>
-    <p class="fs-2 fw-bold"><%= @business.name %></p>
+    <p class="fs-2 fw-bold d-flex align-items-center"><%= @business.name %> <%= image_tag 'catch-badge.svg', class:"svg-business" %></p>
     <p>Joined <span class="fw-bold"><%= @business.created_at.strftime("%b %Y") %></span></p>
     <p><%= @business.description %></p>
   </div>
@@ -23,9 +23,9 @@
             <div class="card scroll-card">
               <div class="card-background-img" style="background-image: url(<%= cl_image_path collection.banner.key %>);">
               </div>
-              <div class="card-content d-flex px-2 justify-content-center">
-                <div class="px-2 py-3">
-                  <p class="fw-bold m-0" style="color: black"><%= collection.name %></p>
+              <div class="card-content px-2">
+                <div class="px-2 py-2 align-items-center justify-content-between d-flex">
+                  <p class="fw-bold m-0 " style="color: black"><%= collection.name %></p>
                 </div>
               </div>
             </div>

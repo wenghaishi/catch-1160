@@ -11,7 +11,7 @@
   <div>
     <p class="fs-2 fw-bold mb-0"><%= @collection.name %></p>
     <a href="<%= business_path(@collection.business) %>" class="text-decoration-none text-dark">By <span class="fw-bold"><%= @collection.business.name %></span></a>
-    <p class="fs-6 my-0 mb-1 mt-2">Total items <span class="fw-bold"><%= @collection.tokens.count %></span> <span class="mx-1">·</span> Created <span class="fw-bold"><%= @collection.created_at.strftime("%b %Y") %></span> <span class="mx-1">·</span> Chain <span class="fw-bold">Ethereum</span></p>
+    <p class="fs-6 my-0 mb-1 mt-2">Total items <span class="fw-bold"><%= @collection.tokens.count %></span> <span class="mx-1">·</span> Created <span class="fw-bold"><%= @collection.created_at.strftime("%b %Y") %></span> <span class="mx-1">·</span> Chain <span class="fw-bold">Ethereum</span><span class="mx-1">·</span> Category <span class="fw-bold"><%= @collection.category %></span></p>
     <p><%= @collection.description %></p>
   </div>
 </div>
