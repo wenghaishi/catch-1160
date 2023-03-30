@@ -111,6 +111,7 @@ beanboi_owner = User.create!(
   password: "654321",
   account_type: "business",
   eth_address: "0xegasdk1lds"
+  
 )
 beanboi_owner.photo.attach(io: File.open("app/assets/images/user_img/beanboiowner_photo.avif"), filename: "beanboiowner_photo.avif", content_type: "image/avif")
 beanboi_owner.banner.attach(io: File.open('app/assets/images/banner_img/beanboi_banner.png'), filename: "beanboi_banner.png", content_type: "image/png")
@@ -257,6 +258,7 @@ p "Created 3 pizza place collections"
 token_one = Token.create!(
   address: "80 Raffles Pl, Singapore 048624",
   collection: zodiac_collection,
+  tokenurl: "https://www.nftscan.com/0xd774557b647330c91bf44cfeab205095f7e6c367",
   description: "Zodiac Inspired Digital Art!",
   conditions: "NFTs created by Z Studio are unique and non-interchangeable units of data stored on a digital ledger (blockchain).",
   user: studio_user
@@ -266,6 +268,7 @@ token_one.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken1.a
 token_two = Token.create!(
   address: "1 Fullerton Rd, Singapore 049213",
   collection: zodiac_collection,
+  tokenurl: "https://www.nftscan.com/0xd774557b647330c91bf44cfeab205095f7e6c367",
   description: "Zodiac Inspired Digital Art!",
   conditions: "NFTs created by Z Studio are unique and non-interchangeable units of data stored on a digital ledger (blockchain).",
   user: studio_user
@@ -275,6 +278,7 @@ token_two.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken2.a
 token_three = Token.create!(
   address: "88 Market St, Singapore 048948",
   description: "Zodiac Inspired Digital Art!",
+  tokenurl: "https://www.nftscan.com/0xd774557b647330c91bf44cfeab205095f7e6c367",
   conditions: "NFTs created by Z Studio are unique and non-interchangeable units of data stored on a digital ledger (blockchain).",
   collection: zodiac_collection
 )
@@ -283,6 +287,7 @@ token_three.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken3
 token_four = Token.create!(
   address: "2 Battery Rd, Singapore 049908",
   description: "Zodiac Inspired Digital Art!",
+  tokenurl: "https://www.nftscan.com/0xd774557b647330c91bf44cfeab205095f7e6c367",
   conditions: "NFTs created by Z Studio are unique and non-interchangeable units of data stored on a digital ledger (blockchain).",
   collection: zodiac_collection
 )
@@ -291,6 +296,7 @@ token_four.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken4.
 token_five = Token.create!(
   address: "11 Collyer Quay, Singapore 049317",
   description: "Zodiac Inspired Digital Art!",
+  tokenurl: "https://www.nftscan.com/0xd774557b647330c91bf44cfeab205095f7e6c367",
   conditions: "NFTs created by Z Studio are unique and non-interchangeable units of data stored on a digital ledger (blockchain).",
   collection: zodiac_collection
 )
@@ -299,6 +305,7 @@ token_five.photo.attach(io: File.open('app/assets/images/token_img/zodiactoken5.
 token_six = Token.create!(
   address: "5 Stadium Walk, Singapore 397693",
   description: "Zodiac Inspired Digital Art!",
+  tokenurl: "https://www.nftscan.com/0xd774557b647330c91bf44cfeab205095f7e6c367",
   collection: swolebros_collection,
   user: gym_user
 )
@@ -307,24 +314,28 @@ token_six.photo.attach(io: File.open('app/assets/images/token_img/swoletoken1.av
 token_seven = Token.create!(
   address: "80 Collyer Quay, Singapore 049326",
   collection: swolebros_collection,
+  tokenurl: "https://www.nftscan.com/0xd774557b647330c91bf44cfeab205095f7e6c367",
   user: gym_user
 )
 token_seven.photo.attach(io: File.open('app/assets/images/token_img/swoletoken2.avif'), filename: "swoletoken2.avif", content_type: "image/avif")
 
 token_eight = Token.create!(
   address: "1 Stadium Pl, Singapore 397628",
+  tokenurl: "https://www.nftscan.com/0xd774557b647330c91bf44cfeab205095f7e6c367",
   collection: swolebros_collection
 )
 token_eight.photo.attach(io: File.open('app/assets/images/token_img/swoletoken3.avif'), filename: "swoletoken3.avif", content_type: "image/avif")
 
 token_nine = Token.create!(
   address: "230 Stadium Blvd, Singapore 397799",
+  tokenurl: "https://www.nftscan.com/0xd774557b647330c91bf44cfeab205095f7e6c367",
   collection: swolebros_collection
 )
 token_nine.photo.attach(io: File.open('app/assets/images/token_img/swoletoken4.avif'), filename: "swoletoken4.avif", content_type: "image/avif")
 
 token_ten = Token.create!(
   address: "38 Jln Benaan Kapal, Singapore 399635",
+  tokenurl: "https://www.nftscan.com/0xd774557b647330c91bf44cfeab205095f7e6c367",
   collection: swolebros_collection
 )
 token_ten.photo.attach(io: File.open('app/assets/images/token_img/swoletoken5.avif'), filename: "swoletoken5.avif", content_type: "image/avif")
@@ -332,6 +343,7 @@ token_ten.photo.attach(io: File.open('app/assets/images/token_img/swoletoken5.av
 ##Added beanboi tokens
 token_eleven = Token.create!(
   address: "63 Dunlop St, Singapore 209391",
+  tokenurl: "https://www.nftscan.com/0xd774557b647330c91bf44cfeab205095f7e6c367",
   collection: redbean_collection,
   description: "$5 OFF your next Beanboi purchase!",
   conditions: "Only valid for in-store redemption. Voucher may only be used once. Minimum $20 purchase."
@@ -340,6 +352,7 @@ token_eleven.photo.attach(io: File.open('app/assets/images/token_img/redbeanboi1
 
 token_twelve = Token.create!(
   address: "5 Dunlop Street, Singapore 209335",
+  tokenurl: "https://www.nftscan.com/0xd774557b647330c91bf44cfeab205095f7e6c367",
   collection: redbean_collection,
   description: "$5 OFF your next Beanboi purchase!",
   conditions: "Only valid for in-store redemption. Voucher may only be used once. Minimum $20 purchase."
@@ -348,6 +361,7 @@ token_twelve.photo.attach(io: File.open('app/assets/images/token_img/redbeanboi2
 
 token_thirteen = Token.create!(
   address: "7 Dunlop Street, Singapore 209337",
+  tokenurl: "https://www.nftscan.com/0xd774557b647330c91bf44cfeab205095f7e6c367",
   collection: greenbean_collection,
   description: "Redeem a FREE Beanboi Plushie!",
   conditions: "Only valid for in-store redemption. Only one redemption per NFT. While stocks last, subject to availability."
@@ -356,6 +370,7 @@ token_thirteen.photo.attach(io: File.open('app/assets/images/token_img/greenbean
 
 token_fourteen = Token.create!(
   address: "45 Dunlop St, Singapore 209374",
+  tokenurl: "https://www.nftscan.com/0xd774557b647330c91bf44cfeab205095f7e6c367",
   collection: greenbean_collection,
   description: "Redeem a FREE Beanboi Plushie!",
   conditions: "Only valid for in-store redemption. Only one redemption per NFT. While stocks last, subject to availability.",
@@ -365,6 +380,7 @@ token_fourteen.photo.attach(io: File.open('app/assets/images/token_img/greenbean
 
 token_fifteen = Token.create!(
   address: "36 Dunlop St, Singapore 209364",
+  tokenurl: "https://www.nftscan.com/0xd774557b647330c91bf44cfeab205095f7e6c367",
   collection: orangebean_collection,
   description: "FREE admission to Beanboi Gallery!",
   conditions: "This NFT admits only ONE. Beanboi management has right to restrict entry at their discretion.",
@@ -374,6 +390,7 @@ token_fifteen.photo.attach(io: File.open('app/assets/images/token_img/orangebean
 
 token_sixteen = Token.create!(
   address: "63 Dunlop St, Singapore 209391",
+  tokenurl: "https://www.nftscan.com/0xd774557b647330c91bf44cfeab205095f7e6c367",
   collection: orangebean_collection,
   description: "FREE admission to Beanboi Gallery!",
   conditions: "This NFT admits only ONE. Beanboi management has right to restrict entry at their discretion."

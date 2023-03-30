@@ -194,7 +194,7 @@
       <div class="popup" id="popup">
         <div class="d-flex flex-column justify-content-center align-items-center h-100">
           <%= image_tag "misc/authenticated.png", class: "img" %>
-          <h2><a href="https://polygon.nftscan.com/<%= @link %>" class="auth-link">Click to verify your NFT!</a></h2>
+          <h2><a href="<%= @token.tokenurl %>" class="auth-link">Click to verify your NFT!</a></h2>
           <br>
           <button type="button" class="btn btn-primary" onclick="closePopup()">OK</button>
         </div>

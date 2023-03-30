@@ -40,9 +40,8 @@ class TokensController < UserController
     # puts response.read_body
     # @link = response.read_body.transaction_hash
     parsed_response = JSON.parse(response.body)
-    @link = parsed_response['transaction_hash']
-    puts @link
-    session[:link] = @link
+    link = parsed_response['transaction_hash']
+    @token.tokenurl = "www.nftscan.com/#{link}"
 
     # end of nft minting logic
     @token.save
