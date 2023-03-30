@@ -39,7 +39,7 @@ gym_user.banner.attach(io: File.open('app/assets/images/banner_img/gymuser_banne
 
 p "Created gym_user user"
 
-##Added New beanboi user
+##Added beanboi user
 beanboi_user = User.create!(
   username: "Beanie Baby",
   email: "user@beanboi.com",
@@ -51,6 +51,32 @@ beanboi_user.photo.attach(io: File.open("app/assets/images/user_img/beanboiuserp
 beanboi_user.banner.attach(io: File.open('app/assets/images/banner_img/bbuser_banner.png'), filename: "bbuser_banner.png", content_type: "image/png")
 
 p "Created beanboi_user user"
+
+###Added main user
+main_user = User.create!(
+  username: "NFT Catcher",
+  email: "user@catchnft.club",
+  password: "123456",
+  account_type: "user",
+  eth_address: "0xegasdk1lds",
+)
+main_user.photo.attach(io: File.open("app/assets/images/user_img/mainuser_profile.png"), filename: "pizzaplace_profile.png", content_type: "image/png")
+main_user.banner.attach(io: File.open("app/assets/images/banner_img/mainuser_banner.png"), filename: "mainuser_banner.png", content_type: "image/png")
+
+p "Created main user"
+
+###Added main business
+main_owner = User.create!(
+  username: "The Pizza Place",
+  email: "owner@pizzaplace.com",
+  password: "654321",
+  account_type: "business",
+  eth_address: "0xegasdk1lds",
+)
+main_owner.photo.attach(io: File.open("app/assets/images/user_img/pizzaplace_profile.png"), filename: "pizzaplace_profile.png", content_type: "image/png")
+main_owner.banner.attach(io: File.open("app/assets/images/banner_img/pizzaplace_banner.png"), filename: "pizzaplace_banner.png", content_type: "image/png")
+
+p "Created The Pizza Place owner"
 
 #Studio owner: user with business account
 studio_owner = User.create!(
@@ -110,7 +136,7 @@ gym_business = Business.create!(
 )
 p "Assigned gym_owner to Swole Bros Gym"
 
-##Added new beanboi business
+##Added beanboi business
 beanboi_business = Business.create!(
   name: "Bean Boi Plushies",
   address: "1 Dunlop Street, Singapore 209331",
@@ -118,6 +144,15 @@ beanboi_business = Business.create!(
   user: beanboi_owner
 )
 p "Assigned beanboi_owner to Bean Boi"
+
+###Added the pizza place business
+pizzaplace_business = Business.create!(
+  name: "The Pizza Place",
+  address: "6 Dunlop Street, Singapore 209336",
+  description: "Melting cheese on top, Saucy slices on crispy crust, Pizza perfection. The Pizza Place",
+  user: main_owner
+)
+p "Assigned main_owner to The Pizza Place"
 
 #Collections
 zodiac_collection = Collection.new(
@@ -146,7 +181,7 @@ swolebros_collection.banner.attach(io: File.open('app/assets/images/banner_img/g
 
 p "Created Gym Bros collection for Swole Bros Gym"
 
-##Added new beanboi collection
+##Added beanboi collection
 greenbean_collection = Collection.new(
   name: "Green Beans",
   description: "Redeem a free mini beanboi plushie!",
@@ -181,6 +216,42 @@ orangebean_collection.photo.attach(io: File.open('app/assets/images/collection_i
 orangebean_collection.banner.attach(io: File.open('app/assets/images/banner_img/orangebeancollectionbanner.png'), filename: "orangebeancollectionbanner.png", content_type: "image/avif")
 
 p "Created 3 beanboi collections"
+
+###Added new Pizza Place collection
+freezas_collection = Collection.new(
+  name: "FREEZAS",
+  description: "Redeem a FREE pizza with our FREEZAS!",
+  category: "Voucher"
+)
+freezas_collection.business = pizzaplace_business
+freezas_collection.save!
+pizzaplace_business.save!
+freezas_collection.photo.attach(io: File.open('app/assets/images/user_img/freezas_profile.png'), filename: "freezas_profile.png", content_type: "image/png")
+freezas_collection.banner.attach(io: File.open('app/assets/images/banner_img/freezas_banner.png'), filename: "freezas_banner.png", content_type: "image/png")
+
+pizzapuppy_collection = Collection.new(
+  name: "pizza x puppies",
+  description: "Puppies with pizzas. What more could you want?",
+  category: "Digital Asset"
+)
+pizzapuppy_collection.business = pizzaplace_business
+pizzapuppy_collection.save!
+pizzaplace_business.save!
+pizzapuppy_collection.photo.attach(io: File.open('app/assets/images/user_img/pizzapuppy_profile.png'), filename: "pizzapuppy_profile.png", content_type: "image/png")
+pizzapuppy_collection.banner.attach(io: File.open('app/assets/images/banner_img/pizzapuppy_banner.png'), filename: "pizzapuppy_banner.png", content_type: "image/png")
+
+onlypizzas_collection = Collection.new(
+  name: "OnlyPizzas",
+  description: "For the true Pizza fans.",
+  category: "Digital Asset"
+)
+onlypizzas_collection.business = pizzaplace_business
+onlypizzas_collection.save!
+pizzaplace_business.save!
+onlypizzas_collection.photo.attach(io: File.open('app/assets/images/user_img/onlypizzas_profile.png'), filename: "onlypizzas_profile.png", content_type: "image/png")
+onlypizzas_collection.banner.attach(io: File.open('app/assets/images/banner_img/onlypizzas_banner.png'), filename: "onlypizzas_banner.png", content_type: "image/png")
+
+p "Created 3 pizza place collections"
 
 #Tokens
 token_one = Token.create!(
