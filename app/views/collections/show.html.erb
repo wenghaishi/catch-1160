@@ -19,25 +19,31 @@
   <p class="fs-5 fw-bold mb-3 mt-3"><%= @collection.tokens.count %> items</p>
   <div>
     <div class="row" style="padding-bottom: 80px;">
-      <% @collection.tokens.each_with_index do |token, index| %>
+      <% @collection.tokens.each do |token| %>
         <div class="col-12 col-sm-6 col-md-3 mb-4 ">
           <div class="flip">
-            <div class="card front bg-white">
+            <div class="card front bg-white position-relative">
               <% if token.photo.key %>
                 <img src="<%= cl_image_path token.photo.key %>" class="card-img-top" alt="">
               <% end %>
-              <div class="card-body">
-                <p class="card-text fw-bold my-0 mb-1"><%= token.collection.name %> <span class="fw-bold">#<%= index + 1 %></span></p>
-                <p class="fw-bold fs-5 my-0">0.030 ETH</p>
+              <div class="card-body pb-0">
+                <p class="fw-bold rounded-pill d-flex justify-content-center align-items-center w-50 m-0 bg-warning right position-absolute top-0 start-0 mt-2 ms-2"><%= token.collection.category %></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="card-text fw-bold my-0 mb-1 fs-5"><%= token.collection.name %> <span class="fw-bold">#<%= token.identifier %></span></p>
+                  <%= image_tag 'eth.svg', class:"svg rounded-circle" %>
+                </div>
                 <% if token.user %>
                   <p class="text-muted">Owned by <%= token.user.username %></p>
+                <% else %>
+                  <p class="text-muted"><i>Unclaimed</i></p>
                 <% end %>
               </div>
             </div>
-            <div class="back d-flex flex-column text-center">
+            <div class="back d-flex flex-column text-center border border-3 border-dark">
               <div class="p-3 my-auto">
-                <h2><%= token.collection.name %> <span class="fw-bold">#<%= index + 1 %></span></h2>
-                <p><%= @collection.description %></p>
+                <h2 class="fs-1 mb-4"><%= token.collection.name %> <span class="fw-bold">#<%= token.identifier %></span></h2>
+                <p class="py-2 rounded-pill border shadow-sm text-white bg-dark mb-4"><%= token.description %></p>
+                <p class="text-secondary"><%= token.conditions %></p>
               </div>
             </div>
           </div>
@@ -55,10 +61,9 @@
       <% else %>
         <%= image_tag 'Search.svg', class: "footer-icon"%>
       <% end %>
-      <% end %>
-      <%= content_tag :div, "", class: "footer-title" %>
-    </div>
-
+    <% end %>
+    <%= content_tag :div, "", class: "footer-title" %>
+  </div>
   <%= link_to tokens_path do %>
     <div class="footer-sm-container">
       <% if current_page?(tokens_path) %>
@@ -66,10 +71,9 @@
       <% else %>
         <%= image_tag 'Map.svg', class: "footer-icon" %>
       <% end %>
-      <% end %>
-      <%= content_tag :div, "", class: "footer-title" %>
-    </div>
-
+    <% end %>
+    <%= content_tag :div, "", class: "footer-title" %>
+  </div>
   <%= link_to user_path(current_user) do %>
     <div class="footer-sm-container">
       <% if current_page?(user_path(current_user)) %>
@@ -77,7 +81,7 @@
       <% else %>
         <%= image_tag 'User.svg', class: "footer-icon" %>
       <% end %>
-      <% end %>
-      <%= content_tag :div, "", class: "footer-title" %>
-    </div>
+    <% end %>
+    <%= content_tag :div, "", class: "footer-title" %>
+  </div>
 </div>
