@@ -55,7 +55,7 @@ export default class extends Controller {
     setTimeout(() => {
       timeUp = true
       score = this.scoreTarget.textContent;
-      if (score >= 2) {
+      if (score >= 5) {
         console.log("You won!");
         console.log(this.winPopupTarget.classList);
         this.winPopupTarget.classList.remove('d-none');
