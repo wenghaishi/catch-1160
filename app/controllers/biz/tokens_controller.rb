@@ -7,7 +7,7 @@ class Biz::TokensController < BizController
         lat: t.latitude,
         lng: t.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: { token: t }),
-        marker_html: render_to_string(partial: "marker")
+        markerbiz_html: render_to_string(partial: "markerbiz")
       }
     end
   end
