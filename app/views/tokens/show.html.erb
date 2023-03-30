@@ -3,15 +3,19 @@
     <title>CATCH! NFT Discovery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+      html {
+        min-height: 100vh;
+        /* overflow: hidden; */
+      }
+
       body {
         margin: 0px;
-        padding: 30px;
-        font-family: TREBUCHET, sans-serif;
+        padding: 30px 30px 0 30px;
       }
-      .container {
+      .main-container {
         max-width: 500px;
+        /* min-height: 100vh; */
         margin: 0 auto;
-        padding: 20px;
       }
       .btn-back {
         display: inline-block;
@@ -25,11 +29,7 @@
       h1 {
         text-align: left;
         margin-top: 10px;
-        margin-bottom: 10px;
-        font-family: TREBUCHET, sans-serif;
-      }
-      h4 {
-        font-family: TREBUCHET, sans-serif;
+        margin-bottom: 10px
       }
       .token-photo {
         display: block;
@@ -38,6 +38,7 @@
         height: auto;
         border-radius: 24px;
         box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        text-align: center;
       }
       .token-description {
         text-align: left;
@@ -53,18 +54,9 @@
       .token-conditions {
         text-align: left;
       }
-      .btn-primary {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #7871FF;
-        color: black;
-        text-decoration: none;
-        border-radius: 10px;
-        width: 170px;
-        text-align: center;
-      }
       .social-share{
         text-align: center;
+        margin-bottom: 10rem;
       }
       .authenticate{
         text-align: center;
@@ -101,26 +93,32 @@
         text-decoration: none;
         padding-right: 10px;
       }
+      .fa-twitter{
+        margin-top: 30px;
+        display: inline-block;
+        font-size: 30px;
+        color: #2AB6FC;
+        text-decoration: none;
+        padding-right: 10px;
+      }
       .btn{
         padding: 10px 60px;
         background: #7871FF;
         border: 0;
         outline: none;
         font-size: 20px;
-        font-family: TREBUCHET, sans-serif;
         border-radius: 30px;
       }
       .popup{
-        width: 400px;
-        background: #fff;
-        border-radius: 24px;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
         position: absolute;
         top: 0;
         left: 50%;
         transform: translate(-50%, -50%) scale(0.1);
         text-align: center;
         padding: 0 30px 30px;
-        color: #333;
         visibility: hidden;
         transition: transform 0.4s, top 0.4s;
       }
@@ -147,7 +145,6 @@
         font-size: 18px;
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        font-family: TREBUCHET, sans-serif;
       }
       .auth-container{
         text-align: center;
@@ -159,71 +156,95 @@
         border: 0;
         outline: none;
         font-size: 20px;
-        font-family: TREBUCHET, sans-serif;
         border-radius: 30px;
+      }
+      .photo-back {
+        border-radius: 24px;
+      }
+      .back {
+        text-align: center;
       }
     </style>
   </head>
   <body>
-    <div class="container">
+    <div class="main-container">
       <%= link_to "Back", user_path(@user), class: "btn-back" %>
-      <img src="<%= cl_image_path @token.photo.key %>" alt="Token Photo" class="token-photo">
-    <h1><%= @token.collection.name %> #<%= @token.identifier %></h1>
-    <p class="token-description"><%= @token.description %></p>
-    <h4>Terms & Conditions</h4>
-    <p class="token-conditions"><%= @token.conditions %></p>
+    <!--Back button-->
+    <!--Photo flip-->
+      <br>
+      <div class="flip-token mx-auto">
+        <div class="card front bg-white">
+          <img id="frontimage" src="<%= cl_image_path @token.photo.key %>" alt="Token Photo" class="photo-front">
+        </div>
+        <div class="back d-flex flex-column text-center">
+          <%= image_tag "misc/qr-code-real.png", class: "photo-back" %>
+        </div>
+      </div>
+    <!--Token Details-->
+      <h1><%= @token.collection.name %> #<%= @token.identifier %></h1>
+      <p class="token-description"><%= @token.description %></p>
+      <h4>Terms & Conditions</h4>
+      <p class="token-conditions"><%= @token.conditions %></p>
+    <!--Authentication button-->
     <div class="auth-container">
       <button type="submit" class="btn" onclick="openPopup()">Authenticate</button>
       <div class="popup" id="popup">
-        <%= image_tag "misc/authenticated.png", class: "img" %>
-        <h2>Your NFT has been verified! </h2>
-        <a href="https://polygon.nftscan.com/<%= @link %>" class="auth-link">NFT Scan link</a>
-        <br>
-        <button type="button" class="btn-btm" onclick="closePopup()">OK</button>
+        <div class="d-flex flex-column justify-content-center align-items-center h-100">
+          <%= image_tag "misc/authenticated.png", class: "img" %>
+          <h2>Your NFT has been verified! </h2>
+          <a href="https://polygon.nftscan.com/<%= @link %>" class="auth-link">NFT Scan link</a>
+          <br>
+          <button type="button" class="btn-btm" onclick="closePopup()">OK</button>
+        </div>
       </div>
     </div>
+    <!--Share buttons-->
       <div class="social-share">
         <a href="https://api.whatsapp.com/send?text=https://catchnft.club/" data-action="share/whatsapp/share" i class="fa-brands fa-whatsapp"> </i></a>
         <a href="https://t.me/share/url?url=https://catchnft.club/&text=Check out my new NFT!" i class="fa-brands fa-telegram"></i></a>
-        <a href="http://www.facebook.com/sharer/sharer.php?u=https://catchnft.club", 555, 400, i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://catchnft.club", 555, 400, i class="fa-brands fa-facebook"></i></a>
+        <a href="https://twitter.com/intent/tweet?text=Check%20out%20my%20new%20NFT!%20@%20https://catchnft.club", 555, 400, i class="fa-brands fa-twitter"></i></a>
       </div>
     </div>
+    <!--Footer-->
+    <div class="footer-container">
+      <%= link_to businesses_path do %>
+        <div class="footer-sm-container">
+          <%= image_tag 'Search.svg', class: "footer-icon"%>
+          <% end %>
+          <%= content_tag :div, "Search", class: "footer-title" %>
+        </div>
+
+      <%= link_to tokens_path do %>
+      <div class="footer-sm-container">
+        <%= image_tag 'Map.svg', class: "footer-icon footer-active" %>
+        <% end %>
+        <%= content_tag :div, "Map", class: "footer-title" %>
+      </div>
+
+      <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+      <div class="footer-sm-container">
+        <%= image_tag 'Logout.svg', class: "footer-icon" %>
+        <% end %>
+        <%= content_tag :div, "Logout", class: "footer-title" %>
+      </div>
+    </div>
+    <!--Javascript for popup-->
     <script>
       let popup = document.getElementById("popup");
 
-      function openPopup(){
+      function openPopup() {
         popup.classList.add("open-popup");
       }
-      function closePopup(){
+
+      function closePopup() {
         popup.classList.remove("open-popup");
       }
+
     </script>
   </body>
 </html>
 
-
-    <%# <div class="authenticate">
-      <div class="iframeContainer">
-        <iframe src="https://www.google.com"></iframe>
-        </div>
-      <a href="#" class="btn btn-primary">Authenticate</a>
-    </div> %>
-
-<%#
-    Social share buttons %>
-
-<%# hardcode:
-    proof of ownership
-    authenticate button
-    nft scan link
-    success message: authenticated! %>
-
-<%# authenticate
-    normal tokens controller
-    response.read_body < api response
-    check transaction hash
-    interpolate hash value into url string
-    %>
 
 <%#
     authentication logic:
