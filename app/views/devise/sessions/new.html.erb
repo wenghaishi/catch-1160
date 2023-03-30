@@ -1,20 +1,23 @@
-<div class="my-div navbar hidden-tablet hidden-phone" data-controller="users">
-  <%= image_tag "logo.png", style: 'height:70px;margin-bottom:80px;' %>
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
-    <%= f.input :email,
-                required: true,
-                label: false,
-                autofocus: true,
-                placeholder: 'Email',
-                input_html: { class: 'input' } %>
-    <%= f.input :password,
-                required: true,
-                label: false,
-                placeholder: 'Password',
-                input_html: { class: 'input' } %>
-    <div>
-      <%= f.button :submit, "Log in", class: "main-button"%>
-    </div>
-  <% end %>
-  <%= render "devise/shared/links" %>
+<div class="my-home-div my-div navbar hidden-tablet hidden-phone" data-controller="users">
+
+  <div class="card-forms" style="padding-top: 4rem;">
+    <%= image_tag "logo.png", style: 'height:70px;margin-bottom:80px;' %>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
+      <%= f.input :email,
+                  required: true,
+                  label: false,
+                  autofocus: true,
+                  placeholder: 'Email',
+                  input_html: { class: 'input' } %>
+      <%= f.input :password,
+                  required: true,
+                  label: false,
+                  placeholder: 'Password',
+                  input_html: { class: 'input' } %>
+      <div>
+        <%= f.button :submit, "Log in", class: "main-button"%>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div>
 </div>

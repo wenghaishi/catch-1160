@@ -1,24 +1,27 @@
-<div class="my-div navbar hidden-tablet hidden-phone">
+<div class="my-home-div my-div navbar hidden-tablet hidden-phone">
 
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |form| %>
+    <div class="card-forms">
+    <%= image_tag "logo.png", style: 'height:50px;margin-bottom:20px;' %>
+    <button class="eth_connect main-button">Connect Metamask</button>
+    <%= form.text_field :email, class: "input4 form-control", placeholder: "Email"%> <br />
+    <%= form.text_field :username, class: "input4 form-control", placeholder: "Username"  %> <br />
+    <%= form.text_field :password, class: "input4 form-control", placeholder: "Password", type: "password"  %> <br />
+    <%= form.select :account_type, options_for_select([["user", "user"], ["business", "business"]]), {prompt: "Account type"}, {class: "acc-type form-control"} %>
+    <div style="position:relative;">
+      <%= form.label "Photo", style: 'align-self:start;', class: 'signup-form-label' %>
+      <%=form.file_field :photo, as: :file, label: "Add a picture", required: true, class: "input4 form-control" %> <br />
+    </div>
+    <div style="position:relative;">
+      <%= form.label "Banner", style: 'align-self:start;', class: 'signup-form-label' %>
+      <%=form.file_field :banner, as: :file, label: "Add a picture", required: true, class: "input4 form-control" %> <br />
+    </div>
+    <%= form.text_field :eth_address, class: "eth_address d-none" %> <br />
+    <button class="eth_connect main-button">Sign up</button>
+    <%= render "devise/shared/links" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |form| %>
-  <div class="my-div">
-  <%= image_tag "logo.png", style: 'height:50px;margin-bottom:20px;' %>
-  <button class="eth_connect main-button">Connect Metamask</button>
-  <%= form.text_field :email, class: "input4 form-control", placeholder: "Email"%> <br />
-  <%= form.text_field :username, class: "input4 form-control", placeholder: "Username"  %> <br />
-  <%= form.text_field :password, class: "input4 form-control", placeholder: "Password", type: "password"  %> <br />
-  <%= form.select :account_type, options_for_select([["user", "user"], ["business", "business"]]), {prompt: "Account type"}, {class: "acc-type form-control"} %>
-  <%= form.label "Profile photo" %>
-  <%=form.file_field :photo, as: :file, label: "Add a picture", required: true, class: "input4 form-control" %> <br />
-  <%= form.label "Banner image" %>
-  <%=form.file_field :banner, as: :file, label: "Add a picture", required: true, class: "input4 form-control" %> <br />
-  <%= form.text_field :eth_address, class: "eth_address d-none" %> <br />
-  <button class="eth_connect main-button">Sign up</button>
-  <%= render "devise/shared/links" %>
-
-  </div>
-<% end %>
+    </div>
+  <% end %>
 
   <script>
     const buttonEthConnect = document.querySelector('button.eth_connect');
