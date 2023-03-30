@@ -2,10 +2,16 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="game"
 export default class extends Controller {
-  static targets = ["hole", "mole", "score", "button"]
+  static targets = ["hole", "mole", "score", "button", "winPopup", "losePopup"]
 
   connect() {
     console.log("game controller connected yo");
+    console.log(this.popupTarget)
+  }
+
+  reset() {
+    this.losePopupTarget.classList.add('d-none');
+    this.scoreTarget.textContent = 0;
   }
 
 
@@ -50,9 +56,12 @@ export default class extends Controller {
       timeUp = true
       score = this.scoreTarget.textContent;
       if (score >= 2) {
-        alert("You won!");
+        console.log("You won!");
+        console.log(this.winPopupTarget.classList);
+        this.winPopupTarget.classList.remove('d-none');
+        console.log(this.winPopupTarget.classList);
       } else {
-        alert("You lost!");
+        this.losePopupTarget.classList.toggle('d-none');
       }
     }, 10000)
 
