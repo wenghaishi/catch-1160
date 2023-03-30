@@ -12,7 +12,7 @@
     <div>
       <p class="fs-2 fw-bold mb-0"><%= @collection.name %></p>
       <a href="<%= business_path(@collection.business) %>" class="text-decoration-none text-dark">By <span class="fw-bold"><%= @collection.business.name %></span></a>
-      <p class="fs-6 my-0 mb-1 mt-2">Total items <span class="fw-bold" data-tokens-target="count"><%= @collection.tokens.count %></span> <span class="mx-1">·</span> Created <span class="fw-bold"><%= @collection.created_at.strftime("%b %Y") %></span> <span class="mx-1">·</span> Chain <span class="fw-bold">Ethereum</span></p>
+      <p class="fs-6 my-0 mb-1 mt-2">Total items <span class="fw-bold" data-tokens-target="count"><%= @collection.tokens.count %></span> <span class="mx-1">·</span> Created <span class="fw-bold"><%= @collection.created_at.strftime("%b %Y") %></span> <span class="mx-1">·</span> Chain <span class="fw-bold">Ethereum</span><span class="mx-1">·</span> Category <span class="fw-bold"><%= @collection.category %></span></p>
       <p><%= @collection.description %></p>
     </div>
   </div>
@@ -33,23 +33,23 @@
   </div>
 </div>
 <div class="footer-container">
-  <%= link_to new_biz_business_collection_path(current_user.business.id) do %>
-    <div class="footer-sm-container">
-    <% if current_page?(new_biz_business_collection_path(current_user.business.id)) %>
-      <%= image_tag 'Plus_active.svg', class: "footer-icon"%>
-    <% else %>
-      <%= image_tag 'Plus.svg', class: "footer-icon"%>
-    <% end %>
-    <% end %>
-    <%= content_tag :div, "", class: "footer-title" %>
-  </div>
-
   <%= link_to biz_business_tokens_path(@collection.business.id) do %>
     <div class="footer-sm-container">
     <% if current_page?(biz_business_tokens_path(@collection.business.id)) %>
       <%= image_tag 'Map_active.svg', class: "footer-icon" %>
     <% else %>
       <%= image_tag 'Map.svg', class: "footer-icon" %>
+    <% end %>
+    <% end %>
+    <%= content_tag :div, "", class: "footer-title" %>
+  </div>
+
+  <%= link_to new_biz_business_collection_path(current_user.business.id) do %>
+    <div class="footer-sm-container">
+    <% if current_page?(new_biz_business_collection_path(current_user.business.id)) %>
+      <%= image_tag 'Plus_active.svg', class: "footer-icon"%>
+    <% else %>
+      <%= image_tag 'Plus.svg', class: "footer-icon"%>
     <% end %>
     <% end %>
     <%= content_tag :div, "", class: "footer-title" %>

@@ -9,8 +9,8 @@
 </div>
 <div class="wrapper border-bottom mb-1">
   <div>
-    <p class="fs-2 fw-bold"><%= @business.name %></p>
-    <p><span class="fw-bold"><%= @business.created_at.strftime("%b %Y") %></span></p>
+    <p class="fs-2 fw-bold d-flex align-items-center"><%= @business.name %> <%= image_tag 'catch-badge.svg', class:"svg-business" %></p>
+    <p>Joined <span class="fw-bold"><%= @business.created_at.strftime("%b %Y") %></span></p>
     <p><%= @business.description %></p>
   </div>
 </div>
@@ -24,8 +24,8 @@
               <div class="card-background-img" style="background-image: url(<%= cl_image_path collection.banner.key %>);">
               </div>
               <div class="card-content d-flex px-2 justify-content-center">
-                <div class="px-2 py-3">
-                  <p class="fw-bold m-0 text-dark"><%= collection.name %></p>
+                <div class="px-2 py-2 align-items-center justify-content-between d-flex">
+                  <p class="fw-bold m-0 " style="color: black"><%= collection.name %></p>
                 </div>
               </div>
             </div>
@@ -42,22 +42,28 @@
       <% @business.tokens.each do |token| %>
         <div class="col-12 col-sm-6 col-md-3 mb-4 ">
           <div class="flip">
-            <div class="card front bg-white">
+            <div class="card front bg-white position-relative">
               <% if token.photo.key %>
                 <img src="<%= cl_image_path token.photo.key %>" class="card-img-top" alt="">
               <% end %>
-              <div class="card-body">
-                <p class="card-text fw-bold my-0 mb-1"><%= token.collection.name %> <span class="fw-bold">#<%= token.identifier %></span></p>
-                <p class="fw-bold fs-5 my-0">0.030 ETH</p>
+              <div class="card-body pb-0">
+                <p class="fw-bold rounded-pill d-flex justify-content-center  px-3 align-items-center m-0 bg-warning right position-absolute top-0 start-0 mt-2 ms-2"><%= token.collection.category %></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="card-text fw-bold my-0 mb-1 fs-5"><%= token.collection.name %> <span class="fw-bold">#<%= token.identifier %></span></p>
+                  <%= image_tag 'eth.svg', class:"svg rounded-circle" %>
+                </div>
                 <% if token.user %>
                   <p class="text-muted">Owned by <%= token.user.username %></p>
+                <% else %>
+                  <p class="text-muted"><i>Unclaimed</i></p>
                 <% end %>
               </div>
             </div>
-            <div class="back d-flex flex-column text-center">
+            <div class="back d-flex flex-column text-center border border-3 border-dark">
               <div class="p-3 my-auto">
-                <h2><%= token.collection.name %> <span class="fw-bold">#<%= token.identifier %></span></h2>
-                <p><%= token.collection.description %></p>
+                <h2 class="fs-1 mb-4"><%= token.collection.name %> <span class="fw-bold">#<%= token.identifier %></span></h2>
+                <p class="py-2 rounded-pill border shadow-sm text-white bg-dark mb-4"><%= token.description %></p>
+                <p class="text-secondary"><%= token.conditions %></p>
               </div>
             </div>
           </div>
@@ -68,28 +74,26 @@
 </div>
 </div>
 <div class="footer-container">
-  <%= link_to new_biz_business_collection_path(current_user.business.id) do %>
-    <div class="footer-sm-container">
-    <% if current_page?(new_biz_business_collection_path(current_user.business.id)) %>
-      <%= image_tag 'Plus_active.svg', class: "footer-icon"%>
-    <% else %>
-      <%= image_tag 'Plus.svg', class: "footer-icon"%>
-    <% end %>
-    <% end %>
-    <%= content_tag :div, "", class: "footer-title" %>
-  </div>
-
   <%= link_to biz_business_tokens_path(@business.id) do %>
     <div class="footer-sm-container">
-    <% if current_page?(biz_business_tokens_path(@business.id)) %>
-      <%= image_tag 'Map_active.svg', class: "footer-icon" %>
-    <% else %>
-      <%= image_tag 'Map.svg', class: "footer-icon" %>
-    <% end %>
+      <% if current_page?(biz_business_tokens_path(@business.id)) %>
+        <%= image_tag 'Map_active.svg', class: "footer-icon" %>
+      <% else %>
+        <%= image_tag 'Map.svg', class: "footer-icon" %>
+      <% end %>
     <% end %>
     <%= content_tag :div, "", class: "footer-title" %>
   </div>
-
+  <%= link_to new_biz_business_collection_path(current_user.business.id) do %>
+    <div class="footer-sm-container">
+      <% if current_page?(new_biz_business_collection_path(current_user.business.id)) %>
+        <%= image_tag 'Plus_active.svg', class: "footer-icon"%>
+      <% else %>
+        <%= image_tag 'Plus.svg', class: "footer-icon"%>
+      <% end %>
+    <% end %>
+    <%= content_tag :div, "", class: "footer-title" %>
+  </div>
   <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
     <div class="footer-sm-container">
       <%= image_tag 'Logout_active.svg', class: "footer-icon" %>

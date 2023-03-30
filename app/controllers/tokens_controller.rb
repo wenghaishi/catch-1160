@@ -14,7 +14,7 @@ class TokensController < UserController
         lat: t.latitude,
         lng: t.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: { token: t }),
-        marker_html: render_to_string(partial: "marker")
+        marker_html: render_to_string(partial: "marker", locals: { token: t })
       }
     end
   end
@@ -29,20 +29,19 @@ class TokensController < UserController
 
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
-    
+
     request = Net::HTTP::Post.new(url)
     request["accept"] = 'application/json'
     request["content-type"] = 'application/json'
     request["Authorization"] = 'ffbef1dc-c66a-4461-a936-800b290db517'
     request.body = "{\"name\":\"#{@token.id}\",\"description\":\"#{@token.description}\",\"file_url\":\"#{@token.url}\",\"mint_to_address\":\"0x4A771fDF27319180F49BbF151317Bafa306074A6\",\"chain\":\"polygon\"}"
-    
+
     response = http.request(request)
     # puts response.read_body
     # @link = response.read_body.transaction_hash
     parsed_response = JSON.parse(response.body)
-    @link = parsed_response['transaction_hash']
-    puts @link
-    session[:link] = @link
+    link = parsed_response['transaction_hash']
+    @token.tokenurl = "www.nftscan.com/#{link}"
 
     # end of nft minting logic
     @token.save

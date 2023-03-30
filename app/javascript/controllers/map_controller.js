@@ -29,7 +29,7 @@ export default class extends Controller {
       // trackUserLocation: true,
       // Draw an arrow next to the location dot to indicate which direction the device is heading.
       showUserHeading: true,
-      fitBoundsOptions: { maxZoom: 24 },
+      fitBoundsOptions: { maxZoom: 16 },
       showAccuracyCircle: false,
     })
 
@@ -70,7 +70,7 @@ export default class extends Controller {
         this.currentLocation = [e.coords.longitude, e.coords.latitude]
         this.map.easeTo({
           center: this.currentLocation,
-          zoom: 19,
+          zoom: 16,
           essential: true,
         });
       });
