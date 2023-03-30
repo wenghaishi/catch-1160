@@ -66,24 +66,34 @@
     </div>
   </div>
 </div>
+</div>
 <div class="footer-container">
   <%= link_to new_biz_business_collection_path(current_user.business.id) do %>
     <div class="footer-sm-container">
+    <% if current_page?(new_biz_business_collection_path(current_user.business.id)) %>
+      <%= image_tag 'Plus_active.svg', class: "footer-icon"%>
+    <% else %>
       <%= image_tag 'Plus.svg', class: "footer-icon"%>
     <% end %>
-    <%= content_tag :div, "Create", class: "footer-title" %>
+    <% end %>
+    <%= content_tag :div, "", class: "footer-title" %>
   </div>
+
   <%= link_to biz_business_tokens_path(@business.id) do %>
     <div class="footer-sm-container">
+    <% if current_page?(biz_business_tokens_path(@business.id)) %>
+      <%= image_tag 'Map_active.svg', class: "footer-icon" %>
+    <% else %>
       <%= image_tag 'Map.svg', class: "footer-icon" %>
     <% end %>
-    <%= content_tag :div, "Map", class: "footer-title" %>
+    <% end %>
+    <%= content_tag :div, "", class: "footer-title" %>
   </div>
+
   <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
     <div class="footer-sm-container">
-      <%= image_tag 'Logout.svg', class: "footer-icon" %>
+      <%= image_tag 'Logout_active.svg', class: "footer-icon" %>
     <% end %>
-    <%= content_tag :div, "Logout", class: "footer-title" %>
+    <%= content_tag :div, "", class: "footer-title" %>
   </div>
-</div>
 </div>

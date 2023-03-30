@@ -1,0 +1,5 @@
+meta_name: "Catch"
+meta_title: "Catch - Explore the World, One NFT at a Time"
+meta_description: "Explore the World, One NFT at a Time"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@your_twitter_account"   # required for Twitter Cards
