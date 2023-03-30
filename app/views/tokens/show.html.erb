@@ -164,6 +164,9 @@
       .back {
         text-align: center;
       }
+      .auth-link {
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
@@ -187,14 +190,13 @@
       <p class="token-conditions"><%= @token.conditions %></p>
     <!--Authentication button-->
     <div class="auth-container">
-      <button type="submit" class="btn" onclick="openPopup()">Authenticate</button>
+      <button type="submit" class="btn btn-primary" onclick="openPopup()">Authenticate</button>
       <div class="popup" id="popup">
         <div class="d-flex flex-column justify-content-center align-items-center h-100">
           <%= image_tag "misc/authenticated.png", class: "img" %>
-          <h2>Your NFT has been verified! </h2>
-          <a href="https://polygon.nftscan.com/<%= @link %>" class="auth-link">NFT Scan link</a>
+          <h2><a href="https://polygon.nftscan.com/<%= @link %>" class="auth-link">Click to verify your NFT!</a></h2>
           <br>
-          <button type="button" class="btn-btm" onclick="closePopup()">OK</button>
+          <button type="button" class="btn btn-primary" onclick="closePopup()">OK</button>
         </div>
       </div>
     </div>
@@ -244,7 +246,6 @@
     </script>
   </body>
 </html>
-
 
 <%#
     authentication logic:
