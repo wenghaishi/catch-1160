@@ -253,6 +253,29 @@ onlypizzas_collection.banner.attach(io: File.open('app/assets/images/banner_img/
 
 p "Created 3 pizza place collections"
 
+### Added new collections for user tokens
+boredape_collection = Collection.new(
+  name: "Bored Ape",
+  description: "Get Ape'd",
+  category: "Digital Asset"
+)
+boredape_collection.business = studio_business
+boredape_collection.save!
+studio_business.save!
+boredape_collection.photo.attach(io: File.open('app/assets/images/misc/filler_avatar.png'), filename: "filler_avatar.png", content_type: "image/png")
+boredape_collection.banner.attach(io: File.open('app/assets/images/misc/filler_banner.png'), filename: "filler_banner.png", content_type: "image/png")
+
+metahomes_collection = Collection.new(
+  name: "MetaHomes",
+  description: "Life on the cloud",
+  category: "Digital Asset"
+)
+metahomes_collection.business = studio_business
+metahomes_collection.save!
+studio_business.save!
+metahomes_collection.photo.attach(io: File.open('app/assets/images/misc/filler_avatar.png'), filename: "filler_avatar.png", content_type: "image/png")
+metahomes_collection.banner.attach(io: File.open('app/assets/images/misc/filler_banner.png'), filename: "filler_banner.png", content_type: "image/png")
+
 #Tokens
 token_one = Token.create!(
   address: "80 Raffles Pl, Singapore 048624",
@@ -381,3 +404,72 @@ token_sixteen = Token.create!(
 token_sixteen.photo.attach(io: File.open('app/assets/images/token_img/orangebeanboi2.avif'), filename: "orangebeanboi2.avif", content_type: "image/avif")
 
 p "16 tokens generated"
+
+###Seeds for main user and the pizza place
+token_seventeen = Token.create!(
+  address: "175 Bencoolen St, Singapore 189649",
+  collection: freezas_collection,
+  description: "ONE FREE Pan Pizza!",
+  conditions: "Limited to only one redemption per FREEZAS NFT."
+)
+token_seventeen.photo.attach(io: File.open('app/assets/images/token_img/freepizza_1.avif'), filename: "freepizza_1.avif", content_type: "image/avif")
+
+token_eighteen = Token.create!(
+  address: "1 McNally St, Singapore 187940",
+  collection: freezas_collection,
+  description: "ONE FREE Pan Pizza!",
+  conditions: "Limited to only one redemption per FREEZAS NFT."
+)
+token_eighteen.photo.attach(io: File.open('app/assets/images/token_img/freepizza_2.avif'), filename: "freepizza_2.avif", content_type: "image/avif")
+
+token_nineteen = Token.create!(
+  address: "180 Bencoolen St, Singapore 189646",
+  collection: pizzapuppy_collection,
+  description: "Pizzas and Puppies Digital Art!",
+  conditions: "Collect our limited-edition puppy-pizza themed art."
+)
+token_nineteen.photo.attach(io: File.open('app/assets/images/token_img/pizzapuppy_1.jpg'), filename: "pizzapuppy_1.jpg", content_type: "image/jpg")
+
+token_nineteen = Token.create!(
+  address: "1 Rochor Canal Road, 188504",
+  collection: pizzapuppy_collection,
+  description: "Pizzas and Puppies Digital Art!",
+  conditions: "Collect our limited-edition puppy-pizza themed art."
+)
+token_nineteen.photo.attach(io: File.open('app/assets/images/token_img/pizzapuppy_2.jpg'), filename: "pizzapuppy_1.jpg", content_type: "image/jpg")
+
+token_twenty = Token.create!(
+  address: "60 Albert St, Singapore 189969",
+  collection: onlypizzas_collection,
+  description: "Hot Pizzas For You",
+  conditions: "Fresh out the oven. Get them while they're hot!"
+)
+token_twenty.photo.attach(io: File.open('app/assets/images/token_img/onlypizzas_1.jpg'), filename: "pizzapuppy_1.jpg", content_type: "image/jpg")
+
+token_twentyone = Token.create!(
+  address: "1 Rochor Rd, Singapore 180001",
+  collection: onlypizzas_collection,
+  description: "Hot Pizzas For You",
+  conditions: "Fresh out the oven. Get them while they're hot!"
+)
+token_twentyone.photo.attach(io: File.open('app/assets/images/token_img/onlypizzas_2.jpg'), filename: "pizzapuppy_2.jpg", content_type: "image/jpg")
+
+token_twentytwo = Token.create!(
+  address: "1 Stadium Dr, Singapore 397629",
+  collection: boredape_collection,
+  description: "Hot Pizzas For You",
+  conditions: "Fresh out the oven. Get them while they're hot!",
+  user: main_user
+)
+token_twentytwo.photo.attach(io: File.open('app/assets/images/token_img/boredape_user.png'), filename: "boredape_user.png", content_type: "image/png")
+
+token_twentythree = Token.create!(
+  address: "1 Stadium Pl, Singapore 397628",
+  collection: metahomes_collection,
+  description: "Hot Pizzas For You",
+  conditions: "Fresh out the oven. Get them while they're hot!",
+  user: main_user
+)
+token_twentythree.photo.attach(io: File.open('app/assets/images/token_img/metahomes_user.png'), filename: "metahomes_user.png", content_type: "image/png")
+
+p "Added tokens for pizza place and main user"
