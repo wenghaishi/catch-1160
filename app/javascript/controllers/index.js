@@ -16,6 +16,9 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import MapbizController from "./mapbiz_controller"
+application.register("mapbiz", MapbizController)
+
 import SearchController from "./search_controller"
 application.register("search", SearchController)
 

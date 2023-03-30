@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from "mapbox-gl"
 
+// Connects to data-controller="map"
 export default class extends Controller {
   static values = {
     apiKey: String,
@@ -30,7 +31,6 @@ export default class extends Controller {
       showUserHeading: true,
       fitBoundsOptions: { maxZoom: 24 },
       showAccuracyCircle: false,
-      // bearing: true
     })
 
     const nav = new mapboxgl.NavigationControl({
@@ -124,24 +124,20 @@ export default class extends Controller {
         this.popupTarget.classList.remove("hide")
         this.popupTarget.innerHTML = marker.info_window_html
         this.counterTarget.innerHTML = distanceKm.toString()
-        // Finally, check if the distance is less than or equal to 50 meters
+        // Finally, check if the distance is less than or equal to 200 meters
         if (length <= 0.2) {
-          // The marker is within 200 meters of your current location
           // CATCHABLE!!!!
           this.buttonTarget.classList.remove("btn-cannot")
           this.buttonTarget.classList.add("btn-catch")
-          // this.buttonTarget.setAttribute("value", "Catch Token")
           this.buttonTarget.setAttribute("data-bs-toggle", "modal")
           this.buttonTarget.innerText = "Catch Token"
           this.buttonTarget.removeAttribute('disabled')
         } else {
-          // The marker is further than 200 meters from your current location
           // NOT CATCHABLE
           this.buttonTarget.classList.remove("btn-catch")
           this.buttonTarget.classList.add("btn-cannot")
           this.buttonTarget.setAttribute('disabled', "")
           this.buttonTarget.setAttribute("data-bs-toggle", "")
-          // this.buttonTarget.setAttribute("value", "Move Closer to Catch")
           this.buttonTarget.innerText = "Move Closer to Catch"
         }
       })
