@@ -9,17 +9,6 @@
 </div>
 <%# footer nav %>
   <div class="footer-container">
-    <%= link_to new_biz_business_collection_path(current_user.business.id) do %>
-    <div class="footer-sm-container">
-    <% if current_page?(new_biz_business_collection_path(current_user.business.id)) %>
-      <%= image_tag 'Plus_active.svg', class: "footer-icon"%>
-    <% else %>
-      <%= image_tag 'Plus.svg', class: "footer-icon"%>
-    <% end %>
-    <% end %>
-    <%= content_tag :div, "", class: "footer-title" %>
-    </div>
-
     <%= link_to biz_business_tokens_path do %>
     <div class="footer-sm-container">
       <% if current_page?(biz_business_tokens_path) %>
@@ -29,6 +18,17 @@
       <% end %>
       <% end %>
       <%= content_tag :div, "", class: "footer-title" %>
+    </div>
+
+    <%= link_to new_biz_business_collection_path(current_user.business.id) do %>
+    <div class="footer-sm-container">
+    <% if current_page?(new_biz_business_collection_path(current_user.business.id)) %>
+      <%= image_tag 'Plus_active.svg', class: "footer-icon"%>
+    <% else %>
+      <%= image_tag 'Plus.svg', class: "footer-icon"%>
+    <% end %>
+    <% end %>
+    <%= content_tag :div, "", class: "footer-title" %>
     </div>
 
     <%= link_to user_path(current_user) do %>
