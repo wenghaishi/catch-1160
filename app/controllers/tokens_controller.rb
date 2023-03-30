@@ -45,7 +45,6 @@ class TokensController < UserController
     session[:link] = @link
 
     # end of nft minting logic
-    
     @token.save
     redirect_to token_path(@token)
   end
