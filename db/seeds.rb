@@ -412,6 +412,23 @@ token_sixteen.photo.attach(io: File.open('app/assets/images/token_img/orangebean
 p "16 tokens generated"
 
 ###Seeds for main user and the pizza place
+
+token_seventeen = Token.create!(
+  address: "175 Bencoolen St, Singapore 189649",
+  collection: freezas_collection,
+  description: "ONE FREE Pan Pizza!",
+  conditions: "Limited to only one redemption per FREEZAS NFT."
+)
+token_seventeen.photo.attach(io: File.open('app/assets/images/token_img/freepizza_1.avif'), filename: "freepizza_1.avif", content_type: "image/avif")
+
+token_eighteen = Token.create!(
+  address: "1 McNally St, Singapore 187940",
+  collection: freezas_collection,
+  description: "ONE FREE Pan Pizza!",
+  conditions: "Limited to only one redemption per FREEZAS NFT."
+)
+token_eighteen.photo.attach(io: File.open('app/assets/images/token_img/freepizza_2.avif'), filename: "freepizza_2.avif", content_type: "image/avif")
+
 token_nineteen = Token.create!(
   address: "180 Bencoolen St, Singapore 189646",
   collection: pizzapuppy_collection,
