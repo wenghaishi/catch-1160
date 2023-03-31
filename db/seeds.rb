@@ -111,7 +111,7 @@ beanboi_owner = User.create!(
   password: "654321",
   account_type: "business",
   eth_address: "0xegasdk1lds"
-  
+
 )
 beanboi_owner.photo.attach(io: File.open("app/assets/images/user_img/beanboiowner_photo.avif"), filename: "beanboiowner_photo.avif", content_type: "image/avif")
 beanboi_owner.banner.attach(io: File.open('app/assets/images/banner_img/beanboi_banner.png'), filename: "beanboi_banner.png", content_type: "image/png")
@@ -219,17 +219,6 @@ orangebean_collection.banner.attach(io: File.open('app/assets/images/banner_img/
 p "Created 3 beanboi collections"
 
 ###Added new Pizza Place collection
-freezas_collection = Collection.new(
-  name: "FREEZAS",
-  description: "Redeem a FREE pizza with our FREEZAS!",
-  category: "Voucher"
-)
-freezas_collection.business = pizzaplace_business
-freezas_collection.save!
-pizzaplace_business.save!
-freezas_collection.photo.attach(io: File.open('app/assets/images/user_img/freezas_profile.png'), filename: "freezas_profile.png", content_type: "image/png")
-freezas_collection.banner.attach(io: File.open('app/assets/images/banner_img/freezas_banner.png'), filename: "freezas_banner.png", content_type: "image/png")
-
 pizzapuppy_collection = Collection.new(
   name: "pizza x puppies",
   description: "Puppies with pizzas. What more could you want?",
@@ -423,6 +412,7 @@ token_sixteen.photo.attach(io: File.open('app/assets/images/token_img/orangebean
 p "16 tokens generated"
 
 ###Seeds for main user and the pizza place
+
 token_seventeen = Token.create!(
   address: "175 Bencoolen St, Singapore 189649",
   collection: freezas_collection,
