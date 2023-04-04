@@ -23,14 +23,15 @@ Users need to sign up by connecting their metamask wallet to the app and enterin
 
 Then they can go out to explore NFTs.
 
-
-
-
-
+<br>
+<br>
+<br>
 User Catching NFTs
 
 https://user-images.githubusercontent.com/74546450/229769316-9784683c-29b1-48c0-864f-19da8f2ba55d.mov
-
+<br>
+<br>
+<br>
 Business creating a Geotaggged NFT
 
 https://user-images.githubusercontent.com/74546450/229776781-36e357a0-6aa1-4c76-abc6-d8b99211894f.mp4
