@@ -38,12 +38,16 @@ https://user-images.githubusercontent.com/74546450/229776781-36e357a0-6aa1-4c76-
 
 <br>
 <br>
-Test account for player        
+
+### Demo
+
+
+Demo account for player        
 
 Email: user@gym.com <br>
 Password: 123456
 
-Test account for business
+Demo account for business
 
 Email: owner@gym.com <br>
 Password: 654321
