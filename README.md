@@ -19,7 +19,7 @@ Then they can go out to explore NFTs.
 
 <br>
 <br>
-__Player Catching NFTs__ :point_down:	
+### Player Catching NFTs :point_down:	
 <br>
 <br>
 <br>
@@ -28,7 +28,7 @@ https://user-images.githubusercontent.com/74546450/229769316-9784683c-29b1-48c0-
 
 <br>
 <br>
-__Business creating a Geotaggged NFT__ :point_down:	
+### Business creating a Geotaggged NFT :point_down:	
 <br>
 <br>
 <br>
