@@ -1,8 +1,13 @@
-Project Catch!
+Project Catch! @ catchnft.club
+----------------------------------------
 
-App @ catchnft.club
+Test account 
 
-Catch is an platform for Geotagged NFTs. It is similar to the game Pokemon GO! But with NFTs. Businesses can mint Geotagged NFTs and place them around desired locations. Players go out to "catch" these NFTs.
+Email: user@gym.com
+password: 123456
+
+Catch is an platform for Geotagged NFTs on Polygon. It is similar to the game Pokemon GO! But with NFTs. Businesses can mint Geotagged NFTs and place them around desired locations. Players go out to "catch" these NFTs.
+
 
 Possible use cases for businesses
 
@@ -12,8 +17,11 @@ Possible use cases for businesses
 4) POAP NFTs
 5) NFT Vouchers
 
+Tech Stack: Ruby on rails, Bootstrap, PostgreSQL and stimulus. Deployed on Heroku
 
+Users need to sign up by connecting their metamask wallet to the app and entering their details.
 
+Then they can go out to explore NFTs.
 
 https://user-images.githubusercontent.com/74546450/229769316-9784683c-29b1-48c0-864f-19da8f2ba55d.mov
 
