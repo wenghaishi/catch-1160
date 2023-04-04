@@ -19,7 +19,6 @@ Then they can go out to explore NFTs.
 
 <br>
 <br>
-<br>
 User Catching NFTs
 <br>
 <br>
@@ -27,7 +26,6 @@ User Catching NFTs
 
 https://user-images.githubusercontent.com/74546450/229769316-9784683c-29b1-48c0-864f-19da8f2ba55d.mov
 
-<br>
 <br>
 <br>
 Business creating a Geotaggged NFT
@@ -42,6 +40,7 @@ Test account for player
 Email: user@gym.com <br>
 Password: 123456
 
-Test account for busines
+Test account for business
+
 Email: owner@gym.com <br>
 Password: 654321
