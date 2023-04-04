@@ -1,13 +1,7 @@
 Project Catch! @ catchnft.club
 ----------------------------------------
 
-Test account 
-
-Email: user@gym.com <br>
-password: 123456
-
 Catch is an platform for Geotagged NFTs on Polygon. It is similar to the game Pokemon GO! But with NFTs. Businesses can mint Geotagged NFTs and place them around desired locations. Players go out to "catch" these NFTs.
-
 
 Possible use cases for businesses
 
@@ -25,7 +19,9 @@ Then they can go out to explore NFTs.
 
 <br>
 <br>
+<br>
 User Catching NFTs
+<br>
 <br>
 <br>
 
@@ -33,9 +29,19 @@ https://user-images.githubusercontent.com/74546450/229769316-9784683c-29b1-48c0-
 
 <br>
 <br>
+<br>
 Business creating a Geotaggged NFT
+<br>
 <br>
 <br>
 
 https://user-images.githubusercontent.com/74546450/229776781-36e357a0-6aa1-4c76-abc6-d8b99211894f.mp4
 
+Test account for player        
+
+Email: user@gym.com <br>
+Password: 123456
+
+Test account for busines
+Email: owner@gym.com <br>
+Password: 654321
