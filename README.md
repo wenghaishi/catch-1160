@@ -37,6 +37,7 @@ Business creating a Geotaggged NFT :point_down:
 
 https://user-images.githubusercontent.com/74546450/229776781-36e357a0-6aa1-4c76-abc6-d8b99211894f.mp4
 
+
 <br>
 <br>
 Test account for player        
