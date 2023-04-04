@@ -25,15 +25,16 @@ Then they can go out to explore NFTs.
 
 <br>
 <br>
-<br>
 User Catching NFTs
-
+<br>
+<br>
 https://user-images.githubusercontent.com/74546450/229769316-9784683c-29b1-48c0-864f-19da8f2ba55d.mov
 
 <br>
 <br>
-<br>
 Business creating a Geotaggged NFT
+<br>
+<br>
 
 https://user-images.githubusercontent.com/74546450/229776781-36e357a0-6aa1-4c76-abc6-d8b99211894f.mp4
 
