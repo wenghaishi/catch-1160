@@ -1,4 +1,4 @@
-Project Catch! @ catchnft.club
+Project Catch! @ www.catchnft.club
 ----------------------------------------
 
 Catch is an platform for Geotagged NFTs on Polygon. It is similar to the game Pokemon GO! But with NFTs. Businesses can mint Geotagged NFTs and place them around desired locations. Players go out to "catch" these NFTs, thus getting the perks of these NFTs.
@@ -19,7 +19,7 @@ Then they can go out to explore NFTs.
 
 <br>
 <br>
-User Catching NFTs :point_down:	
+Player Catching NFTs :point_down:	
 <br>
 <br>
 <br>
