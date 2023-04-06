@@ -24,7 +24,9 @@ Player Catching NFTs :point_down:
 <br>
 <br>
 
-https://user-images.githubusercontent.com/74546450/229769316-9784683c-29b1-48c0-864f-19da8f2ba55d.mov
+https://user-images.githubusercontent.com/105141510/230291835-87a72d1b-e093-4e28-a194-c7bfa9914306.mp4
+
+
 
 <br>
 <br>
