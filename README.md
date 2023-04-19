@@ -68,3 +68,7 @@ https://user-images.githubusercontent.com/74546450/229776781-36e357a0-6aa1-4c76-
 > Email: owner@gym.com <br>
 > Password: 654321
 
+<img alt="signup linking metamask" src="https://user-images.githubusercontent.com/105141510/232999319-034805fc-656d-46a9-bd1d-4aa646bcec19.png">
+<img alt="business profile" src="https://user-images.githubusercontent.com/105141510/232999823-2f9241be-ef6b-44f4-be6d-1b7dcadcb6fc.png">
+<img alt="business user's map view" src="https://user-images.githubusercontent.com/105141510/232999916-8002ac46-f2fc-49c3-8450-cabb0958f3ee.png">
+
