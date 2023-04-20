@@ -83,3 +83,5 @@ gem "cloudinary"
 gem "geocoder"
 gem 'pg_search'
 gem 'eth'
+
+gem 'rbsecp256k1', '~> 5.0'

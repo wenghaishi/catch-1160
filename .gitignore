@@ -40,3 +40,5 @@
 *.swp
 .DS_Store
 .env*
+
+.space
