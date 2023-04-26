@@ -56,7 +56,7 @@ https://user-images.githubusercontent.com/74546450/229776781-36e357a0-6aa1-4c76-
 
 <br>
 
-## [Demo](https://www.catchnft.club) ✨
+## [Demo](https://catch-app.onrender.com) ✨
 
 ### Demo account for player 
 
